@@ -1,0 +1,85 @@
+<div class="row">
+    {if="@$p.attributes_title"}
+    <div class="col-xs-12 col-md-6">
+        <div class="selectProd">
+            <div class="title">
+                {$p.attributes_title.attr_name}:
+                <span id="attr_title">{$p.attributes_title.attr_name}</span>
+            </div>
+
+            <select name="attr" id="attr" class="form-control noSearch">
+                {loop="$p.attributes_loops"}
+                <option value="{$value.item_price_id}">{$value.item_name}</option>
+                {/loop}
+            </select>
+        </div>
+        <script>
+            $("#attr").val("{$p.attr_id}")
+        </script>
+    </div>
+    {/if}
+</div>
+{if="@$color_loop"}
+<div class="singlePage__color">
+    <div class="title">
+        {#choose_color#} :
+        <span>{$p.product_color_title}</span>
+    </div>
+    <div class="colorSelect">
+            <ul class="list-unstyled">
+                {loop="color_loop"}
+                    <li>
+                        <label>
+                            <input type="radio" title="{$value.color_title}" name="color" data-title="{if="@$value.color_title"}{$value.color_title}{else}{if="@$value.color_title_en"}{$value.color_title_en}{/if}{/if}" data-val="{$value.color_id}" value="{$value.color_id}" autocomplete="off" {if="$p.color_id==$value.color_id"}checked{/if}>
+                            {if="@$value.color_pic"}
+                            <span class="circleSpan ">
+                                <img  src="{$site_url}upload/thumb1/{$value.color_pic}" class="circle"  title="{$value.color_title}"  alt="{$value.color_title}" />
+                            </span>
+                            {else}
+                            <span style="background-color: {$value.color_color};" class="circleSpan"></span>
+                            {/if}
+                        </label>
+                    </li>
+                {/loop} 
+            </ul>
+    </div>
+</div>
+{/if}
+<div class="singlePage__button">
+    {if="@$p.new_price!=0 && @$p.number > 0"}
+    <div class="singlePage__price">
+        <span class="singlePage__price--new"><span>{$p.new_price|num2price}</span>{#touman#}</span>
+        <div>
+            <span class="singlePage__price--old">{$p.old_price|num2price}</span>
+            <span class="singlePage__price--offer">٪{$p.percent|num2price}</span>
+        </div>
+    </div>
+    {else}
+    <div class="singlePage__price">
+        <span class="singlePage__price--new"><span>{$p.old_price|num2price}</span>{#touman#}</span>
+    </div>
+    {/if}
+    <a href="{$site_url}{$site_lang}/representation.html" class="btn">
+        {#how_to_buy#}
+    </a>
+</div>
+<input type="hidden" id="getprice" name="getprice" value="{$p.price_id}"/>
+<script>
+$(document).ready(function(){
+    {if="!empty($p.pic)"}
+    $('.show-pic-price').attr('src','{$p.pic}');
+    $(".show-pic-price").attr('data-zoom-image', '{$p.pic_zoom}');
+    {else}
+    $('.show-pic-price').attr('src','{$p.pic2}');
+    $(".show-pic-price").attr('data-zoom-image', '{$p.pic2_zoom}');
+    {/if}
+    $("select[name='attr']").val('{$p.price_id}').select2({
+        placeholder: "{#Choose#}",
+        theme: "default",
+        dir: "ltr",
+        language: "en"
+    }); 
+    $("#attr_title").text($("select[name='attr'] option:selected").text())
+    $("#barcode").text("{$p.code}")
+})
+</script>

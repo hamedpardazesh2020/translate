@@ -1,0 +1,19 @@
+
+<div class="product__price product__offer">
+    {if="$value.new_price!=0 && @$value.num > 0"}
+    <div class="product__offer--new">{$value.new_price|num2price} <span class="unit">{#touman#}</span>
+    </div>
+    <div class="product__offer--old">
+            {$value.old_price|num2price}
+            <span>{#touman#}</span>
+    </div>
+    {else}
+    <div class="product__offer--new">
+        {if="$value.old_price!=0 && @$value.num > 0"}
+        {$value.old_price|num2price}
+        <span>{#touman#}</span>
+
+        {/if}
+    </div>
+    {/if}
+</div>

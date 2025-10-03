@@ -1,0 +1,201 @@
+{if="@$id"}
+<script>
+$(function() {
+    $('body').on('hidden.bs.modal', '.modal', function () {
+        $('video').trigger('pause');
+    });
+
+    $(document).on('click', '.compare_link', function() {
+        var priceidcompare = $("input[name='getprice']").val();
+        if (typeof (priceidcompare) !== 'undefined') {
+            $.ham3dBasket_compare({id: '{$id}|' + priceidcompare + '', kind: 'new'});
+        } else {
+            $.ham3dBasket_compare({id: '' + $(this).val() + '|' + $(this).val() + '', kind: 'new'});
+        }
+        window.location.href = ('{$site_url}{$site_lang}/compare/{$maincatid}.html');
+        return false;
+    }); 
+
+    $(document.body).on('click', '.buy_link', function(){
+        var n = $("#number").val();
+        var priceid = $('input[name="getprice"]').val();
+        $.ham3dBasket({'id' : '{$id}|' + priceid , 'kind' : 'new' , 'number' :n });
+        return false;
+    }); 
+
+});
+$(document.body).on('change', ':input[name="color"]', function() {
+    var colid = $(this).val();
+    showmingaranti('',colid,'{$id}'); 
+});
+$(document.body).on('change', ':input[name="attr"]', function() {
+    var priceid = $(this).find("option:selected").val();
+    showmingaranti(priceid,'','{$id}'); 
+});
+function showmingaranti(price_id,colid,product_id) {
+    $.ajax({
+        type: 'GET',
+        dataType: 'html',
+        url: "{$site_url}{$site_lang}/price_show.html&priceid=" + price_id + "&colorid=" + colid + "&productid=" + product_id + "&ajax=ok",
+        beforeSend: function () {
+            $(".priceshow").html('<div style="width: 100%; text-align: center ! important; line-height: 70px; height: 100px;"><img src="' + template_dir + 'images/loading.gif" style="border: medium none; position: static;"></div>');
+        },
+        success: function(result) {
+            $(".priceshow").html(result);
+            $(".singleBig").mouseover(function () {
+                $(".magnifier-preview").css("visibility", "visible");
+            });
+            $(".singleBig").mouseleave(function () {
+                $(".magnifier-preview").css("visibility", "hidden");
+            });
+            $(".magnifier-preview").empty();
+            setTimeout(() => {
+                var evt = new Event(),
+                    m = new Magnifier(evt);
+                    m.attach({
+                    thumb: '.thumb',
+                    largeWrapper: 'preview',
+                    zoom: 3,
+                    zoomable: true
+                });
+            }, 100);
+        }
+    });
+}
+</script>
+<script>
+    $.cookie("list", {$maincatid}, { expires: 7, path : '/'});
+</script>
+<script>
+$(document).ready(function() {
+    function loadData(page) {
+        $.ajax({
+            type: "POST",
+            url: site_lang + '/comments_product.html&page=' + page + '&ajax=ok',
+            data: {'itemid': '{$id}', 'module': '{$module_name}'},
+            success: function(msg) {
+                $(".result-commentss").html(msg);
+                $.fn.raty.defaults.path = template_dir + 'images/';
+                $('.product_star').raty({
+                //starType: 'i',
+                space:false,
+                starOff: 'star-off.png',
+                starOn: 'star-on.png',
+                //starOff: 'icon icon-star icon-empty',
+                //starOn: 'icon icon-star icon-fill',
+                    noRatedMsg: '! بدون امتیاز',
+                    hints: ['بد', 'ضعیف', 'عادی', 'خوب', 'عالی'],
+                    readOnly: true,
+                    score: function() {
+                        return $(this).attr('data-score');
+                    }
+                });
+            }
+        });
+    }
+    loadData(1);
+    $(document.body).on('click', '.paginationss li a', function() {
+        var page = $(this).attr('p');
+        loadData(page);
+    });
+});
+
+</script>
+<script>
+/******************** LAST VISITED PRODUCT ********************/
+$(function () {
+    function saveShortList(productid, userid) {
+        if (!$.cookie('viewed_products')) {
+            $.cookie('viewed_products', productid + '|' + userid, {expires:7, path:'/' }); return;
+        }
+        var data = $.cookie('viewed_products').split(",");
+                isAlreadySaved = false;
+        for (var i = 0; i < data.length; i++) {
+            var data_info = data[i].split("|");
+            if ((data_info[0] == productid) && (data_info[1] == userid)) {
+                isAlreadySaved = true;
+                break;
+            }
+        }
+        if (!isAlreadySaved) $.cookie('viewed_products', $.cookie('viewed_products') + "," + productid + '|' + userid, {expires:7, path:'/'});
+    }
+    saveShortList({$id}, '0');
+});
+/******************** LAST VISITED PRODUCT ********************/
+</script>
+<script>
+$(function() {  
+    $.fn.raty.defaults.path = '{$template_dir}images';
+    $('.big_stars').raty({
+        space:false,
+        starOff: 'star-big-off.png',
+        starOn: 'star-big-on.png',
+        noRatedMsg: '! بدون امتیاز',
+        hints: ['بد', 'ضعیف', 'عادی', 'خوب', 'عالی'],
+        score: function() {
+            return $(this).attr('data-score');
+        },
+        click: function(score, evt) {
+            elm = this;
+            module = $(elm).attr("module");
+            if (typeof module == 'product')
+                    module = 'product';
+            $.ajax({
+                type: 'POST',
+                url: site_url + 'ajax.php?rating&ajax=ok',
+                data: {
+                    'id': $(elm).attr("attr_id"),
+                    'rate': score,
+                    'module': module,
+                    'rate_kind': $(elm).attr("rate_kind")
+                },
+                dataType: 'json',
+                success: function( data ) {
+                    if ( $.isEmptyObject( data ) ) {
+                        $(".basket-modal").modal('show');
+                        $('.basket-modal').find('.modal-title').html('امتیاز دادن');
+                        $('.basket-modal').find('p').html('امتیاز داده شد.');
+                        $('.basket-modal').find('a.shopping').css({display: 'none', width: '120px'});
+                        $('.basket-modal').find('a.checkout').css({display: 'none', width: '120px'});
+                    } else if ( data.error == 'no' ) {
+                        $(".basket-modal").modal('show');
+                        $('.basket-modal').find('.modal-title').html('امتیاز دادن');
+                        $('.basket-modal').find('p').html('شما قبلا امتیاز داده اید!');
+                        $('.basket-modal').find('a.shopping').css({display: 'none', width: '120px'});
+                        $('.basket-modal').find('a.checkout').css({display: 'none', width: '120px'});
+                    } else if ( data.user == 'no' ) {
+                        $(".basket-modal").modal('show');
+                        $('.basket-modal').find('.modal-title').html('امتیاز دادن');
+                        $('.basket-modal').find('p').html('برای امتیاز دادن باید در سایت عضو شوید.');
+                        $('.basket-modal').find('a.shopping').css({display: 'none', width: '120px'});
+                        $('.basket-modal').find('a.checkout').css({display: 'none', width: '120px'});
+                        setTimeout(function(){
+                            $(".basket-modal").modal('hide');
+                            $("#formloginlink").append('<input type="hidden" name="login" value="ok" />');
+                            $(".loginModal").modal('show');
+                        },1500);
+                    }
+                }
+            });
+        }
+    });
+});
+</script>
+{*
+<script>
+    $(document).ready(function() {
+        $('.singleBig').find('img').addClass('thumb');
+        setTimeout(() => {
+            var evt = new Event(),
+                m = new Magnifier(evt);
+                m.attach({
+                thumb: '.thumb',
+                largeWrapper: 'preview',
+                zoom: 3,
+                zoomable: true
+            });
+        }, 300);
+    });
+</script>
+*}
+{/if}

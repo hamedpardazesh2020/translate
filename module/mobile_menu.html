@@ -1,0 +1,61 @@
+<!-- Mobile Menu -->
+<div class="mobileMenu">
+        <div class="mobileMenuBg"></div>
+        <div class="siteBg"></div>
+        <div class="masehMenu">
+            <div class="mobileMenu__title">
+                {#access_menu#}
+                <a href="" class="mobileMenu__title--close"></a>
+            </div>
+            <ul id="mobileMenu">
+                {if="@$loop_menu_top_header"}
+                {loop="loop_menu_top_header"}
+                {if="@$value1.title=='محصولات'"}
+                <li>
+                    <a href="{$value1.url|convert_url}" {if="@$value1.kind == '2'"}target="_blank"{/if}>
+                        {$value1.title}
+                        <span></span>
+                    </a>
+                    {if="@$loop_index_product_cat"}
+                    <ul class="list-unstyled">
+                        {loop="loop_index_product_cat"}
+                        <li>
+                            <a href="{$value.id|url_cat}">
+                                {$value.title}
+                                {if="@$value2.loop_sub"} <span></span>{/if}
+                            </a>
+                            
+                        </li>
+                        {/loop}
+                    </ul>
+                    {/if}
+                </li>
+                {else}
+                <li>
+                    <a href="{$value.url|convert_url}" {if="@$value.kind == '2'"}target="_blank"{/if}>{$value.title}
+                        <span></span>
+                    </a>
+                    {if="@$value.loop_sub"}
+                    {if="res_megamenu($value.loop_sub)"}
+                    <ul class="list-unstyled">
+                        {loop="$value.loop_sub"}
+                        <li>
+                            <a href="{$value2.url|convert_url}" class="mega_menu--title">
+                                {$value2.title}
+                                <span></span>
+                            </a>
+                        </li>
+                        {/loop}
+                    </ul>
+                    {/if}
+                    {/if}
+                </li>
+                {/if}
+                {/loop}
+                {/if}
+                {*<li><a href="{$site_url}{$site_lang}/representation.html">{#agency#}</a></li>
+                <li><a href="{$site_url}{$site_lang}/faq.html">{#faq#}</a></li>*}
+            </ul>
+        </div>
+    </div>
+    <!-- Mobile Menu -->

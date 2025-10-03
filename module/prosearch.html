@@ -1,0 +1,10 @@
+{if="@$category_cat"}
+<script>$.cookie("list", {$category_cat}, {expires: 7, path: '/'});</script>
+{else}
+<script>$.cookie("list", 'null', {expires: 7, path: '/'});</script>
+{/if}
+{if="$max_price!='0'"}
+<div id="minprice" data-min="{$min_price}"></div>
+<div id="maxprice" data-max="{$max_price}"></div>
+<div id="randprice" data-rand="{$randprice}"></div>
+{/if}

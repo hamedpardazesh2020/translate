@@ -1,0 +1,31 @@
+{if="@$page_t"}
+{loop="$page_t"}
+{if="$value.number_page>'1'"}  
+<div class="paginationContainer">
+    <ul class="pagination list-unstyled">
+        <li class="navLink">
+            <a href="{$site_url}{$site_lang}/{$this_page}/page/{$value.last_page}.html{$link_search}">
+                <i class="zmdi zmdi-long-arrow-left"></i>
+            </a>
+        </li>
+        {$i=0}
+        {loop="$page"}
+        {$class=""}
+        {if="$value.class == 'page' || ( !isset($get_page) && $i == 0 )"}
+        {$class="active"}
+        {/if}
+        <li class="{$class}">
+            <a href="{$site_url}{$site_lang}/{$this_page}/page/{$value2.page}.html{$link_search}" ajax="ok">{$value.title}</a>
+        </li>
+        {$i=$i+1}
+        {/loop}
+        <li class="navLink">
+            <a href="{$site_url}{$site_lang}/{$this_page}/page/{$value.next_page}.html{$link_search}">
+                <i class="zmdi zmdi-long-arrow-right"></i>
+            </a>
+        </li>
+    </ul>
+    </div>
+    {/if}
+    {/loop}
+    {/if}

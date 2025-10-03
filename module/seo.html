@@ -1,0 +1,118 @@
+        <title>{$meta_title_web}</title>
+        {if="isset($meta_robots) && !empty($meta_robots)"}
+        <meta name="robots" content="{$meta_robots}">
+        {/if}
+        <meta charset="UTF-8">
+        <meta name="Author" content="{$meta_author}">
+        <meta name="document-type" content="Public" />
+        <meta name="document-rating" content="General" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui' name='viewport' />
+        <meta name="resource-type" content="document" />
+        <meta name="designer" content="{$meta_designer}">
+        {if="isset($meta_keywords_web) && !empty($meta_keywords_web)"}
+        <meta name="keywords" content="{$meta_keywords_web}">
+        {/if}
+        {if="isset($meta_description_web) && !empty($meta_description_web)"}
+        <meta name="description" content="{$meta_description_web}">
+        {/if}
+        {if="isset($link_alternate) && !empty($link_alternate)"}
+        <link rel="alternate" href="{$link_alternate}" hreflang="{$meta_lang}" />
+        {/if}
+        {if="isset($link_canonical) && !empty($link_canonical)"}
+        <link rel="canonical" href="{$link_canonical}" />
+        {/if}
+        {if="isset($link_amphtml) && !empty($link_amphtml)"}
+        <link rel="amphtml" href="{$link_amphtml}" />
+        {/if}
+        <meta property="place:location:latitude" content="{$meta_latitude}" />
+        <meta property="place:location:longitude" content="{$meta_longitude}" />
+        <meta property="business:contact_data:street_address" content="{$meta_street_address}" />
+        <meta property="business:contact_data:locality" content="{$meta_locality}" />
+        <meta property="business:contact_data:country_name" content="{$meta_country_name}" />
+        <meta property="business:contact_data:phone_number" content="{$meta_phone_number}" />
+        <meta property="business:contact_data:website" content="{$meta_website}" />
+        <meta property="business:contact_data:postal_code" content="{$meta_postal_code}" />
+        <meta property="business:contact_data:email" content="{$meta_email}" />
+        {if="isset($meta_og_locale) && !empty($meta_og_locale)"}
+        <meta property="og:locale" content="{$meta_og_locale}" />
+        {/if}
+        {if="isset($meta_og_type) && !empty($meta_og_type)"}
+        <meta property="og:type" content="{$meta_og_type}" />
+        {/if}
+        {if="isset($meta_og_site_name) && !empty($meta_og_site_name)"}
+        <meta property="og:site_name" content="{$meta_og_site_name}"/>
+        {/if}
+        {if="isset($meta_og_title) && !empty($meta_og_title)"}
+        <meta property="og:title" content="{$meta_og_title}" />
+        {/if}
+        {if="isset($meta_og_description) && !empty($meta_og_description)"}
+        <meta property="og:description" content="{$meta_og_description}" />
+        {/if}
+        {if="isset($meta_og_url) && !empty($meta_og_url)"}
+        <meta property="og:url" content="{$meta_og_url}" />
+        {/if}
+        {if="isset($meta_og_image) && !empty($meta_og_image)"}
+        <meta property="og:image" content="{$meta_og_image}"/>
+        {/if}
+        {if="isset($meta_og_image_secure_url) && !empty($meta_og_image_secure_url)"}
+        <meta property="og:image:secure_url" content="{$meta_og_image_secure_url}">
+        {/if}
+        {if="isset($meta_og_image_width) && !empty($meta_og_image_width)"}
+        <meta property="og:image:width" content="{$meta_og_image_width}" />
+        {/if}
+        {if="isset($meta_og_image_height) && !empty($meta_og_image_height)"}
+        <meta property="og:image:height" content="{$meta_og_image_height}" />
+        {/if}
+        {if="isset($meta_og_image_type) && !empty($meta_og_image_type)"}
+        <meta property="og:image:type" content="{$meta_og_image_type}">
+        {/if}
+        {if="isset($meta_site_title_en) && !empty($meta_site_title_en)"}
+        <meta property="twitter:app:name:iphone" content="{$meta_site_title_en}"/>
+        <meta property="twitter:app:id:iphone" content=""/>
+        <meta property="twitter:app:id:ipad" content=""/>
+        <meta property="twitter:app:id:googleplay" content="{$meta_site_title_en}"/>
+        <meta property="twitter:app:url:iphone" content=""/>
+        <meta property="twitter:app:url:ipad" content=""/>
+        <meta property="twitter:app:url:googleplay" content=""/>
+        <meta property="twitter:app:name:googleplay" content="{$meta_site_title_en}"/>
+        <meta property="twitter:site:id" content=""/>
+        <meta property="twitter:app:country" content="ir"/>
+        <meta property="twitter:twitter:app:name:ipad" content="{$meta_site_title_en}"/>
+        {/if}
+        {if="isset($meta_twitter_card) && !empty($meta_twitter_card)"}
+        <meta name="twitter:card" content="{$meta_twitter_card}" />
+        {/if}
+        {if="isset($meta_twitter_site) && !empty($meta_twitter_site)"}
+        <meta name="twitter:site" content="@{$meta_twitter_site}"/>
+        {/if}
+        {if="isset($meta_twitter_title) && !empty($meta_twitter_title)"}
+        <meta name="twitter:title" content="{$meta_twitter_title}"/>
+        {/if}
+        {if="isset($meta_twitter_text_description) && !empty($meta_twitter_text_description)"}
+        <meta name="twitter:text:description" content="{$meta_twitter_text_description}"/>
+        {/if}
+        {if="isset($meta_twitter_creator) && !empty($meta_twitter_creator)"}
+        <meta name="twitter:creator" content="@{$meta_twitter_creator}"/>
+        {/if}
+        {if="isset($meta_twitter_image) && !empty($meta_twitter_image)"}
+        <meta name="twitter:image" content="{$meta_twitter_image}"/>
+        {/if}
+        {if="isset($meta_twitter_image_width) && !empty($meta_twitter_image_width)"}
+        <meta name="twitter:image:width" content="{$meta_twitter_image_width}" />
+        {/if}
+        {if="isset($meta_twitter_image_height) && !empty($meta_twitter_image_height)"}
+        <meta name="twitter:image:height" content="{$meta_twitter_image_height}" />
+        {/if}
+        {if="isset($meta_twitter_image_type) && !empty($meta_twitter_image_type)"}
+        <meta name="twitter:image:type" content="{$meta_twitter_image_type}" />
+        {/if}
+        {if="isset($meta_twitter_player) && !empty($meta_twitter_player)"}
+        <meta property="twitter:player" content="{$meta_twitter_player}" />
+        {/if}
+        {if="isset($meta_twitter_player_width) && !empty($meta_twitter_player_width)"}
+        <meta property="twitter:player:width" content="{$meta_twitter_player_width}" />
+        {/if}
+        {if="isset($meta_twitter_player_height) && !empty($meta_twitter_player_height)"}
+        <meta property="twitter:player:height" content="{$meta_twitter_player_height}" />
+        {/if}

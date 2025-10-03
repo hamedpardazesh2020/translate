@@ -1,0 +1,419 @@
+<!----------------------  js -------------------------------------->
+<script type="text/javascript" src="{$site_url}js/lang/fa.js"></script>
+<script type="text/javascript" src="{$site_url}js/jquery.ham3dform.js"></script>
+<script type="text/javascript" src="{$site_url}js/jquery.ham3dModalbox.js"></script>
+<script type="text/javascript" src="{$site_url}js/sonic.js"></script>
+<script type="text/javascript" src="{$site_url}js/lib.js"></script>
+<script type="text/javascript" src="{$site_url}js/run.js"></script>
+<script type="text/javascript" src="{$site_url}js/basket.js"></script>
+<script type="text/javascript" src="{$site_url}js/compare.js"></script>
+<script type="text/javascript" src="{$site_url}js/plugin/raty/jquery.raty.js"></script>
+<script type="text/javascript" src="{$site_url}js/plugin/raty/javascripts/labs.js" ></script>
+<!-- JS Files -->
+
+
+
+
+
+<script type="text/javascript" src="{$template_dir}assets/js/main.js"></script>
+<script type="text/javascript" src="{$template_dir}js/typewatch.js"></script>
+<!-- JS Files --> 
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function () {
+    $(".strClear").each(function () {
+        var strLink = $(this).attr('href');
+        var strClear = strLink.replace(/[-) (]/g, '');
+        $(this).attr('href', strClear);
+    });
+});
+</script> 
+
+{if="in_array($template_name, array('product_info'))"}
+    {include="module/proinfo"}
+{/if}
+
+{if="$template_name == 'product'"}
+    {include="module/prosearch"}
+    <script src="{$template_dir}js/pro-search.js"></script>
+{/if}
+
+{if="in_array($template_name, array('product','product_info', 'main','user/panel','user/address','user/invoice','user/comments','user/like','invoice_list'))"}
+<script>
+    $(".countdown").each(function() {
+        var data = $(this).data('date_end').split("-");
+        var id = $(this).data('id');
+        countdown(data[0], data[1], data[2], data[3], data[4], id);
+    });
+</script>
+{/if}
+
+{if="in_array($template_name, array('product'))"}
+<script>
+    function search(elm){ 
+        var count = $(elm).val().length;
+        var val = $(elm).val().trim();
+        var res = val.toLowerCase();
+        $(elm).parent().parent().parent().find("ul#navsechsss li label").hide(); 
+        if (count > 1) {
+            $(elm).parent().parent().parent().find("ul#navsechssss li label").hide();  
+            var elms = $(elm).parent().parent().parent().find("ul#navsechsss li label span:contains(" + res + ")");
+            elms.parent().show();
+        } else {
+            $(elm).parent().parent().parent().find("ul#navsechsss li label").show();
+        }
+    }
+</script>
+
+<script>
+    $(".sidebarmenuscolor input[name='sechscolor']").keyup(function() {
+        var count = $(this).val().length;
+        var val = $(this).val().trim();
+        var res = val.toLowerCase();
+        if (count > 1) {
+            $(".navsechscolor > li > label").hide();  
+            $(".navsechscolor > li").css('display' , 'none');
+            var elm = $(".navsechscolor > li > label > span:contains(" + res + ")");
+            elm.parent().show();
+            elm.parent().parent().show();
+        } else {
+            $(".navsechscolor > li").css('display' , 'block');
+            $(".navsechscolor > li > label").show();
+        }
+    });
+
+</script>
+
+{/if}
+
+<script>
+    $("#formsearch").on('submit', function() {
+        action = $(this).attr('action');
+        value = $('#formsearch .search_inp').val();
+        if ($("#formsearch .search_inp").val().length > 1) {
+            window.location = action + '?keyword=' + value;
+        }
+        return false;
+    });
+    var options = {
+        callback: function (value) { 
+            showsearch(value);
+        },
+        wait: 750,
+        highlight: true,
+        allowSubmit: false,
+        captureLength: 0
+    }
+    $(document).ready(function() {
+        $(".search_inp").typeWatch( options );
+    });
+    var xhr;
+    function showsearch(elm) {
+        var count = elm.length;
+        if (count > 1) {
+            if(xhr && xhr.readyState != 4){
+                xhr.abort();
+            }
+            xhr = $.ajax({
+                type: "POST",
+                url: site_lang + '/search.html&title=' + encodeURIComponent(elm) + '&ajax=ok',
+                success: function(data) {                    
+                    $(".advancedSearch").html(data).fadeIn();
+                    more_search = 1;
+                    $(document).bind('click.close',function(e){                                                
+                        if (e.which == 1){                                            
+                            $(".advancedSearch").css({padding:'0'}).slideUp(1000);
+                            $(document).unbind('click.close');
+                        }
+                    });
+                }
+            });
+            return false;
+        } else {
+            $('.advancedSearch').slideUp(500);
+        }
+    }
+    $(".advancedSearchs").click(function(e) {
+        e.stopPropagation(e);
+    });
+</script>
+
+
+    {if="in_array($template_name, array('order3','order3_chprofile','user/address','contact'))"}
+<!-- MyMap -->
+
+	<link href="{$template_dir}css/mymap/css/leaflet.css" rel="stylesheet" type="text/css" />
+	<link href="{$template_dir}css/mymap/css/Control.Geocoder.css" rel="stylesheet" type="text/css" />
+	<link href="{$template_dir}css/mymap/css/style.css" rel="stylesheet" type="text/css" />
+        
+        <script type="text/javascript" src="{$template_dir}js/mymap.js"></script>
+        <script src="{$template_dir}js/Control.Geocoder.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    
+    {if="@$this_address_user_id"}
+        $('.addressAddModal').on('show.bs.modal', function(){
+            setTimeout(function() {
+                initialize(0,'google_map_0',{$this_address_lgmap},{$this_address_qgmap},'{$this_address_name}',{$this_address_zgmap});
+            }, 300);
+        });
+    {elseif="@$this_user_id"}
+        $('.addressAddModal').on('show.bs.modal', function(){
+            setTimeout(function() {
+                {if="@$this_user_qgmap"}
+                    initialize(0,'google_map_0',{$this_user_lgmap},{$this_user_qgmap},'{$this_user_name}',{$this_user_zgmap});
+                {else}
+                    initialize(0,'google_map_0',{$lgmap},{$qgmap},'{$tgmap}',{$zgmap});
+                {/if}
+            }, 300);
+        });
+    {else}
+        $('.addressAddModal').on('show.bs.modal', function(){
+            setTimeout(function() {
+                initialize(0,'google_map_0',{$lgmap},{$qgmap},'{$tgmap}',{$zgmap});
+            }, 300);
+        });
+    {/if}
+
+    function initialize(ids,id,lon,lat,txt,zoom ){
+        
+        var icon = L.icon({
+            iconUrl: '{$template_dir}assets/images/leaflet/marker-icon.png',
+            popupAnchor:  [18, 0],
+            iconSize:  [24, 36],
+            iconAnchor:  [12, 36]
+        });
+    var map = new L.Map('google__map', {
+        center: [lat,lon],
+        zoom: zoom
+    });
+
+        var center=L.marker([lat,lon],{icon: icon}).addTo(map).bindPopup(txt);
+
+        ////////////////////////////////////send cordinate with ajax
+        center.getLatLng();
+
+
+        var markers=[];
+        var layerGroup=L.layerGroup();
+
+        var baseMaps = {
+            "OSM": new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'),
+            "GMAP": new L.TileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{subdomains:['mt0','mt1','mt2','mt3']}),
+            "GSAT": new L.TileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{subdomains:['mt0','mt1','mt2','mt3']})
+        };
+
+
+        var overlayMaps = {
+            "markers" : layerGroup
+        };
+
+
+        //L.control.layers(baseMaps, overlayMaps).addTo(map);
+        baseMaps['GMAP'].addTo(map);
+
+        //L.Control.geocoder().addTo(map);
+
+        var ZoomViewer = L.Control.extend({
+            onAdd: function(){
+                var gauge = L.DomUtil.create('div');
+                gauge.style.width = '200px';
+                gauge.style.background = 'rgba(255,255,255,0.5)';
+                gauge.style.textAlign = 'right';
+                map.on('zoomstart zoom zoomend', function(ev){
+                    //gauge.HTML = 'Zoom level: ' + map.getZoom();
+                })
+                return gauge;
+            }
+        });
+        (new ZoomViewer).addTo(map);
+
+
+
+        var PosViewer = L.Control.extend({
+            onAdd: function(){
+                var gauge = L.DomUtil.create('div');
+                gauge.style.width = '200px';
+                gauge.style.background = 'rgba(255,255,255,0.5)';
+                gauge.style.textAlign = 'right';
+                map.on('mousemove', function(e) {
+                    //gauge.innerHTML="Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng;
+                })
+                return gauge;
+            }
+        });
+        (new PosViewer).addTo(map);
+
+        
+        
+        function onMapClick2(e) {
+             marker=L.marker(e.latlng,{draggable:'true'}).addTo(map).bindPopup("hellow");
+             markers.push(marker);
+             layerGroup.addLayer(marker)
+        }
+
+        function shopwMarkers(arr) {
+             for (i in arr) {
+                 marker=L.marker([arr[i].lat,arr[i].lon],{draggable:'true'}).addTo(map).bindPopup(arr[i].txt);
+                 markers.push(marker);
+                 layerGroup.addLayer(marker)
+             }
+        }
+        
+        function removeMarkers() {
+            for (i in markers) {
+                map.removeLayer(markers[i]);
+                layerGroup.removeLayer(markers[i])
+            }
+            markers=[];
+        }
+        
+        map.on('click', onMapClick1);
+        var popup = L.popup();
+        function onMapClick1(e) {
+            removeMarkers();
+            popup.setLatLng(e.latlng).setContent("موقعیت انتخابی شما").openOn(map);
+            arr=[{lat:e.latlng.lat,lon:e.latlng.lng,txt:txt}];
+            shopwMarkers(arr) ;
+            $("#lgmap_"+ids).val(e.latlng.lng);
+            $("#qgmap_"+ids).val(e.latlng.lat);
+            $("#zgmap_"+ids).val(map.getZoom());
+        }
+        
+        
+        $('#click-location').on('click', getLocation);
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else { 
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+        
+        function showPosition(position) {
+            removeMarkers();
+            $("#lgmap_0").val(position.coords.longitude);
+            $("#qgmap_0").val(position.coords.latitude);
+            var ell = {lat:position.coords.latitude,lon:position.coords.longitude};
+            popup.setLatLng(ell).setContent("موقعیت انتخابی شما").openOn(map);
+            arr=[{lat:position.coords.latitude,lon:position.coords.longitude,txt:txt}];
+            shopwMarkers(arr) ;
+        }
+
+    }
+    /////////////////////////////////////
+</script>
+{/if}
+{if="@$template_name=='project'"}
+<script type="text/javascript">
+    $('.sidebarFixed').theiaStickySidebar({
+        additionalMarginTop: 0,
+        containerSelector: ".fixedWrapper"
+    });
+</script>
+
+{/if}
+{if="in_array($template_name, array('user/change_profile','employment'))"}  
+<link rel="stylesheet" type="text/css" href="{$template_dir}js/datepicker/css/style.css">
+<link rel="stylesheet" type="text/css" href="{$template_dir}js/datepicker/css/bootstrap-datepicker.css">
+<link rel="stylesheet" type="text/css" href="{$template_dir}js/datepicker/css/datepicker-style.css">
+<script src="{$template_dir}js/datepicker/js/bootstrap-datepicker.js"></script>
+<script src="{$template_dir}js/datepicker/js/bootstrap-datepicker.fa.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".datepicker-input").datepicker({
+            dateFormat: "yy-mm-dd",
+            changeYear : true,
+            changeMonth : true,
+            yearRange: '1300:1400',
+            prevHTML: '<i class="zmdi zmdi-caret-left-circle"></i>',
+            nextHTML: '<i class="zmdi zmdi-caret-right-circle"></i>',
+            onSelect: function(dateText, inst) {
+                $(this).parent().addClass('visited');
+            }
+        });
+    });
+</script>
+{/if}
+<script type="text/javascript" src="{$template_dir}assets/js/sa.js"></script>
+<script type="text/javascript" src="{$template_dir}assets/js/swiper.min.js"></script>
+<script type="text/javascript" src="{$template_dir}assets/js/slideshow.js"></script>
+<script type="text/javascript" src="{$template_dir}assets/js/map.js"></script>
+<script type="text/javascript" src="{$template_dir}assets/js/scripts.js"></script>
+
+{if="@$is_mobile"}
+    <script>
+        $(document).ready(function () {
+            if (!$.fn.slick) return false;
+            $('.catMainSec__slider').slick({
+                autoplay: true,
+                pauseOnHover: true,
+                dots: true,
+                infinite: true,
+                speed: 100000,
+                autoplaySpeed: 10,
+                slidesToShow: 3,
+                dots: false,
+                arrows: false,
+                rtl: true,
+                centerMode: false,
+                variableWidth: true,
+                responsive: [
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            variableWidth: false,
+                            centerMode: false,
+                            slidesToShow: 1,
+                            autoplaySpeed: 6000,
+                            speed:400
+                        }
+                    }
+                ]
+            });
+            $('.catMainSec__slider').mouseleave(function () {
+                $(this).slick("slickPlay");
+            });
+        });
+    </script>
+{else}
+<script>
+    $(document).ready(function () {
+        if (!$.fn.slick) return false;
+        $('.catMainSec__slider').slick({
+            autoplay: true,
+            pauseOnHover: true,
+            dots: true,
+            infinite: true,
+            speed: 100000,
+            autoplaySpeed: 10,
+            slidesToShow: 3,
+            dots: false,
+            arrows: false,
+            rtl: true,
+            centerMode: true,
+            variableWidth: true,
+            responsive: [
+                {
+                    breakpoint: 767,
+                    settings: {
+                        variableWidth: false,
+                        centerMode: true,
+                        slidesToShow: 1,
+                        autoplaySpeed: 6000,
+                        speed:400
+                    }
+                }
+            ]
+        });
+        $('.catMainSec__slider').mouseleave(function () {
+            $(this).slick("slickPlay");
+        });
+    });
+</script>
+{/if}
+
+

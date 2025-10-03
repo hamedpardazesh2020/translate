@@ -1,0 +1,68 @@
+<style>
+    .fix-all {
+        padding: 2%;
+        border:1px dotted #ced0d1;
+        margin-top: 5px;
+        border-radius: 5px;
+    }
+    .fix-all h5 {
+        border-bottom: 2px dotted #cecece;
+        margin-bottom: 15px;
+        margin-top: -10px;
+        padding: 10px;
+    }
+    .fix1 {
+        /*float: right;*/
+    }
+    .fix2 img{
+        /*float: left;*/
+		margin-right:auto;
+		margin-left:auto;
+		display: block;
+                width:100%;
+    }
+    .fix3 {
+        /*display: inline-block;
+        line-height: 25px;*/
+        text-align: justify;
+    }
+    .error {
+        border-radius: 5px;
+    }
+</style>
+
+<div class="fix-all">
+    {if="@$id"}
+    <h5>
+
+	{$title}
+
+	</h5>
+    <div class="fix1">
+        <p>{#date#} : {$date}</p>
+    </div>
+    <div class="fix2">
+        {if="@$pic"}
+        <img src="{$site_url}upload/{$pic}" width="" height="" alt="{$title}" tooltip="{$title}" />
+        {else}
+        <img src="{$template_dir}no_image/no_image.jpg" width="" height="" alt="{$title}" tooltip="{$title}" />
+        {/if}
+    </div>
+    <div style="clear:both;"></div>
+    <div class="fix3">
+        <p>
+
+		{$title}
+
+		<p>
+		{if="!empty($note)"}
+        <p>{$note}<p>
+		{/if}
+		{if="!empty($note_more)"}
+        <p>{$note_more}</p>
+		{/if}
+    </div> 
+    {else}
+    <div class="error">{#result_not_found#}</div>
+    {/if}
+</div>

@@ -1,0 +1,45 @@
+{*if="@$value.show"}
+<div class="compareView">
+    <div class="chb chbCompare">
+        <label>
+            {if="@$value.price_id && @$value.num > 0 && @$value.price_active==1"}
+            <input type="checkbox" name="compare" class="compare" title="مقایسه" value="{$value.id}" data-idcomparison="{$value.id}" data-priceid="{$value.price_id}">
+            {else}
+            <input type="checkbox" name="compare" class="compare" title="مقایسه" value="{$value.id}" data-idcomparison="{$value.id}" data-priceid="{$value.id}">
+            {/if}
+            <span></span>مقایسه
+            
+    </label>
+    </div>
+</div>
+{/if*}
+{if="in_array($template_name, array('product','product_searched'))"}
+{if="@$value.loop_color"} 
+<div class="compareColor">
+	<ul class="list-unstyled">
+		{loop="$value.loop_color"}
+		<li>
+			<a href="javascript:void(0)" style="background-color: {$value.color_color};"></a>
+		</li>
+		{/loop}
+	</ul>
+</div>
+{/if}
+{/if}
+
+<a href="{$value.id|url}" class="product">
+    {if="@$value.pic"}
+    <img src="{$site_url}upload/thumb2/{$value.pic}" alt="{$value.title}" title="{$value.title}" />
+    {else}
+    <img src="{$template_dir}no_image/no_image(274x274).jpg" alt="{$value.title}" title="{$value.title}" />
+    {/if}
+    <div class="product__detail">
+        <div class="product__detail--title">
+            {$value.title}
+        </div>
+        {if="@$value.product_cat_title"}
+        <div class="product__detail--desc">{$value.product_cat_title}</div>
+        {/if}
+        {include="module/product_price"}
+    </div>
+</a>

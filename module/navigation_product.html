@@ -1,0 +1,58 @@
+<ul class="breadcrumb">
+		<li class="active">
+			<a href="{$site_url}">{#MainPage#}</a>
+		</li>
+		{if="@$loop_cat_tree"}
+		{if="$module_name == 'pages'"}
+		<li>
+			<a href="{$site_url}{$site_lang}/{$module_name}">
+			{if="@$title"}
+				{$title}
+			{/if}
+			</a>
+		</li>
+		{else}
+		<li>
+			<a href="{$site_url}{$site_lang}/{$module_name}">
+				{if="$module_title"}
+					{$module_title}
+				{/if}
+			</a>
+		</li>
+		{/if}
+		{else}
+		{if="$module_name == 'pages'"}
+		<li class="active">
+		{if="@$title"}
+			{$title}
+		{/if}
+		</li>
+		{else}
+		<li class="active">
+			{if="$module_title"}
+				{$module_title}
+			{/if}
+		</li>
+		{/if}
+		{/if}
+		{$i=1}
+		{if="@$loop_cat_tree"}
+		{loop="$loop_cat_tree"}
+		{if="$i == count($loop_cat_tree)"}
+		{if="@$modulproduct == '1' || @$modulnews == '1' || @$modulvideo == '1'"}
+		<li>
+			<a href="{$value.id|url_cat}">{$value.title}</a>
+		</li>
+		<li class="active">{$title}</li>
+		{else}
+			<li class="active">{$value.title}</li>
+		{/if}
+		{else}
+		<li>
+			<a href="{$value.id|url_cat}">{$value.title}</a>
+		</li>
+		{/if}
+		{$i=$i+1}
+		{/loop}
+		{/if}
+	</ul>

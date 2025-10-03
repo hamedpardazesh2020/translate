@@ -1,0 +1,125 @@
+<!-- organization Schema -->
+{if="in_array($template_name, array('main'))"}
+<script type="application/ld+json">
+    {
+    "context": "https://schema.org",
+    "type": "LocalBusiness",
+    "name": "{$meta_site_title_en} - {$meta_site_title}",
+    "image": "{$meta_og_image}",
+    "id": "{$meta_site_url}fa/{$module_name}.html",
+    "url": "{$meta_site_url}fa/{$module_name}.html",
+    "telephone": "+9821{function="str_replace('021-','',$meta_phone_number)"}",
+    "priceRange": "IRR",
+    "address": {
+        "type": "PostalAddress",
+        "streetAddress": "{$meta_street_address}",
+        "addressLocality": "{#tehran#}",
+        "postalCode": "{$meta_postal_code}",
+        "addressCountry": "IR"
+    },
+    "geo": {
+        "type": "GeoCoordinates",
+        "latitude": {$meta_latitude},
+        "longitude": {$meta_longitude}
+    },
+    "openingHoursSpecification": {
+        "type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+        ],
+        "opens": "09:00",
+        "closes": "17:00"
+    },
+    "sameAs": [{$socialnetwork_url}]
+}
+</script>
+{/if}
+<!-- / organization Schema -->
+
+{if="$template_name == 'product_info'"}
+<script type="application/ld+json">
+{
+    "@context":"https://schema.org/",
+    "@graph":[ {
+        "@context":"https://schema.org/",
+        "@type":"BreadcrumbList",
+        "itemListElement":[ {
+            "@type":"ListItem",
+            "position":1,
+            "item": {
+                "name": "{#home#}", "@id": "{$meta_site_url}"
+            }
+        }
+        ]
+    }
+    ,
+    {
+        "@context": "https://schema.org/", "@type": "Product", "mpn": "{$code}", "url": "{$url}", "name": "{$meta_title_web}", "alternateName": "{$title_english}", "image": "{$image}", "description": "{if="@$description"}{$description}{else}{$title}{/if}", "sku":"تعداد",
+        
+        "offers":[ 
+            {
+                "@type":"Offer", "price":"{if="$new_price1!=0  && @$num > 0"}{$new_price1}{else}{if="$old_price1!=0  && @$num > 0"}{$old_price1}{else}{function="number_format(0)"}{/if}{/if}","priceValidUntil": "{$english_date}", "priceSpecification": {
+                    "price": "{if="$new_price1!=0  && @$num > 0"}{$new_price1}{else}{if="$old_price1!=0  && @$num > 0"}{$old_price1}{else}{function="number_format(0)"}{/if}{/if}", "priceCurrency": "IRT", "valueAddedTaxIncluded": "false"
+                }
+                ,
+                "priceCurrency":"IRT",
+                "availability":"https://schema.org/InStock",
+                "url":"{$url}",
+                "seller": {
+                    "@type": "Organization", "name": "{$meta_site_title}", "url": "{$meta_site_url}"
+                }
+            }
+        ], 
+        {if="@$alluser_rate_star"}
+        "aggregateRating": {
+            "@type": "AggregateRating",
+             "ratingValue": "{$avg_rate_star}",
+             "reviewCount": "{$alluser_rate_star}",
+              "bestRating" : "5",
+              "worstRating" : "0"
+        }, 
+        {/if}
+        "brand": {
+                "@type": "Thing","name": "{$meta_site_title}"
+        },
+        "review": {
+            "@type": "review","name": "{$meta_site_title}","author": "{$meta_site_title}"
+        }
+    }
+    ]
+}
+</script>
+{/if}
+
+{if="@$template_name == 'blog_info'"}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": 
+    [
+    {if="@$loop_article_faq"}
+    {$count=count($loop_article_faq)}
+    {loop="loop_article_faq"}
+    {
+        "@type": "Question",
+        "name": "{$value.title}",
+        "acceptedAnswer": {
+        "@type": "Answer",
+        "text":"{function="strip_tags($value.note)"}"}
+    }
+    {if="$counter+1 < $count"}
+    ,
+    {/if}
+    {/loop}
+    {/if}
+    ]
+}
+</script>
+{/if}

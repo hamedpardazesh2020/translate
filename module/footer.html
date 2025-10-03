@@ -1,0 +1,289 @@
+<footer id="footer" role="footer">
+    <!-- Footer -->
+    <div class="container-fluid footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+                    <a href="{$site_url}" class="logoFooter">
+                        <img src="{$template_dir}img/logo-footer.png" alt="">
+                    </a>
+                    <ul class="logoPartner list-unstyled">
+                        <li>
+                            <a href="https://www.kwciran.com/">
+                                <img src="{$template_dir}img/kwc.png" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://blanlighting.com/">
+                                <img src="{$template_dir}img/blan.png" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://oxybox.ir/">
+                                <img src="{$template_dir}img/oxybox.png" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-9 col-md-5 col-lg-6 col-lg-offset-1">
+                    <h5 class="footerTitle">لینک های دسترسی</h5>
+                    {if="@$loop_menu_bottom_footer"}
+                    {$loop_menu_bottom_footer=array_slice($loop_menu_bottom_footer, 0, 1);}
+                    {loop="loop_menu_bottom_footer"}
+                    <div id="ft">
+                        <div class="ft">
+                            <ul class="list-unstyled">
+                                {if="@$value1.loop_sub"}
+                                {loop="$value1.loop_sub"}
+                                <li>
+                                    <a href="{$value2.url|convert_url}" {if="@$value2.kind == '2'"}target="_blank"{/if}>{$value2.title}</a>
+                                </li>
+                                {/loop}
+                                {/if}
+                            </ul>
+                        </div>
+                    </div>
+                    {/loop}
+                    {/if}
+
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+                    <h5 class="footerTitle">عضویت در خبرنامه</h5>
+
+                    <div class="newsletterForm">
+                        <div class="form-groups">
+                            <div class="form-group form-group--mobile">
+                                <form action="{$site_url}ajax.php?nl_mobile" noscroll="yes">
+                                    <input type="text" name="mobile" id="mobile" error="{#please_enter_your_mobile_number#}" placeholder="{#enter_your_mobile_number#}" class="form-control">
+                                <button type="submit" class="newsletterBtn"><i
+                                        class="zmdi zmdi-long-arrow-right"></i></button>
+                                </form>
+                            </div>
+                            <div class="form-group form-group--email">
+                                    <form action="{$site_url}ajax.php?nl_email" noscroll="yes">
+                                        <input type="text" name="email" id="email" error=" {#please_enter_your_email#}" placeholder="{#enter_your_email#}"
+                                        class="form-control">
+                                        <button type="submit" class="newsletterBtn"><i
+                                                class="zmdi zmdi-long-arrow-right"></i></button>
+                                    </form>
+                                </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="footerDetail">
+        <div class="container">
+            <div class="footerDetail__wrapper">
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9">
+                        <h5 class="footerTitle">اطلاعات تماس</h5>
+                        <ul class="list-unstyled footerInfo">
+                            {if="@$footer.footer_address"}
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18.087" height="22.585"
+                                    viewBox="0 0 18.087 22.585">
+                                    <g transform="translate(0)">
+                                        <g transform="translate(0)">
+                                            <path
+                                                d="M56.248,0a9.058,9.058,0,0,1,9.039,9.053,8.924,8.924,0,0,1-.161,1.7c0,.033-.024.133-.061.3a8.925,8.925,0,0,1-.605,1.785c-.974,2.3-3.115,5.824-7.814,9.6a.639.639,0,0,1-.8,0c-4.694-3.778-6.84-7.306-7.814-9.6a8.826,8.826,0,0,1-.605-1.785c-.038-.17-.057-.27-.061-.3a9.325,9.325,0,0,1-.161-1.7A9.072,9.072,0,0,1,56.248,0Zm-7.62,10.53c0,.009,0,.019,0,.028s.019.095.043.2v.009a7.525,7.525,0,0,0,.525,1.544s0,.014.009.019a23.679,23.679,0,0,0,7.039,8.788,23.679,23.679,0,0,0,7.039-8.788s0-.014.009-.019a8.027,8.027,0,0,0,.525-1.544v-.009c.028-.109.038-.18.043-.2s0-.019,0-.033a7.762,7.762,0,1,0-15.241,0Z"
+                                                transform="translate(-47.2)" />
+                                            <path data-name="Path 1458"
+                                                d="M122.739,71.9A5.748,5.748,0,1,1,117,77.648,5.752,5.752,0,0,1,122.739,71.9Zm0,10.218a4.47,4.47,0,1,0-4.463-4.47A4.471,4.471,0,0,0,122.739,82.118Z"
+                                                transform="translate(-113.691 -68.496)" />
+                                        </g>
+                                    </g>
+                                </svg>
+
+                                <a href="">{$footer.footer_address}</a>
+                            </li>
+                            {/if}
+                            {if="@$footer.footer_email"}
+                            <li>
+                                <svg id="envelope" xmlns="http://www.w3.org/2000/svg" width="22.585" height="17.207"
+                                    viewBox="0 0 22.585 17.207">
+                                    <g id="Group_442" data-name="Group 442" transform="translate(0 0)">
+                                        <path id="Path_1462" data-name="Path 1462"
+                                            d="M2.757,57.75H19.823a2.766,2.766,0,0,1,2.762,2.765V72.192a2.766,2.766,0,0,1-2.762,2.765H2.762A2.766,2.766,0,0,1,0,72.192V60.52A2.763,2.763,0,0,1,2.757,57.75Zm-1.5,14.442a1.5,1.5,0,0,0,1.5,1.5H19.823a1.5,1.5,0,0,0,1.5-1.5V60.52a1.5,1.5,0,0,0-1.5-1.5H2.762a1.5,1.5,0,0,0-1.5,1.5V72.192Z"
+                                            transform="translate(0 -57.75)" fill="#fff" />
+                                        <path id="Path_1463" data-name="Path 1463"
+                                            d="M61.494,114.969l-5.522-4.96a.632.632,0,0,1,.846-.941l7.616,6.846,1.486-1.329s.009-.009.009-.014a.937.937,0,0,1,.1-.089l6.046-5.419a.633.633,0,0,1,.841.945l-5.588,5,5.564,5.218a.635.635,0,0,1,.028.894.645.645,0,0,1-.463.2.632.632,0,0,1-.43-.168l-5.649-5.292-1.532,1.371a.628.628,0,0,1-.841,0l-1.575-1.413-5.616,5.344a.632.632,0,0,1-.892-.023.635.635,0,0,1,.023-.894Z"
+                                            transform="translate(-53.152 -106.511)" fill="#fff" />
+                                    </g>
+                                </svg>
+                                <a href="mailto:{$footer.footer_email}">
+                                    {$footer.footer_email}
+                                </a>
+                            </li>
+                            {/if}
+                            {if="@$footer.footer_tell"}
+                            <li>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22.585" height="22.585"
+                                    viewBox="0 0 22.585 22.585">
+                                    <path
+                                        d="M3.7,40.09a2.226,2.226,0,0,1,1.613-.739,2.3,2.3,0,0,1,1.633.734l1.508,1.5c.124-.067.248-.129.368-.191.172-.086.334-.167.473-.253a16.387,16.387,0,0,0,3.929-3.575,9.656,9.656,0,0,0,1.289-2.031c-.391-.357-.754-.729-1.107-1.087-.134-.133-.267-.272-.4-.405a2.185,2.185,0,0,1,0-3.3l1.3-1.3c.148-.148.3-.3.444-.453.286-.3.587-.6.9-.887a2.261,2.261,0,0,1,1.6-.7,2.34,2.34,0,0,1,1.623.7l.01.01L20.5,29.751a3.485,3.485,0,0,1,1.036,2.216,8.345,8.345,0,0,1-.611,3.537,20.518,20.518,0,0,1-3.652,6.082A22.459,22.459,0,0,1,9.8,47.435a11.667,11.667,0,0,1-4.2,1.239c-.1,0-.205.01-.3.01A3.6,3.6,0,0,1,2.54,47.5c0-.01-.014-.014-.019-.024a10.843,10.843,0,0,0-.835-.863c-.205-.2-.415-.4-.621-.615a2.376,2.376,0,0,1-.721-1.649,2.289,2.289,0,0,1,.735-1.635ZM1.991,45.109s0,0,0,0c.186.2.377.381.582.582a12.542,12.542,0,0,1,.921.953A2.3,2.3,0,0,0,5.29,47.4c.072,0,.148,0,.22,0a10.365,10.365,0,0,0,3.723-1.115,21.2,21.2,0,0,0,7.046-5.51,19.346,19.346,0,0,0,3.437-5.715,6.8,6.8,0,0,0,.535-2.984,2.187,2.187,0,0,0-.659-1.416l-1.628-1.625a1.086,1.086,0,0,0-.726-.338,1.022,1.022,0,0,0-.7.334l-.014.014c-.291.272-.568.553-.859.853-.148.153-.3.305-.453.462l-1.3,1.3a.909.909,0,0,0,0,1.478c.138.138.272.276.411.41.4.41.783.791,1.2,1.163.01.01.019.014.024.024a.971.971,0,0,1,.248,1.082l-.014.043a10.444,10.444,0,0,1-1.542,2.512l0,0a17.512,17.512,0,0,1-4.239,3.851,6.522,6.522,0,0,1-.587.319c-.172.086-.334.167-.473.253-.019.01-.038.024-.057.033a1.036,1.036,0,0,1-.473.119,1.021,1.021,0,0,1-.726-.329l-1.633-1.63a1.08,1.08,0,0,0-.721-.358.973.973,0,0,0-.687.348l-.01.01L2,43.617A.942.942,0,0,0,1.991,45.109Z"
+                                        transform="translate(1.026 -26.1)" fill="#fff" />
+                                    <path
+                                        d="M251.23,87.2a6.139,6.139,0,0,0-5,5,.64.64,0,0,1-.635.534.854.854,0,0,1-.11-.01.644.644,0,0,1-.53-.744,7.423,7.423,0,0,1,6.053-6.044.648.648,0,0,1,.745.524A.637.637,0,0,1,251.23,87.2Z"
+                                        transform="translate(-240.852 -81.83)" fill="#fff" />
+                                    <path
+                                        d="M248.785,9.963A12.223,12.223,0,0,1,258.752.01a.643.643,0,1,1,.21,1.268,10.918,10.918,0,0,0-8.907,8.895.64.64,0,0,1-.635.534.854.854,0,0,1-.11-.01A.632.632,0,0,1,248.785,9.963Z"
+                                        transform="translate(-248.775 0)" fill="#fff" />
+                                </svg>
+                                <a href="tel:{$footer.footer_tell}" class="strClear">
+
+                                    دفتر مرکزی: {$footer.footer_tell}
+                                </a>
+                            </li>
+                            {/if}
+                        </ul>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                        <h5 class="footerTitle">ما را دنبال کنید</h5>
+                        <div class="socialFooter">
+                            <div class="socialNetworks">
+                                <ul class="list-unstyled">
+                                    {if="@$social.whatsapp"}
+                                    <li>
+                                        <a href="{$social.whatsapp}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22px">
+                                                <defs>
+                                                    <style>
+                                                        .clsWhatsapp {
+                                                            fill: #999999
+                                                        }
+                                                    </style>
+                                                </defs>
+                                                <path class="clsWhatsapp"
+                                                    d="M 12.011719 2 C 6.5057187 2 2.0234844 6.478375 2.0214844 11.984375 C 2.0204844 13.744375 2.4814687 15.462563 3.3554688 16.976562 L 2 22 L 7.2324219 20.763672 C 8.6914219 21.559672 10.333859 21.977516 12.005859 21.978516 L 12.009766 21.978516 C 17.514766 21.978516 21.995047 17.499141 21.998047 11.994141 C 22.000047 9.3251406 20.962172 6.8157344 19.076172 4.9277344 C 17.190172 3.0407344 14.683719 2.001 12.011719 2 z M 12.009766 4 C 14.145766 4.001 16.153109 4.8337969 17.662109 6.3417969 C 19.171109 7.8517969 20.000047 9.8581875 19.998047 11.992188 C 19.996047 16.396187 16.413812 19.978516 12.007812 19.978516 C 10.674812 19.977516 9.3544062 19.642812 8.1914062 19.007812 L 7.5175781 18.640625 L 6.7734375 18.816406 L 4.8046875 19.28125 L 5.2851562 17.496094 L 5.5019531 16.695312 L 5.0878906 15.976562 C 4.3898906 14.768562 4.0204844 13.387375 4.0214844 11.984375 C 4.0234844 7.582375 7.6067656 4 12.009766 4 z M 8.4765625 7.375 C 8.3095625 7.375 8.0395469 7.4375 7.8105469 7.6875 C 7.5815469 7.9365 6.9355469 8.5395781 6.9355469 9.7675781 C 6.9355469 10.995578 7.8300781 12.182609 7.9550781 12.349609 C 8.0790781 12.515609 9.68175 15.115234 12.21875 16.115234 C 14.32675 16.946234 14.754891 16.782234 15.212891 16.740234 C 15.670891 16.699234 16.690438 16.137687 16.898438 15.554688 C 17.106437 14.971687 17.106922 14.470187 17.044922 14.367188 C 16.982922 14.263188 16.816406 14.201172 16.566406 14.076172 C 16.317406 13.951172 15.090328 13.348625 14.861328 13.265625 C 14.632328 13.182625 14.464828 13.140625 14.298828 13.390625 C 14.132828 13.640625 13.655766 14.201187 13.509766 14.367188 C 13.363766 14.534188 13.21875 14.556641 12.96875 14.431641 C 12.71875 14.305641 11.914938 14.041406 10.960938 13.191406 C 10.218937 12.530406 9.7182656 11.714844 9.5722656 11.464844 C 9.4272656 11.215844 9.5585938 11.079078 9.6835938 10.955078 C 9.7955938 10.843078 9.9316406 10.663578 10.056641 10.517578 C 10.180641 10.371578 10.223641 10.267562 10.306641 10.101562 C 10.389641 9.9355625 10.347156 9.7890625 10.285156 9.6640625 C 10.223156 9.5390625 9.737625 8.3065 9.515625 7.8125 C 9.328625 7.3975 9.131125 7.3878594 8.953125 7.3808594 C 8.808125 7.3748594 8.6425625 7.375 8.4765625 7.375 z">
+                                                </path>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    {/if}
+                                    {if="@$social.instagram"}
+                                    <li>
+                                        <a href="{$social.instagram}">
+                                            <svg class="instaSVG" xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height=""
+                                                data-name="029-instagram" viewBox="0 0 25 25">
+                                                <defs>
+                                                    <style>
+                                                        .clsInsta1 {
+                                                            fill: #999999
+                                                        }
+
+                                                        .clsInsta2 {
+                                                            fill: #999999
+                                                        }
+
+                                                        .clsInsta3 {
+                                                            fill: #999999
+                                                        }
+                                                    </style>
+                                                    <linearGradient id="linear-insta-gradient" x1=".5" x2=".5" y1=".008"
+                                                        y2=".998" gradientUnits="objectBoundingBox">
+                                                        <stop offset="0" stop-color="#e09b3d"></stop>
+                                                        <stop offset=".3" stop-color="#c74c4d"></stop>
+                                                        <stop offset=".6" stop-color="#c21975"></stop>
+                                                        <stop offset="1" stop-color="#7024c4"></stop>
+                                                    </linearGradient>
+                                                    <linearGradient id="linear-insta-gradient-2" y1="-.451" y2="1.462"
+                                                        xlink:href="#linear-insta-gradient">
+                                                    </linearGradient>
+                                                    <linearGradient id="linear-insta-gradient-3" y1="-1.396" y2="6.586"
+                                                        xlink:href="#linear-insta-gradient">
+                                                    </linearGradient>
+                                                </defs>
+                                                <path id="Path_236"
+                                                    d="M17.552 0H7.448A7.456 7.456 0 0 0 0 7.448v10.1A7.456 7.456 0 0 0 7.448 25h10.1A7.456 7.456 0 0 0 25 17.552V7.448A7.456 7.456 0 0 0 17.552 0zm4.933 17.552a4.933 4.933 0 0 1-4.933 4.933H7.448a4.933 4.933 0 0 1-4.933-4.933V7.448a4.933 4.933 0 0 1 4.933-4.933h10.1a4.933 4.933 0 0 1 4.933 4.933v10.1z"
+                                                    class="clsInsta1" data-name="Path 236"></path>
+                                                <path id="Path_237"
+                                                    d="M139.466 133a6.466 6.466 0 1 0 6.466 6.466 6.473 6.473 0 0 0-6.466-6.466zm0 10.417a3.951 3.951 0 1 1 3.951-3.951 3.951 3.951 0 0 1-3.951 3.951z"
+                                                    class="clsInsta2" data-name="Path 237"
+                                                    transform="translate(-126.966 -126.966)"></path>
+                                                <circle id="Ellipse_1" cx="1.549" cy="1.549" r="1.549" class="clsInsta3"
+                                                    data-name="Ellipse 1" transform="translate(17.429 4.533)"></circle>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    {/if}
+                                    {if="@$social.telegram"}
+                                    <li>
+                                        <a href="{$social.telegram}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height=""
+                                                viewBox="0 0 25 25">
+                                                <defs>
+                                                    <style>
+                                                        .clsTelegram2 {
+                                                            fill: #999999
+                                                        }
+                                                    </style>
+                                                </defs>
+                                                <path id="Path_238"
+                                                    d="M5.516 11.928l12.052-4.647c.559-.2 1.048.136.867.982l-2.051 9.667c-.152.685-.559.852-1.129.529l-3.125-2.3-1.507 1.452a.788.788 0 0 1-.63.307l.222-3.18L16.006 9.5c.252-.222-.056-.347-.389-.126L8.46 13.883l-3.085-.962c-.67-.212-.684-.67.142-.993z"
+                                                    class="clsTelegram2" data-name="Path 238"
+                                                    transform="translate(.203 .301)"></path>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    {/if}
+                                    {if="@$social.linkedin"}
+                                    <li>
+                                        <a href="{$social.linkedin}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height=""
+                                                viewBox="0 0 25 25">
+                                                <defs>
+                                                    <style>
+                                                        .clsLinkedin {
+                                                            fill: #999999
+                                                        }
+                                                    </style>
+                                                </defs>
+                                                <path id="_027-linkedin"
+                                                    d="M22.739 0H2.261A2.261 2.261 0 0 0 0 2.261v20.477A2.261 2.261 0 0 0 2.261 25h20.477A2.261 2.261 0 0 0 25 22.738V2.261A2.261 2.261 0 0 0 22.739 0zm-15 21.587a.658.658 0 0 1-.658.658h-2.8a.658.658 0 0 1-.658-.658V9.843a.658.658 0 0 1 .658-.658h2.8a.658.658 0 0 1 .658.658zM5.677 8.078a2.661 2.661 0 1 1 2.662-2.661 2.661 2.661 0 0 1-2.662 2.661zm16.7 13.562a.605.605 0 0 1-.605.605h-3.007a.605.605 0 0 1-.605-.605v-5.509c0-.822.241-3.6-2.147-3.6-1.853 0-2.228 1.9-2.3 2.756v6.353a.605.605 0 0 1-.605.605H10.2a.605.605 0 0 1-.605-.605V9.79a.605.605 0 0 1 .605-.605h2.9a.605.605 0 0 1 .605.605v1.025a4.127 4.127 0 0 1 3.885-1.827c4.814 0 4.786 4.5 4.786 6.968v5.684z"
+                                                    class="clsLinkedin" data-name="027-linkedin"></path>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    {/if}
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid copyright">
+        <div class="container">
+            <div class="copyright__inner">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <div id="copyright" lang="en"><a href="{$site_url}">primetaps.com</a> - Copyright © {function="date('Y')"} - All rights
+                            reserved.
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        {*
+                        <div id="ham3d">
+                            <a href="https://www.ham3d.co/" class="ham3d"></a>
+                            <p><a href="https://www.ham3d.co/">طراحی سایت</a> و <a href="https://www.ham3d.co/">برنامه نویسی</a>: <a href="https://www.ham3d.co/">حامد پردازش</a></p>
+                        </div>
+                        *}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</footer>
