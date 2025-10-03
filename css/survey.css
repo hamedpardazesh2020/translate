@@ -1,0 +1,22 @@
+.elementor-150 .elementor-element.elementor-element-3b738d18 > .elementor-widget-container {
+    padding: 15px 15px 15px 15px;
+    background-color: #FFFFFF;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: -7px 5px 22px 0px rgba(240.00000000000003, 230.60869565217394, 230.60869565217394, 0.5);
+  }
+
+  .elementor-element .elementor-widget-container {
+    -webkit-transition: background .3s,border .3s,-webkit-border-radius .3s,-webkit-box-shadow .3s;
+    transition: background .3s,border .3s,-webkit-border-radius .3s,-webkit-box-shadow .3s;
+    -o-transition: background .3s,border .3s,border-radius .3s,box-shadow .3s;
+    transition: background .3s,border .3s,border-radius .3s,box-shadow .3s;
+    transition: background .3s,border .3s,border-radius .3s,box-shadow .3s,-webkit-border-radius .3s,-webkit-box-shadow .3s;
+  }
+  .elementor *, .elementor ::after, .elementor ::before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .elementor {
+    hyphens: manual;
+  }
+
