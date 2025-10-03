@@ -1,0 +1,254 @@
+<main id="main" role="main">
+    <div id="wrapper">
+
+        <div class="container-fluid coverHead2">
+            <picture>
+                {if="@$cat_pic_banner_mobile"}
+                <source media="(max-width: 767px)" srcset="{$site_url}upload/{$cat_pic_banner_mobile}">
+                {else}
+                {if="@$module_pic_mobile"}
+                <source media="(max-width: 767px)" srcset="{$site_url}upload/{$module_pic_mobile}">
+                {else}
+                <source media="(max-width: 767px)" srcset="{$template_dir}img/breadMobile.jpg">
+                {/if}
+                {/if}
+                {if="@$cat_pic_banner"}
+                <img src="{$site_url}upload/{$cat_pic_banner}" alt="{$module_title}" class="coverHeadPicture">
+                {else}
+                {if="@$module_pic"}
+                <img src="{$site_url}upload/{$module_pic}" alt="{$module_title}" class="coverHeadPicture">
+                {else}
+                <img src="{$template_dir}img/header1.jpg" alt="{$module_title}" class="coverHeadPicture">
+                {/if}
+                {/if}
+            </picture>
+            <div class="container coverHead2__container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="coverHead2" class="coverHeadInner">
+                                {include="module/navigation"}
+                            <h1>{if="@$cat_title"}{$cat_title}{else}{$module_title}{/if}</h1>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Category Page -->
+        <div class="container-fluid category_page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="category_page">
+                            <div id="sidebar" class="category_page--sidebar sidebar_toggle_aside">
+                                <div class="sidebar">
+                                <form class="search-live not_ajax" autocomplete="off" action="">
+                                <input type="hidden" name="page" value="1"/>
+                                    <a href="" class="btnClose apply_filter">
+                                        <i class="zmdi zmdi-close-circle-o"></i>
+                                        بستن
+                                    </a>
+                                    <div class="block toggleBlock">
+                                        <h6 class="blockTitle active">
+
+                                            {if="@$cat_title"}{if="@$cat_h1"}{$cat_h1}{else}{$cat_title}{/if}{else}{#categories#}{/if}
+                                            <span></span>
+                                        </h6>
+                                        <div class="blc" style="display: block;">
+                                            <div class="blcCategories">
+                                                <ul class="list-unstyled">
+                                                    {if="@$loop_product_cat"}
+                                                    {loop="$loop_product_cat"}
+                                                    <li {if="@$value.loop_sub"}class="active moreLvl"{/if}>
+                                                        <a href="{$value1.id|url_cat}" class="{if="in_array(@$value.id,$arr_cats)"}open{/if}">{$value1.title} 
+                                                            <span></span>
+                                                        </a>
+                                                        {if="@$value.loop_sub"}
+                                                        <ul class="list-unstyled" {if="in_array($value1.id,$arr_cats)"}style="display: block;"{else}style="display: none;"{/if}>
+                                                            {loop="$value.loop_sub"}
+                                                            <li>
+                                                                <a href="{$value2.id|url_cat}" class="{if="in_array(@$value2.id,$arr_cats)"}active{/if}">
+                                                                    {$value2.title} 
+                                                                </a>
+                                                            </li>
+                                                            {/loop}
+                                                        </ul>
+                                                        {/if}
+                                                    </li>
+                                                    {/loop}
+                                                    {/if}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {if="$max_price!='0'"}
+                                    <div class="block toggleBlock">
+                                        <h6 class="blockTitle active">{#range_price#} <span></span></h6>
+                                        <div class="blc price_blc" style="display: block;">
+                                            <div class="slider_block">
+                                                <div class="slider_block__in">
+                                                    <div class="slider_block__in__r">
+                                                        <input type="text" id="price_amountMin" class="amountMin" readonly>
+                                                        <span class="from">{#touman#}</span>
+                                                    </div>
+                                                    <div class="slider_block__in__l">
+                                                        <input type="text" id="price_amountMax" class="amountMax" readonly>
+                                                        <span class="to">{#touman#}</span>
+                                                    </div>
+                                                </div>
+                                                <div id="price-slider-range"></div>
+                                                <input type="hidden" name="price_from" data-main="{#form_the_price#}" id="price_from" value="" />
+                                                <input type="hidden" name="price_to" data-main="{#up_to_the_price#}" id="price_to" value="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/if}
+                                    {if="@$loop_last_brand"}
+                                    <div class="block toggleBlock">
+                                        <h6 class="blockTitle">{#brands#}<span></span></h6>
+                                        <div class="blc chb forScroll" style="display: none;">
+                                            <ul class="list-unstyled" id="navsechsss">
+                                                {loop="loop_last_brand"}
+                                                <li>
+                                                    <label>
+                                                    <input type="checkbox" name="brand[]" id="brand-{$value.id}" data-main="{$value.title}" data-title="{$value.title}" value="{$value.id}" />
+                                                    <span>{$value.title}</span> 
+                                                        
+                                                    </label>    
+                                                </li>
+                                                {/loop}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    {/if}
+                                    {if="@$loop_product_color"}
+                                    <div class="block toggleBlock">
+                                        <h6 class="blockTitle active">{#colors#} <span></span></h6>
+                                        <div class="blc chb forScroll" style="display: block;">
+                                            <ul class="list-unstyled" style="max-height: 150px;">
+                                                {loop="loop_product_color"}
+                                                <li>
+                                                    <label>
+                                                        <input type="checkbox" name="colors[]" class="colors-{$value.id}" value="{$value.id}" data-main="{#color#}" data-title="{$value.title}"/>
+                                                        <span>
+                                                            {$value.title}
+                                                        </span>
+                                                        <b style="background-color: {$value.color};"></b>
+                                                    </label>
+                                                </li>
+                                                {/loop}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    {/if}
+                                    {if="@$loop_attr_item"}
+                                    {loop="loop_attr_item"}
+                                    <div class="block toggleBlock">
+                                            <h6 class="blockTitle">{$value1.name}<span></span></h6>
+                                            <div class="blc chb forScroll" style="display: none;">
+                                                <ul class="list-unstyled" id="navsechsss">
+                                                    {loop="$value1.loop_item"}
+                                                    <li>
+                                                        <label>
+                                                            <input type="checkbox" id="item-{$value2.id}" data-main="{$value1.name}" data-id="{$value2.id}" data-title="{$value2.item_name}" name="item[]" class="item-{$value2.id}" value="{$value2.id}" />
+                                                            <span>
+                                                                {$value2.item_name}
+                                                            </span>
+                                                        </label>
+                                                    </li>
+                                                    {/loop}
+                                                </ul>
+                                            </div>
+                                    </div>
+                                    {/loop}
+                                    {/if}
+                                    {if="@$loop_question_cat"}
+                                    {loop="loop_question_cat"}
+                                    {if="!empty($value1.loop_question)"}
+                                    {loop="$value1.loop_question"}
+                                    {if="$value2.kind == 3 || $value2.kind == 4"} 
+                                    <div class="block toggleBlock">
+                                        <h6 class="blockTitle">{if="@$value2.title_en"}{$value2.title_en}{/if}<span></span></h6>
+                                        <div class="blc chb forScroll" style="display: none;">
+
+                                            <ul class="list-unstyled" id="navsechsss">
+                                                {loop="$value2.loop_answer"}
+                                                <li>
+                                                    <label>
+                                                        <input type="checkbox" data-main="{$value2.title_en}" class="answer-{$value2.kind}_{$value2.id}_{$value3.id}" data-idd="{$value3.id}" data-id="{$value2.id}" data-title="{$value.title_en}" type="checkbox"  id="answer{$value2.kind}{$value2.id}{$value3.id}-{$value3.id}" name="answer[]" value="{$value2.kind}_{$value2.id}_{$value3.id}">
+                                                        <span>
+        													{if="@$value3.title_en"}
+                                                            {$value3.title_en}     
+															{/if}
+                                                        </span> 
+                                                    </label>
+                                                </li> 
+                                                {/loop} 
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    {/if}
+                                    {/loop}
+                                    {/if}
+                                    {/loop}
+                                    {/if}
+                                    <a href="" class="btn apply_filter"><span>اعمال فیلترها</span></a>
+                                </form>
+                                </div>
+                            </div>
+                            <div id="content" class="category_page--content">
+                                <div class="content">
+                                    <div id="target">
+                                        <div class="">
+                                            <div class="compare_list show-compare" style="display: none;">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <h6>لیست مقایسه ( <span class="num_compare"></span> کالا )</h6>
+                                                        <ul class="list-unstyled basket_compare_show">
+                                                            
+                                                        </ul>
+                                                        <div class="basket_compare_show_order"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <a id="sidebar_toggle" href="">مشاهده فیلترها</a>
+                                            {if="@$loop_product"} 
+                                            <div id="products">
+                                                <ul class="list-unstyled">
+                                                    {loop="$loop_product"}
+                                                    <li>
+                                                        {include="module/product"}
+                                                    </li>
+                                                    {/loop}
+                                                </ul>
+                                            </div>
+                                            {$pagination}
+                                            {else}
+                                            <div class="error">{#result_not_found#}</div>
+                                            {/if}
+                                
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {if="@$cat_note"}
+        <div class="container-fluid blockTxtSec space">
+            <div class="container">
+                <div class="block toggleBlock">
+                    <h6 class="blockTitle">{$cat_title} <span></span></h6>
+                    <div class="blc" style="display: none;">
+                       {$cat_note}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {/if}
+        <!-- Category Page -->
+    </div>
+</main>

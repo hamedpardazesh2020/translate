@@ -1,0 +1,98 @@
+<main id="main" role="main">
+    <div id="wrapper">
+
+        <div class="container-fluid coverHead">
+            <div class="container">
+                <div id="coverHead">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="{$site_url}">{#MainPage#}</a>
+                        </li>
+                        <li>
+                            <a href="{$site_url}{$site_lang}/multimedia.html">{#multimedia#}</a>
+                        </li>
+                        <li>
+                            <a href="{$site_url}{$site_lang}/multimedia?tblnm=3">{$module_title}</a>
+                        </li>
+                        {if="@$loop_cat_tree"}
+                        {loop="loop_cat_tree"}
+                        {if="$count_loop_cat_tree==$counter+1"}
+                        <li>
+                            <a href="javascript:void(0);">{$value.title}</a>
+                        </li>
+                        {else}
+                        <li>
+                            <a href="{$site_url}{$site_lang}/catalog/{$value.id}-{$value.title|str2url}.html">
+                                {$value.title}
+                            </a>
+                        </li>
+                        {/if}
+                        {/loop}
+                        {/if}
+                    </ul>
+                    <h1>{$module_title}</h1>
+
+                </div>
+            </div>
+        </div>
+        <div class="mediaPage container-fluid">
+            <div class="container">
+                <div class="sampleTab" style="border-bottom: none;">
+                    <div class="tabs">
+                        <ul class="list-unstyled">
+                            <li><a href="{$site_url}{$site_lang}/multimedia.html&tblnm=1" ><div>تصاویر</div></a></li>
+                            <li><a href="{$site_url}{$site_lang}/multimedia.html&tblnm=2" ><div>ویدئو ها</div></a></li>
+                            <li class="active"><a href="{$site_url}{$site_lang}/multimedia.html&tblnm=3" ><div>کاتالوگ ها</div></a></li>
+                        </ul>
+                    </div>
+                </div>
+                {if="@$loop_catalog || @$loop_category"}
+                <div class="mediaList list-unstyled">
+                    {if="@$loop_category"}
+                    {loop="loop_category"}
+                    <li>
+                        <a href="{$site_url}{$site_lang}/{$module_name}/cat/{$value.id}-{$value.title|str2url}.html" class="mediaBox">
+                            <div class="mediaBox__image imgHoverZoom">
+                                {if="@$value.pic"}
+                                <img src="{$site_url}upload/thumb1/{$value.pic}"  alt="{$value.title}" title="{$value.title}" />
+                                {else}
+                                <img src="{$template_dir}no_image/no_image(274x274).jpg"  alt="{$value.title}" title="{$value.title}"/>
+                                {/if}
+                            </div>
+                            <div class="mediaBox__wrapper">
+                                <div class="mediaBox__wrapper--name">
+                                    {$value.title}
+                                </div>
+                                <div class="mediaBox__wrapper--number">
+                                    {$value.num_gallery} کاتالوگ
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    {/if}
+                    {/loop}
+                    {loop="loop_catalog"}
+                    <li>
+                        <a href="{$site_url}{$site_lang}/catalog/{$value.id}-{$value.title|str2url}.html" target="_blank" class="mediaBox">
+                            <div class="mediaBox__image imgHoverZoom">
+                                {if="@$value.pic"}
+                                <img src="{$site_url}upload/thumb1/{$value.pic}"  alt="{$value.title}" title="{$value.title}" />
+                                {else}
+                                <img src="{$template_dir}no_image/no_image(274x274).jpg"  alt="{$value.title}" title="{$value.title}"/>
+                                {/if}
+                            </div>
+                            <div class="mediaBox__wrapper">
+                                <div class="mediaBox__wrapper--name">
+                                    ‌{$value.title}
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    {/loop}
+                </div>
+                {/if}
+            </div>
+        </div>
+
+    </div>
+</main>

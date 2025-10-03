@@ -1,0 +1,15 @@
+<a id="sidebar_toggle" href="">مشاهده فیلترها</a>
+{if="@$loop_product"} 
+<div id="products">
+    <ul class="list-unstyled">
+        {loop="$loop_product"}
+        <li>
+            {include="module/product"}
+        </li>
+        {/loop}
+    </ul>
+</div>
+{$pagination}
+{else}
+<div class="error">{#result_not_found#}</div>
+{/if}

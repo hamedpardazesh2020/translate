@@ -1,0 +1,114 @@
+<main id="main" role="main">
+    <div id="wrapper">
+        <div class="coverHead">
+            <div class="container-fluid" id="coverHead">
+                <div class="container">
+                    <ul class="breadcrumb">
+                        {include="module/navigation"} 
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="newsInner container-fluid">
+            <div class="container">
+                <h1 class="newsInner__title">{$title}</h1>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-3 col-md-6 col-lg-6">
+                        <div class="singleNewsTools">
+                            <a href="" class="shareLink" data-toggle="modal" data-target="#shareModal">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21.216"
+                                    viewBox="0 0 20 21.216">
+                                    <g transform="translate(-13.8)">
+                                        <path id="Path_7602" data-name="Path 7602"
+                                            d="M30,13.63a3.8,3.8,0,0,0-3,1.48L21.17,11.855a3.805,3.805,0,0,0,.211-1.251,3.722,3.722,0,0,0-.216-1.256L26.989,6.1a3.789,3.789,0,1,0-.784-2.3,3.7,3.7,0,0,0,.216,1.256L20.6,8.3a3.789,3.789,0,1,0,.009,4.6l5.824,3.256A3.791,3.791,0,1,0,30,13.63ZM30,1.194a2.6,2.6,0,1,1-2.6,2.6A2.606,2.606,0,0,1,30,1.194ZM17.6,13.207a2.6,2.6,0,1,1,2.6-2.6A2.606,2.606,0,0,1,17.6,13.207ZM30,20.022a2.6,2.6,0,1,1,2.6-2.6A2.606,2.606,0,0,1,30,20.022Z">
+                                        </path>
+                                    </g>
+                                </svg>
+
+                                اشتراک گذاری
+                            </a>
+                        </div>
+                        <div class="newsInner__image">
+                            <div class="videoBox">
+                                <video {if="@$pic"}poster="{$site_url}upload/thumb2/{$pic}"{/if} width="100%" height="">
+                                    <source src="{$site_url}upload/{$file}" type="video/mp4">
+                                    مرورگر شما از ویدئو پشتیبانی نمی کند.
+                                </video>
+                                <a href="" class="videoBoxPlay"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="post">
+                    {$note}
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-body">
+                <a aria-label="Close" data-dismiss="modal" class="modal-close"></a>
+                <strong class="modal-title">{#share#}</strong>
+                <div class="share_modal__main">
+                    <div class="share_modal__content">
+                        <div class="share_modal__content__title">{#sharing_on_social_networks#}</div>
+                        <div class="share_modal__content__row">
+                            <div class="social__network">
+                                <ul class="btn-group-share list-unstyled">
+
+                                    <li><a href="http://twitter.com/share?text={$title}&url={$site_url}{$site_lang}/video/{$id}-{$title|str2url}.html" rel="nofollow" class="btn__share" target="_blank"><img src="{$template_dir}assets/images/share/twitter.png" alt=""></a></li>
+                                    <li><a href="https://telegram.me/share/url?url={$site_url}{$site_lang}/video/{$id}-{$title|str2url}.html"   rel="nofollow" class="btn__share" target="_blank"><img src="{$template_dir}assets/images/share/telegram.png" alt=""></a></li>
+                                    <!--<li><a href="" rel="nofollow" class="btn__share" target="_blank"><img src="{$template_dir}assets/images/share/instagram.png" alt=""></a></li>-->
+                                    <!--<li><a href="" rel="nofollow" class="btn__share " target="_blank"><img src="{$template_dir}assets/images/share/aparat.png" alt=""></a></li>-->
+                                    <li><a href="https://www.facebook.com/sharer.php?u={$site_url}{$site_lang}/video/{$id}-{$title|str2url}.html" rel="nofollow" class="btn__share " target="_blank"><img src="{$template_dir}assets/images/share/facebook.png" alt=""></a></li>
+                                    <!--<li><a href="" rel="nofollow" class="btn__share " target="_blank"><img src="{$template_dir}assets/images/share/youtube.png" alt=""></a></li>-->
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="share_modal__content__title">{#send_to_email#}</div>
+                        <form action="{$site_url}ajax.php?send_friend" noscroll="yes">
+                         <input type="hidden" name="newsid" id="newsid" value="{$id}" />
+                        <div class="share_modal__content__row share_modal__content__row--input">
+                            <div class="share_modal__content__col">
+                                <div class="form-group">
+                                     <input type="text" name="email" id="email" check="email" check_error="{#email_wrong#}!" error="{#your_friends_email#} ..." class="form-control" placeholder="{#your_friends_email#} : yourfriend@mail.com" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="share_modal__content__row share_modal__content__row--input">
+                            <div class="share_modal__content__col" style="position: relative;">
+                                <div class="form-group">
+                                     <input type="text" name="cap" error="{#security_code#}..." check="cap" check_error="{#it_is_not_correct#}." maxlength="5" class="form-control input-capcha">
+                                </div>
+                                <a style="position: absolute;right: 15px;top: 5px;" href="javascript:void(0);" id="cap_code_send_friend" class="form-group__sec_code__picture" onclick="$(this).find('img').attr('src', '{$site_url}cap.php?t=' + Math.random());return false;">
+                                    <img src="{$site_url}cap.php">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="share_modal__content__row share_modal__content__row--submit">
+                            <div class="share_modal__content__col">
+                                <button type="submit" class="btn">{#send#}</button>
+                            </div>
+                        </div>
+                        <div class="share_modal-url">
+                            <div class="share_modal__content__title">{#page_address#}</div>
+                            <div class="share_modal__content__row share_modal__content__row--url">
+                                <div class="share_modal__content__col" style="direction: rtl;">
+                                    <input class="share_modal__content__field form-control" type="url" value="{$site_url}{$site_lang}/video/{$id}-{$title|str2url}.html" readonly="">
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+             
+            </div>
+        </div>
+    </div>
+</div>

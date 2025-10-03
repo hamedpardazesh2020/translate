@@ -1,0 +1,190 @@
+<main id="main" role="main">
+    <div id="wrapper" style="background-color: #F2F2F2;">
+
+        <div class="coverHead">
+            <div class="container-fluid" id="coverHead">
+                <div class="container">
+                    {include="module/navigation"}
+                </div>
+            </div>
+        </div>
+
+        <div class="filterPage container-fluid">
+            <div class="container">
+                <div class="headerTitle">
+                    <img src="{$template_dir}img/title-shapes.png" alt="">
+                    {$module_title}
+                </div>
+                <form id="lighting_calculations_ajax">
+                    <ul class="filterList list-unstyled">
+                        {loop="$parameter"}
+                        <li>
+                            <div class="filterTitle">
+                                {$value1.title}
+                            </div>
+                            <div class="filterInfo">
+
+                                {loop="$value1.loop_question"}
+                                {if="@$value2.kind_show=='2'"}
+                                <div class="col colGrid12" style="margin-top: 20px">
+                                    <div class="title title_lighting_conclutions">
+                                        {$value2.title}
+                                    </div>
+                                    <div class="filterSelect">
+                                        <ul class="list-unstyled">
+                                            {loop="$value2.loop_answer"}
+                                            <li class="w100">
+                                                <label>
+                                                    <input type="radio" name="answer[{$value2.id}]"
+                                                        class="answer_lighting_calculations"
+                                                        value="{$value2.kind}_{$value2.id}_{$value3.id}">
+                                                    <span class="pic">
+                                                        <i class="color" style="background-color: {$value3.color};"></i>
+                                                        {$value3.title}
+                                                    </span>
+
+                                                </label>
+                                            </li>
+                                            {/loop}
+                                        </ul>
+                                    </div>
+                                </div>
+                                {/if}
+                                {if="@$value2.kind_show=='3'"}
+                                <div class="col colGrid12" style="margin-top: 20px">
+                                    <div class="title title_lighting_conclutions">
+                                        {$value2.title}
+                                    </div>
+                                    <div class="filterSelect">
+                                        <ul class="list-unstyled">
+                                            {loop="$value2.loop_answer"}
+                                            <li class="w100">
+                                                <label>
+                                                    <input type="radio" name="answer[{$value2.id}]"
+                                                        class="answer_lighting_calculations"
+                                                        value="{$value2.kind}_{$value2.id}_{$value3.id}">
+                                                    <span class="pic">
+                                                        {if="@$value3.pic"}
+                                                        <img src="{$site_url}upload/thumb1/{$value3.pic}"
+                                                            alt="{$value.title}">
+                                                        {else}
+                                                        <img src="{$template_dir}no_image/no_image(45x45).jpg"
+                                                            alt="{$value.title}">
+                                                        {/if}
+                                                        {$value3.title}
+                                                        <div class="tooltipWrap">
+                                                            {if="@$value3.note"}
+                                                            <i class="info tooltipLink"></i>
+                                                            {/if}
+                                                            <div class="tooltipContent">
+                                                                {if="@$value3.note"}
+                                                                <div class="tooltipContent__info">
+                                                                    <p>
+                                                                        {$value3.note}
+                                                                    </p>
+                                                                </div>
+                                                                {/if}
+                                                                <div class="tooltipContent__close">
+                                                                    بستن
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </span>
+
+                                                </label>
+                                            </li>
+                                            {/loop}
+                                        </ul>
+                                    </div>
+                                </div>
+                                {/if}
+                                {if="@$value2.kind_show=='4'"}
+                                <div class="col colGrid12" style="margin-top: 20px">
+                                    <div class="title title_lighting_conclutions">
+                                        {$value2.title}
+                                        <i class="info"></i>
+                                    </div>
+                                    <div class="filterSelect">
+                                        <ul class="list-unstyled text-center">
+                                            {loop="$value2.loop_answer"}
+                                            <li>
+                                                <label>
+                                                    <input type="radio" name="answer[{$value2.id}]"
+                                                        class="answer_lighting_calculations"
+                                                        value="{$value2.kind}_{$value2.id}_{$value3.id}">
+                                                    <span class="p-0">
+                                                        {if="@$value3.pic"}
+                                                        <img src="{$site_url}upload/thumb1/{$value3.pic}"
+                                                            alt="{$value.title}">
+                                                        {else}
+                                                        <img src="{$template_dir}no_image/no_image(45x45).jpg"
+                                                            alt="{$value.title}">
+                                                        {/if}
+                                                    </span>
+
+                                                </label>
+                                            </li>
+                                            {/loop}
+                                        </ul>
+                                    </div>
+                                </div>
+                                {/if}
+                                {if="@$value2.kind_show=='5'"}
+                                <div class="col colGrid12">
+                                    <div class="title title_lighting_conclutions">
+                                        {$value2.title}
+                                    </div>
+                                    <div class="filterSelect">
+                                        <ul class="list-unstyled text-center">
+                                            {loop="$value2.loop_answer"}
+                                            <li>
+                                                <label>
+                                                    <input type="radio" name="answer[{$value2.id}]"
+                                                    class="answer_lighting_calculations"
+                                                    value="{$value2.kind}_{$value2.id}_{$value3.id}">
+                                                    <span dir="rtl">
+                                                        {$value3.title}
+                                                    </span>
+
+                                                </label>
+                                            </li>
+                                            {/loop}
+                                        </ul>
+                                    </div>
+                                </div>
+                                {/if}
+                                {/loop}
+
+                            </div>
+                        </li>
+                        {/loop}
+                    </ul>
+                </form>
+                <div class="filterResult">
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+{*
+<script>
+    $(document).ready(function () {
+        $(".answer_lighting_calculations").on('change', function () {
+            $.ajax({
+                type: "POST",
+                url: site_lang + '/lighting_calculations_ajax.html&ajax=ok',
+                data: $("#lighting_calculations_ajax").serialize(),
+                success: function (res) {
+                    $(".filterResult").html(res)
+                },
+                error: function () {
+                    alert("خطا در برقراری ارتباط")
+                }
+            })
+        })
+    })
+</script>
+*}

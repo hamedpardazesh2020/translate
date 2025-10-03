@@ -1,0 +1,131 @@
+<main id="main" role="main">
+    <div id="wrapper">
+        <div class="container-fluid coverHead2">
+            <picture>
+                {if="@$module_pic_mobile"}
+                <source media="(max-width: 767px)" srcset="{$site_url}upload/{$module_pic_mobile}">
+                {else}
+                {if="@$module_pic"}
+                <source media="(max-width: 767px)" srcset="{$site_url}upload/{$module_pic}">
+                {else}
+                <source media="(max-width: 767px)" srcset="{$template_dir}img/breadMobile.jpg">
+                {/if}
+                {/if}
+                {if="@$module_pic"}
+                <img src="{$site_url}upload/{$module_pic}" alt="{$module_title}" class="coverHeadPicture">
+                {else}
+                <img src="{$template_dir}img/header1.jpg" alt="{$module_title}" class="coverHeadPicture">
+                {/if}
+            </picture>
+            <div class="container coverHead2__container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="coverHead2" class="coverHeadInner">
+                            {include="module/navigation"}
+                            <h1>{$module_title}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="aboutPage container-fluid">
+            <div class="container">
+                <div class="aboutPage__item">
+                    {if="@$pages_about_title"}
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">
+                            <div class="tabs">
+                                <div class="headerTitle">
+                                    {$pages_about_title}
+                                </div>
+                                <ul class="list-unstyled">
+                                    {loop="$loop_page_content"}
+                                    <li {if="@$counter=='0'"}class="active"{/if}>
+                                        <a href="#ab{$value.id}" data-toggle="tab">
+                                           {$value.title}
+                                        </a>
+                                    </li>
+                                    {/loop}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-7 col-md-7 col-md-offset-1">
+                            <div class="tab-content">
+                                {loop="$loop_page_content"}
+                                <div class="tab-pane fade in {if="@$counter=='0'"}active{/if}" id="ab{$value.id}">
+                                    <div class="post aboutPost">
+                                        {$value.note}
+                                    </div>
+                                </div>
+                                {/loop}
+                            </div>
+                        </div>
+                    </div>
+                    {else}
+                    <div class="error">لطا صفحه ای با نام about بسازید</div>
+                    {/if}
+                </div>
+                <div class="sampleTab">
+                    <div class="tabs">
+                        <ul class="list-unstyled">
+                            {if="@$loop_logo"}
+                            <li class="active">
+                                <a href="#st1" data-toggle="tab">
+                                    افتخارات
+                                </a>
+                            </li>
+                            {/if}
+                            {if="@$loop_logo_2"}
+                            <li>
+                                <a href="#st2" data-toggle="tab">
+                                    گواهینامه ها
+                                </a>
+                            </li>
+                            {/if}
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="st1">
+                            <ul class="certificateList list-unstyled">
+                                {loop="$loop_logo"}
+                                <li>
+                                    <a href="javascript:void(0)" class="certificateBox">
+                                        <div class="imgHoverZoom">
+                                            {if="@$value.pic"}
+                                            <img src="{$site_url}upload/thumb1/{$value.pic}" alt="{$value.title}">
+                                            {else}
+                                            <img src="{$template_dir}no_image/no_image(273x323).jpg" alt="{$value.title}">
+                                            {/if}
+                                        </div>
+                                        {$value.title}
+                                    </a>
+                                </li>
+                               {/loop}
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade in" id="st2">
+                            <ul class="certificateList list-unstyled">
+                                {if="@$loop_logo_2"}
+                                {loop="$loop_logo_2"}
+                                <li>
+                                    <a href="javascript:void(0)" class="certificateBox">
+                                        <div class="imgHoverZoom">
+                                            {if="@$value.pic"}
+                                            <img src="{$site_url}upload/thumb1/{$value.pic}" alt="{$value.title}">
+                                            {else}
+                                            <img src="{$template_dir}no_image/no_image(273x323).jpg" alt="{$value.title}">
+                                            {/if}
+                                        </div>
+                                        {$value.title}
+                                    </a>
+                                </li>
+                               {/loop}
+                               {/if}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

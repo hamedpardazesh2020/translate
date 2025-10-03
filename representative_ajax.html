@@ -1,0 +1,30 @@
+{if="@$loop_agency"}
+<ul class="list-unstyled reseller-data-box">
+    {loop="$loop_agency"}
+    <li>
+        <div class="shopSelectionItem" style="padding-left:20px;min-height: 120px;">
+            <div>
+                {if="@$value.name"}
+                <strong>نام مسئول : {$value.name}</strong>
+                <i>&nbsp; | &nbsp;</i>
+                {/if}
+                {if="@$value.city_title"}
+                <span>{$value.city_title}</span>
+                {/if}
+            </div>
+            <p>
+                {if="@$value.tell"}
+                {#tell}: <span dir="rtl">{$value.tell}</span>
+                {/if}
+                {if="@$value.address"}
+                <br />
+                {#address#}: {$value.address}
+                {/if}
+            </p>
+        </div>
+    </li>
+    {/loop}
+</ul>
+{else}
+<div class="error">{#result_not_found#}</div>
+{/if}

@@ -1,0 +1,113 @@
+<main id="main" role="main">
+    <div id="wrapper">
+
+        <div class="container-fluid coverHead">
+            <div class="container">
+                <div id="coverHead">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="{$site_url}">{#MainPage#}</a>
+                        </li>
+                        <li>
+                            <a href="{$site_url}{$site_lang}/multimedia.html">{#multimedia#}</a>
+                        </li>
+                        <li>
+                            <a href="{$site_url}{$site_lang}/multimedia?tblnm=1">{$module_title}</a>
+                        </li>
+                        {if="@$loop_cat_tree"}
+                        {loop="loop_cat_tree"}
+                        {if="$count_loop_cat_tree==$counter+1"}
+                        <li>
+                            <a href="javascript:void(0);">{$value.title}</a>
+                        </li>
+                        {else}
+                        <li>
+                            <a href="{$site_url}{$site_lang}/photo/cat/{$value.id}-{$value.title|str2url}">
+                                {$value.title}
+                            </a>
+                        </li>
+                        {/if}
+                        {/loop}
+                        {/if}
+                    </ul>
+                    {if="@$title"}
+                    <h1>{$title}</h1>
+                    {else}
+                    <h1>{$module_title}</h1>
+                    {/if}
+
+                </div>
+            </div>
+        </div>
+        <div class="mediaPage container-fluid">
+            <div class="container">
+                <div class="sampleTab" style="border-bottom: none;">
+                    <div class="tabs">
+                        <ul class="list-unstyled">
+                            <ul class="list-unstyled">
+                                <li class="active"><a href="{$site_url}{$site_lang}/multimedia.html&tblnm=1" ><div>تصاویر</div></a></li>
+                                <li><a href="{$site_url}{$site_lang}/multimedia.html&tblnm=2" ><div>ویدئو ها</div></a></li>
+                                <li><a href="{$site_url}{$site_lang}/multimedia.html&tblnm=3" ><div>کاتالوگ ها</div></a></li>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                {if="!empty($loop_photo) || !empty($loop_category)"}
+                <div class="mediaList list-unstyled lightGalleryAlbum">
+                    {loop="$loop_category"}
+                    <li>
+                        <a href="{$site_url}{$site_lang}/photo/cat/{$value.id}-{$value.title|str2url}.html" class="mediaBox">
+                            <div class="mediaBox__image imgHoverZoom">
+                                {if="isset($value.pic) && !empty($value.pic)"}
+                                <img src="{$site_url}upload/thumb1/{$value.pic}" alt="{$value.title}">
+                                {else}
+                                <img src="{$template_dir}no_image/no_image(372x272).jpg" alt="{$value.title}">
+                                {/if}
+                            </div>
+                            <div class="mediaBox__wrapper">
+                                <div class="mediaBox__wrapper--name">
+                                    {$value.title}
+                                </div>
+                                <div class="mediaBox__wrapper--number">
+                                    {$value.num_gallery} {#photo#}
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    {/loop}
+                    {loop="$loop_photo"}
+                    <li>
+                        <a {if="@$value.pic"} href="{$site_url}upload/{$value.pic}" {else}  href="{$template_dir}no_image/no_image.jpg" {/if} class="mediaBox lightpic">
+                            <div class="mediaBox__image imgHoverZoom">
+                                {if="isset($value.pic) && !empty($value.pic)"}
+                                <img src="{$site_url}upload/thumb1/{$value.pic}" alt="{$value.title}">
+                                {else}
+                                <img src="{$template_dir}no_image/no_image(274x274).jpg" alt="{$value.title}">
+                                {/if}
+                            </div>
+                            <div class="mediaBox__wrapper">
+                                <div class="mediaBox__wrapper--name">{$value.title}</div>
+                            </div>
+                        </a>
+                    </li>
+                    {/loop}
+                </div>
+                {else}
+                <div class="error">{#result_not_found#}</div>
+                {/if}
+            </div>
+        </div>
+
+    </div>
+</main>
+<script type="text/javascript">
+    $(document).ready(function() {
+      if(!$.fn.lightGallery) return false;
+        $('.lightGalleryAlbum').lightGallery({
+          selector: '.lightpic',
+          videojs: false,
+          share: false,
+          hash: false
+        });
+    });
+</script>	

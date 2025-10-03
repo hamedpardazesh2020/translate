@@ -1,0 +1,73 @@
+{include="module/compare"}
+<script>
+    $.cookie("list", {$product_cat_id}, { expires: 7, path : '/'});
+            $(document).ready(function(){
+    $('#searched').keyup(function(){
+    if ($(this).val()){
+    $.ajax({
+    type: "POST",
+            url : "" + site_url + "ajax.php?product_ajax_catidm",
+            dataType : 'json',
+            data : {'title' : $(this).val(), 'maincatid' : {$product_cat_id}},
+            success: function(data)
+            {
+            html = '';
+                    for (x in data.id) {
+            html += ' <li style="width:201px;padding-top: 5px;">';
+                    html += '<div style="float:left;margin-left: 2px;">';
+                    if (data.pic[x]){
+            if (data.price_id[x]){
+            html += '<a href="javascript:void(0)" onclick="$.ham3dBasket_compare({id : \'' + data.id[x] + '|' + data.price_id[x] + '\',kind : \'new\',type : \'compare\'});ref_productprice();return false;" style="cursor:pointer;"><img src="' + site_url + 'upload/thumb2/' + data.pic[x] + '" alt="" width="50" height="50"/></a><br>';
+            } else{
+            html += '<a href="javascript:void(0)" onclick="$.ham3dBasket_compare({id : \'' + data.id[x] + '|' + data.id[x] + '\',kind : \'new\',type : \'compare\'});ref_productprice();return false;" style="cursor:pointer;"><img src="' + site_url + 'upload/thumb2/' + data.pic[x] + '" alt="" width="50" height="50"/></a><br>';
+            }
+            } else{
+            if (data.price_id[x]){
+            html += '<a href="javascript:void(0)" onclick="$.ham3dBasket_compare({id : \'' + data.id[x] + '|' + data.price_id[x] + '\',kind : \'new\',type : \'compare\'});ref_productprice();return false;" style="cursor:pointer;"><img src="' + template_dir + 'no_image/no_image(50x50).jpg" alt="" tooltip="" /></a><br>';
+            } else{
+            html += '<a href="javascript:void(0)" onclick="$.ham3dBasket_compare({id : \'' + data.id[x] + '|' + data.id[x] + '\',kind : \'new\',type : \'compare\'});ref_productprice();return false;" style="cursor:pointer;"><img src="' + template_dir + 'no_image/no_image(50x50).jpg" alt="" tooltip="" /></a><br>';
+            }
+            }
+            html += '</div>';
+                    html += '<div style="float:left;margin-left:5px;margin-top:15px;width: 130px;overflow: hidden;">';
+                    html += '<label>';
+                    html += '<input type="hidden" class="checkbox" id="id[' + data.id[x] + ']" name="id[' + data.id[x] + ']" value="' + data.id[x] + '"/>';
+                    if (data.price_id[x]){
+            html += '<a href="javascript:void(0)" onclick="$.ham3dBasket_compare({id : \'' + data.id[x] + '|' + data.price_id[x] + '\',kind : \'new\',type : \'compare\'});ref_productprice();return false;" style="cursor:pointer;color:#000;">' + data.title[x] + '</a>';
+            } else{
+            html += '<a href="javascript:void(0)" onclick="$.ham3dBasket_compare({id : \'' + data.id[x] + '|' + data.id[x] + '\',kind : \'new\',type : \'compare\'});ref_productprice();return false;" style="cursor:pointer;color:#000;">' + data.title[x] + '</a>';
+            }
+            html += '</li></label></div><div class="clear"></div>';
+            }
+            $('#ajax_result22').html(html).hide().slideDown(1000);
+                    if (data.length == 0){
+            $('#ajax_result22').html('<div class="error">نتیجه ای یافت نشد !</div>'); //.hide().slideDown(1000);
+            }
+            },
+            error: function() { // if error occured
+            alert('خطا');
+            }
+
+    });
+            return false;
+    } else{
+    $('#ajax_result22').html(html).slideUp(1000);
+    }
+
+    });
+    });</script>
+
+<script>
+            $(document).ready(function(){
+    var e = $(".productsss").size(), t = 1146 / e - 1;
+            $(".productsss").css("width", t);
+//$(".products3").css("width", "24.2%");
+            $(".products2").css("width", t);
+    });
+            $(".ts-basket-product-close").click(function(){
+    $.ham3dBasket_compare({id : $(this).attr("attr_id"), kind : 'remove_compare'});
+            ref_productprice();
+            $(this).parent().parent().fadeOut(function(){
+    $(this).remove();
+    })});
+</script>

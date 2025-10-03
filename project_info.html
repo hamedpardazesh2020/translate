@@ -1,0 +1,247 @@
+<main id="main" role="main">
+    <div id="wrapper">
+        <div class="picProject">
+            {if="@$pic_banner"}
+            <picture class="img-mosk">
+                {if="@$pic_banner_mobile"}
+                <source media="(max-width: 767px)" srcset="{$site_url}upload/thumb1/{$pic_banner_mobile}">
+                {else}
+                <source media="(max-width: 767px)" srcset="{$site_url}upload/thumb1/{$pic_banner}">
+                {/if}
+                <img src="{$site_url}upload/thumb1/{$pic_banner}" class="picture-mosk" alt="{$title}">
+            </picture>
+            {else}
+            {if="@$module_pic"}
+            <img src="{$site_url}upload/{$module_pic}" aalt="{$title}">
+            {else}
+            <img src="{$template_dir}no_image/no_image(1360x560).jpg" aalt="{$title}">
+            {/if}
+
+            {/if}
+        </div>
+        <div class="container-fluid coverHead v3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="coverHead">
+                            <ul class="breadcrumb">
+                                <li>
+                                    <a href="{$site_url}">{#MainPage#}</a>
+                                </li>
+                                <li>
+                                    <a href="{$site_url}{$site_lang}/{$module_name}">{$module_title}</a>
+                                </li>
+                                <li class="active">{$title}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="projectInner container-fluid">
+            <div class="container">
+                <div class="projectInner__head">
+                    <div class="projectInner__head--title">{$title}</div>
+                    {if="@$address"}
+                    <div class="projectInner__head--address">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10 0C6.53384 0 3.71449 2.82446 3.71449 6.28815C3.71449 7.69964 4.18352 9.00052 4.97159 10.0497H4.9645L4.9787 10.0711L9.61649 16.7851L10 17.3457L10.3835 16.7851L15.0355 10.0498L15.0497 10.0284L15.0639 10L15.071 9.98593C15.8308 8.94766 16.2855 7.67158 16.2855 6.28826C16.2855 2.82459 13.4662 0 10 0ZM10 0.936848C12.9629 0.936848 15.3551 3.32739 15.3551 6.28815C15.3551 7.49399 14.9545 8.60171 14.2827 9.49614L14.2614 9.52451H14.2543L14.2472 9.54587L14.2401 9.56723L14.233 9.58133L10.0001 15.6992L5.79551 9.60971C5.79619 9.60971 5.76771 9.56803 5.7458 9.53875C5.74189 9.53353 5.74332 9.5308 5.7387 9.52466L5.73161 9.51761V9.51057C5.72477 9.50148 5.72543 9.50717 5.71741 9.49649C5.04558 8.60208 4.64497 7.49435 4.64497 6.28851C4.64497 3.32775 7.03721 0.937209 10.0001 0.937209L10 0.936848ZM10 3.49186C8.46255 3.49186 7.20881 4.7518 7.20881 6.28815C7.20881 7.82452 8.46254 9.07737 10 9.07737C11.5375 9.07737 12.7912 7.82452 12.7912 6.28815C12.7912 4.7518 11.5375 3.49186 10 3.49186ZM10 4.42158C11.0342 4.42158 11.8608 5.25475 11.8608 6.28815C11.8608 7.32159 11.0342 8.14764 10 8.14764C8.96584 8.14764 8.1392 7.32159 8.1392 6.28815C8.1392 5.25475 8.96584 4.42158 10 4.42158ZM5.39773 12.9667C5.38818 12.9687 5.37871 12.9711 5.36932 12.9737C3.84764 13.2558 2.55658 13.6712 1.61222 14.2016C0.667852 14.7319 0 15.4227 0 16.2881C0 16.9176 0.370191 17.4658 0.916193 17.9063C1.4622 18.3468 2.20654 18.7145 3.10369 19.0206C4.89799 19.6328 7.32215 20 10 20C12.6778 20 15.102 19.6328 16.8963 19.0206C17.7935 18.7145 18.5378 18.3468 19.0838 17.9063C19.6298 17.4658 20 16.9176 20 16.2881C20 15.4221 19.3333 14.7321 18.3878 14.2015C17.4423 13.671 16.147 13.2556 14.6236 12.9737C14.5647 12.9628 14.5043 12.9636 14.4458 12.976C14.3872 12.9885 14.3317 13.0124 14.2825 13.0463C14.2332 13.0802 14.1911 13.1235 14.1586 13.1738C14.1261 13.224 14.1038 13.2801 14.0931 13.339C14.0823 13.3978 14.0833 13.4582 14.0959 13.5166C14.1086 13.5751 14.1327 13.6305 14.1668 13.6796C14.2009 13.7288 14.2444 13.7707 14.2947 13.803C14.3451 13.8353 14.4013 13.8574 14.4602 13.868C15.9157 14.1373 17.1298 14.5345 17.9403 14.9893C18.7509 15.4441 19.0909 15.9167 19.0909 16.2881C19.0909 16.5581 18.9286 16.8648 18.5085 17.2037C18.0885 17.5426 17.4354 17.8785 16.6051 18.1618C14.9446 18.7284 12.594 19.0915 10 19.0915C7.40604 19.0915 5.05536 18.7284 3.39489 18.1618C2.56465 17.8785 1.91153 17.5426 1.49148 17.2037C1.07143 16.8648 0.909091 16.5581 0.909091 16.2881C0.909091 15.9169 1.25024 15.4439 2.05966 14.9893C2.86908 14.5348 4.07893 14.1375 5.53267 13.868C5.65133 13.849 5.75771 13.784 5.8287 13.6871C5.89968 13.5903 5.92952 13.4693 5.91175 13.3505C5.89396 13.2318 5.83 13.1248 5.73375 13.053C5.63749 12.9811 5.51674 12.9501 5.39773 12.9667Z"
+                                fill="black" />
+                        </svg>
+
+                       {$address}
+                    </div>
+                    {/if}
+                </div>
+                <ul class="list-unstyled list-inline projectInner__link">
+                    <li>
+                        <a href="" data-toggle="modal" data-target="#shareModal">
+                            <img src="{$template_dir}img/share.svg" alt="">
+                        </a>
+                    </li>
+                    {if="@$link_map"}
+                    <li>
+                        <a href="{$link_map}" target="_blank">
+                            <img src="{$template_dir}img/pin.svg" alt="">
+                        </a>
+                    </li>
+                    {/if}
+                </ul>
+
+                <div class="sampleTab">
+                    <div class="tabs">
+                        <ul class="list-unstyled">
+                            {if="@$note"}
+                            <li class="active">
+                                <a href="#st1" data-toggle="tab" aria-expanded="false">
+                                    <div>
+                                        معرفی پروژه
+                                    </div>
+                                </a>
+                            </li>
+                            {/if}
+                            {if="@$loop_product"}
+                            <li>
+                                <a href="#st2" data-toggle="tab" aria-expanded="true">
+                                    <div>
+                                        محصولات به کار رفته
+                                    </div>
+                                </a>
+                            </li>
+                            {/if}
+                            {if="@$loop_project_tab_pic"}
+                            <li>
+                                <a href="#st3" data-toggle="tab" aria-expanded="true">
+                                    <div>
+                                        گالری تصاویر
+                                    </div>
+                                </a>
+                            </li>
+                            {/if}
+                        </ul>
+                    </div>
+                    <div class="tab-content" id="show-tab-content">
+                        {if="@$note"}
+                        <div id="st1" class="tab-pane fade in active">
+                            <div class="post">
+                               {$note}
+                            </div>
+                        </div>
+                        {/if}
+                        {if="@$loop_product"}
+                        <div id="st2" class="tab-pane fade in">
+                            <div class="lightGalleryAlbum">
+                                <ul class="list-unstyled">
+                                   {loop="$loop_product"}
+                                    <li>
+                                        {include="module/product"}
+                                    </li>
+                                    {/loop}
+                                </ul>
+                            </div>
+                        </div>
+                        {/if}
+                        {if="@$loop_project_tab_pic"}
+                        <div id="st3" class="tab-pane fade in">
+                            <div class="lightGalleryAlbum">
+                                <ul class="list-unstyled">
+                                    {loop="$loop_project_tab_pic"}
+                                    <li>
+                                        <a class="lightpic" href="{$site_url}upload/thumb1/{$value.pic}">
+                                            <img src="{$site_url}upload/thumb1/{$value.pic}" alt="{$value.title}">
+                                        </a>
+                                    </li>
+                                    {/loop}
+                                </ul>
+                            </div>
+                        </div>
+                        {/if}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {if="@$loop_project"}
+        <div class="generalSliderWrapper container-fluid">
+            <div class="container">
+                <div class="headerTitle text-center">
+                    پروژه های پرایم
+                </div>
+                <div class="projectsCarousel" dir="ltr">
+                    {loop="$loop_project"}
+                    <div class="slick-slide">
+                        <a href="{$value.id|url_project}" class="projectBox">
+                            <div class="projectBox__image imgHoverZoom">
+                                {if="@$value.pic"}
+                                <img src="{$site_url}upload/thumb3/{$value.pic}" alt="{$value.title}">
+                                {else}
+                                <img src="{$template_dir}no_image/no_image(274x217).jpg" alt="{$value.title}">
+                                {/if}
+                            </div>
+                            <div class="projectBox__desc">
+                                <h3 class="projectBox__desc--title">
+                                    {$value.title}
+                                </h3>
+                                {if="@$value.neighborhood"}
+                                <div class="projectBox__desc--map">
+                                    <svg width="20" height="20" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M10 0C6.53384 0 3.71449 2.82446 3.71449 6.28815C3.71449 7.69964 4.18352 9.00052 4.97159 10.0497H4.9645L4.9787 10.0711L9.61649 16.7851L10 17.3457L10.3835 16.7851L15.0355 10.0498L15.0497 10.0284L15.0639 10L15.071 9.98593C15.8308 8.94766 16.2855 7.67158 16.2855 6.28826C16.2855 2.82459 13.4662 0 10 0ZM10 0.936848C12.9629 0.936848 15.3551 3.32739 15.3551 6.28815C15.3551 7.49399 14.9545 8.60171 14.2827 9.49614L14.2614 9.52451H14.2543L14.2472 9.54587L14.2401 9.56723L14.233 9.58133L10.0001 15.6992L5.79551 9.60971C5.79619 9.60971 5.76771 9.56803 5.7458 9.53875C5.74189 9.53353 5.74332 9.5308 5.7387 9.52466L5.73161 9.51761V9.51057C5.72477 9.50148 5.72543 9.50717 5.71741 9.49649C5.04558 8.60208 4.64497 7.49435 4.64497 6.28851C4.64497 3.32775 7.03721 0.937209 10.0001 0.937209L10 0.936848ZM10 3.49186C8.46255 3.49186 7.20881 4.7518 7.20881 6.28815C7.20881 7.82452 8.46254 9.07737 10 9.07737C11.5375 9.07737 12.7912 7.82452 12.7912 6.28815C12.7912 4.7518 11.5375 3.49186 10 3.49186ZM10 4.42158C11.0342 4.42158 11.8608 5.25475 11.8608 6.28815C11.8608 7.32159 11.0342 8.14764 10 8.14764C8.96584 8.14764 8.1392 7.32159 8.1392 6.28815C8.1392 5.25475 8.96584 4.42158 10 4.42158ZM5.39773 12.9667C5.38818 12.9687 5.37871 12.9711 5.36932 12.9737C3.84764 13.2558 2.55658 13.6712 1.61222 14.2016C0.667852 14.7319 0 15.4227 0 16.2881C0 16.9176 0.370191 17.4658 0.916193 17.9063C1.4622 18.3468 2.20654 18.7145 3.10369 19.0206C4.89799 19.6328 7.32215 20 10 20C12.6778 20 15.102 19.6328 16.8963 19.0206C17.7935 18.7145 18.5378 18.3468 19.0838 17.9063C19.6298 17.4658 20 16.9176 20 16.2881C20 15.4221 19.3333 14.7321 18.3878 14.2015C17.4423 13.671 16.147 13.2556 14.6236 12.9737C14.5647 12.9628 14.5043 12.9636 14.4458 12.976C14.3872 12.9885 14.3317 13.0124 14.2825 13.0463C14.2332 13.0802 14.1911 13.1235 14.1586 13.1738C14.1261 13.224 14.1038 13.2801 14.0931 13.339C14.0823 13.3978 14.0833 13.4582 14.0959 13.5166C14.1086 13.5751 14.1327 13.6305 14.1668 13.6796C14.2009 13.7288 14.2444 13.7707 14.2947 13.803C14.3451 13.8353 14.4013 13.8574 14.4602 13.868C15.9157 14.1373 17.1298 14.5345 17.9403 14.9893C18.7509 15.4441 19.0909 15.9167 19.0909 16.2881C19.0909 16.5581 18.9286 16.8648 18.5085 17.2037C18.0885 17.5426 17.4354 17.8785 16.6051 18.1618C14.9446 18.7284 12.594 19.0915 10 19.0915C7.40604 19.0915 5.05536 18.7284 3.39489 18.1618C2.56465 17.8785 1.91153 17.5426 1.49148 17.2037C1.07143 16.8648 0.909091 16.5581 0.909091 16.2881C0.909091 15.9169 1.25024 15.4439 2.05966 14.9893C2.86908 14.5348 4.07893 14.1375 5.53267 13.868C5.65133 13.849 5.75771 13.784 5.8287 13.6871C5.89968 13.5903 5.92952 13.4693 5.91175 13.3505C5.89396 13.2318 5.83 13.1248 5.73375 13.053C5.63749 12.9811 5.51674 12.9501 5.39773 12.9667Z" />
+                                    </svg>
+
+                                    {$value.neighborhood}
+                                </div>
+                                {/if}
+                            </div>
+                        </a>
+                    </div>
+                    {/loop}
+                </div>
+            </div>
+        </div>
+        {/if}
+    </div>
+</main>
+
+
+<div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-body">
+                <strong class="modal-title">{#share#}</strong>
+                <div class="share_modal__main"> 
+                    <div class="share_modal__content">
+                        <div class="share_modal__content__title">{#sharing_on_social_networks#}</div>
+                        <div class="share_modal__content__row">
+                            <div class="social__network">
+                                <ul class="btn-group-share list-unstyled">
+                                    <li><a href="http://twitter.com/share?text={$title}&url={$id|url_project}" rel="nofollow" class="btn__share" target="_blank"><img src="{$template_dir}assets/images/share/twitter.png" alt=""></a></li>
+                                    <li><a href="https://telegram.me/share/url?url={$id|url_project}" rel="nofollow" class="btn__share" target="_blank"><img src="{$template_dir}assets/images/share/telegram.png" alt=""></a></li>
+                                    <li><a href="https://www.facebook.com/sharer.php?u={$id|url_project}&t={$title}" rel="nofollow" class="btn__share " target="_blank"><img src="{$template_dir}assets/images/share/facebook.png" alt=""></a></li>
+                                    <li><a rel="nofollow" class="btn__share" href="whatsapp://send?text={$title|encodeURIComponent}-{function="encodeURIComponent(url($id))"}" data-action="share/whatsapp/share" target="_blank" title="+whatsapp"><svg width="40px" height="40px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="whatsappSvgIcon" x="0px" y="0px" viewBox="0 0 418.135 418.135" style="enable-background:new 0 0 418.135 418.135;vertical-align: middle;" xml:space="preserve"><g><path style="fill:#7AD06D;" d="M198.929,0.242C88.5,5.5,1.356,97.466,1.691,208.02c0.102,33.672,8.231,65.454,22.571,93.536   L2.245,408.429c-1.191,5.781,4.023,10.843,9.766,9.483l104.723-24.811c26.905,13.402,57.125,21.143,89.108,21.631   c112.869,1.724,206.982-87.897,210.5-200.724C420.113,93.065,320.295-5.538,198.929,0.242z M323.886,322.197   c-30.669,30.669-71.446,47.559-114.818,47.559c-25.396,0-49.71-5.698-72.269-16.935l-14.584-7.265l-64.206,15.212l13.515-65.607   l-7.185-14.07c-11.711-22.935-17.649-47.736-17.649-73.713c0-43.373,16.89-84.149,47.559-114.819   c30.395-30.395,71.837-47.56,114.822-47.56C252.443,45,293.218,61.89,323.887,92.558c30.669,30.669,47.559,71.445,47.56,114.817   C371.446,250.361,354.281,291.803,323.886,322.197z"/><path style="fill:#7AD06D;" d="M309.712,252.351l-40.169-11.534c-5.281-1.516-10.968-0.018-14.816,3.903l-9.823,10.008   c-4.142,4.22-10.427,5.576-15.909,3.358c-19.002-7.69-58.974-43.23-69.182-61.007c-2.945-5.128-2.458-11.539,1.158-16.218   l8.576-11.095c3.36-4.347,4.069-10.185,1.847-15.21l-16.9-38.223c-4.048-9.155-15.747-11.82-23.39-5.356   c-11.211,9.482-24.513,23.891-26.13,39.854c-2.851,28.144,9.219,63.622,54.862,106.222c52.73,49.215,94.956,55.717,122.449,49.057   c15.594-3.777,28.056-18.919,35.921-31.317C323.568,266.34,319.334,255.114,309.712,252.351z"/></svg></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="share_modal__content__title">{#send_to_email#}</div>
+                        <form action="{$site_url}ajax.php?send_friend" noscroll="yes">
+                            <input type="hidden" name="projectid" id="projectid" value="{$id}" />
+                            <div class="share_modal__content__row share_modal__content__row--input">
+                                <div class="share_modal__content__col" style="direction: rtl;">
+                                    <div class="form-group">
+                                        <input type="text" name="email" id="email" check="email" check_error="{#email_wrong#}!" error="{#your_friends_email#} ..." class="form-control" placeholder="{#your_friends_email#} : yourfriend@mail.com" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="share_modal__content__row share_modal__content__row--input">
+                                <div class="share_modal__content__col" style="position: relative;">
+                                    <div class="form-group">
+                                            <input type="text" name="cap" error="{#security_code#}..." check="cap" check_error="{#it_is_not_correct#}." maxlength="5" class="form-control input-capcha">
+                                    </div>
+                                    <a style="position: absolute;right: 15px;top: 5px;" href="javascript:void(0);" id="cap_code_send_friend" class="form-group__sec_code__picture" onclick="$(this).find('img').attr('src', '{$site_url}cap.php?t=' + Math.random());return false;">
+                                        <img src="{$site_url}cap.php">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="share_modal__content__row share_modal__content__row--submit">
+                                <div class="share_modal__content__col">
+                                    <button type="submit" class="btn">{#send#}</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="share_modal-url">
+                                <div class="share_modal__content__title">{#page_address#}</div>
+                                <div class="share_modal__content__row share_modal__content__row--url">
+                                    <div class="share_modal__content__col" style="direction: rtl;">
+                                        <input class="share_modal__content__field form-control" type="url" value="{$id|url_project}" readonly="">
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <a aria-label="Close" data-dismiss="modal" class="modal-close"></a>
+            </div>
+        </div>
+    </div>
+</div>

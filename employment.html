@@ -1,0 +1,754 @@
+<main id="main" role="main">
+    <div id="wrapper">
+        <div class="coverHead">
+            <div class="container-fluid" id="coverHead">
+                <div class="container">
+                    <ul class="breadcrumb">
+                        {include="module/navigation"}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="newsInner container-fluid">
+            <div class="container">
+                <h1 class="newsInner__title">
+                    {$module_title}
+                </h1>
+                {if="@$pages_employment_title"}
+                <div class="post newsInner__text">{$pages_employment_note}</div>
+                {else}
+                <div class="error">لطفا صفحه ای با نام employment بسازد</div>
+                {/if}
+                <div class="">
+                    <form  action="{$site_url}ajax.php?employment&action=new" noscroll="yes" method="post" id="employment">
+                                    
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <input type="text" name="name" id="name"  placeholder=" نام و نام خانوادگی" class="form-control" error="لطفا نام و نام خانوادگی را وارد کنید"/>
+                            </div>
+                        </div>
+        
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <input type="text" name="middle_name" id="middle_name" placeholder="* نام پدر" class="form-control" error="لطفا نام پدر را وارد کنید"/>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <input type="text" name="date_birth" id="date_birth" placeholder="* تاریخ تولد" class="form-control datepicker-input" error="لطفا تاریخ تولد را وارد کنید"/>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <input type="text" name="national_code" id="national_code" class="form-control" placeholder="* کد ملی" maxlength="10" check="zip" check_error="لطفا کد ملی را صحیح وارد کنید" error="لطفا کد ملی را وارد کنید"/>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <input type="text" name="religion" id="religion" class="form-control" placeholder="* دین" error="لطفا دین را وارد کنید"/>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <input type="text" name="mobile" id="mobile" class="form-control" placeholder="* شماره تلفن همراه" check="mobile" check_error="موبایل را صحیح وارد کنید" error="لطفا موبایل را وارد کنید"/>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <input type="text" name="tell" id="tell" class="form-control" placeholder="* شماره تلفن ثابت" check="tell" check_error="تلفن را صحیح وارد کنید" />
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                            <div class="form-group">
+                                <input type="text" name="email" id="email" class="form-control" placeholder="* ایمیل" error="لطفا ایمیل را وارد کنید" check="email" check_error="ایمیل را صحیح وارد کنید" />
+                            </div>
+                        </div>
+                        <div class="col-xs-12 ">
+                            <div class="form-group">
+                                <textarea name="address" id="address" class="form-control" placeholder="* آدرس" error="لطفا آدرس محل سکونت را وارد کنید"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label class="label_title"><span class="employment">*</span> وضعیت نظام وظیفه</label>    
+                                <div class="rdl">
+                                    <label>
+                                        <input type="radio" name="military" id="military" value="1" checked>
+                                        <span></span>
+                                        انجام شده
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="military" id="military" value="2">
+                                        <span></span>
+                                        انجام نشده
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="military" id="military" value="3">
+                                        <span></span>
+                                        معافیت
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="military" id="military" value="4">
+                                        <span></span>
+                                        عدم مشمولیت (مختص خانم ها)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label class="label_title"><span class="employment">*</span> وضعیت تأهل</label>    
+                                <div class="rdl">
+                                    <label>
+                                        <input type="radio" name="married" id="married" value="1" checked>
+                                        <span></span>
+                                        مجرد
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="married" id="married" value="2">
+                                        <span></span>
+                                        متاهل
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label class="label_title"><span class="employment">*</span> سابقه محکومیت کیفری</label>    
+                                <div class="rdl">
+                                    <label>
+                                        <input type="radio" name="condemnation" id="condemnation" value="1" checked>
+                                        <span></span>
+                                        بله
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="condemnation" id="condemnation" value="2">
+                                        <span></span>
+                                        خیر
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label class="label_title"><span class="employment">*</span> سابقه بیماری</label>    
+                                <div class="rdl">
+                                    <label>
+                                        <input type="radio" name="illness" id="illness" value="1" checked>
+                                        <span></span>
+                                        بله
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="illness" id="illness" value="2">
+                                        <span></span>
+                                        خیر
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <h2>شغل مورد تقاضا</h2>
+                        <br>
+                        <div class="col-xs-12">
+                            <div class="form-group">
+        
+                                <label class="label_title">متقاضی چه نوع کاری هستید؟</label>    
+                                <div class="rdl">
+                                    <label>
+                                        <input type="radio" name="work_type" id="work_type" value="1" checked>
+                                        <span></span>
+                                        کار دائمی تمام وقت
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="work_type" id="work_type" value="2">
+                                        <span></span>
+                                        کار دائمی پاره وقت 
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="work_type" id="work_type" value="3">
+                                        <span></span>
+                                        کار موقت 
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="work_type" id="work_type" value="4">
+                                        <span></span>
+                                        کارآموزی
+                                    </label>
+                                </div>
+                                <label class="label_title"><span class="employment">*</span> آیا می توانید در ساعات غروب نیز کار کنید؟</label>    
+                                <div class="rdl">
+                                    <label>
+                                        <input type="radio" name="work_evening" id="work_evening" value="1" checked>
+                                        <span></span>
+                                        بله
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="work_evening" id="work_evening" value="2">
+                                        <span></span>
+                                        خیر
+                                    </label>
+                                </div>
+                                <label class="label_title"><span class="employment">*</span> آیا در حال حاضر مشغول به کار هستید؟</label>  
+                                <div class="rdl">
+                                    <label>
+                                        <input type="radio" name="work_operant" id="work_operant" value="1" checked>
+                                        <span></span>
+                                        بله
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="work_operant" id="work_operant" value="2">
+                                        <span></span>
+                                        خیر
+                                    </label>
+                                </div>
+                                {if="@$loop_work_cooperate"}
+                                <label class="label_title">* در کدام زمینه تمایل به همکاری دارید؟</label>  
+                                <div class="rdl">
+                                
+                                        {loop="loop_work_cooperate"}
+                                    <label>
+                                        <input type="radio" name="work_cooperate" id="work_cooperate" value="{$value.id}" {if="$counter+1==1"} checked {/if}>
+                                        <span></span>
+                                        {$value.title}
+                                    </label>
+                                    {/loop}
+                                </div>  
+                                {/if}									
+                                <label class="label_title"><span class="employment">*</span> آیا می توانید در ایام پایان هفته یا روزهای تعطیل نیز کار کنید؟</label>
+                                <div class="rdl">
+                                    <label>
+                                        <input type="radio" name="work_holidays" id="work_holidays" value="1" checked>
+                                        <span></span>
+                                        بله
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="work_holidays" id="work_holidays" value="2">
+                                        <span></span>
+                                        خیر
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label> تاکنون چه مدت بیمه بوده اید؟ (سال)</label>
+                                <input type="text" name="work_insurance" id="work_insurance" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label>حقوق درخواستی</label>
+                                <input type="text" name="work_salary" id="work_salary" class="form-control"/>
+                            </div>
+                        </div>                      
+                        <div  id="place01">                                
+                            <h2>سوابق کاری</h2>
+                            <br>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" name="resume[0][resume_organization]" id="resume_organization" class="form-control" placeholder="نام سازمان" />
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" name="resume[0][resume_last_side]" id="resume_last_side" class="form-control" placeholder="آخرین سمت" />
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" name="resume[0][resume_cooperation]" id="resume_cooperation" class="form-control" placeholder="مدت همکاری (سال)" />
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" name="resume[0][resume_cooperation_end]" id="resume_cooperation_end" class="form-control" placeholder="تاریخ پایان همکاری" />
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" name="resume[0][resume_cooperation_reason]" id="resume_cooperation_reason" class="form-control" placeholder="دلیل قطع همکاری" />
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="javascript:addResume();" id="addResume" class="adding  btn margin_employment"> + اضافه کردن سابقه کاری جدید </a>
+                        </div>
+                        <div  id="place02">
+                            <h2>سوابق تحصیلی</h2>
+                            <br>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" name="studdies[0][studdies_grade]" id="studdies_grade" class="form-control" placeholder=" مقطع تحصیلی" />
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" name="studdies[0][studdies_string]" id="studdies_string" class="form-control" placeholder=" رشته" />
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" name="studdies[0][studdies_name_training]" id="studdies_name_training" class="form-control" placeholder="نام مرکز آموزشی" />
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" name="studdies[0][studdies_year_graduation]" id="studdies_year_graduation" class="form-control" placeholder="سال اخذ مدرک" />
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="javascript:addStuddies();" id="addStuddies" class="adding btn margin_employment">+ اضافه کردن سابقه تحصیلی جدید </a>
+                        </div>
+                        <div  id="place03">
+                            <h2>زبان های خارجی</h2>
+                            <br>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="form-group">
+                                        <input type="text" name="languages[0][languages_name]" id="languages_name" class="form-control" placeholder="عنوان زبان" />
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group all_select">
+                                        <select name="languages[0][languages_writing]" id="languages_writing" class="form-control">
+                                            <option value="">سطح مهارت نگارش</option>
+                                            {loop="loop_grade"}
+                                            <option value="{$value.key}">{$value.value}</option>
+                                            {/loop}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group all_select">
+                                        <select name="languages[0][languages_conversation]" id="languages_conversation" class="form-control">
+                                            <option value="">سطح مهارت مکالمه</option>
+                                            {loop="loop_grade"}
+                                            <option value="{$value.key}">{$value.value}</option>
+                                            {/loop}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group all_select">
+                                        <select name="languages[0][languages_read]" id="languages_read" class="form-control">
+                                            <option value="">سطح مهارت خواندن</option>
+                                            {loop="loop_grade"}
+                                            <option value="{$value.key}">{$value.value}</option>
+                                            {/loop}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="javascript:addLanguages();" id="addLanguages" class="adding btn margin_employment">+ اضافه کردن زبان جدید</a>
+        
+                        </div>
+                        
+                            <h2>آشنایی با کامپیوتر، نرم افزار و شبکه های اجتماعی</h2>
+                            <br>
+                            <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group all_select">
+                                        <label>مجموعه آفیس شامل Word، Excel و PowerPoint :</label>
+                                            <select name="it_office" id="it_office" class="form-control">
+                                                <option value="">انتخاب کنید...</option>
+                                                {loop="loop_grade"}
+                                                <option value="{$value.key}">{$value.value}</option>
+                                                {/loop}
+                                            </select>
+                                    </div>
+                                </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group all_select">
+                                        <label> نرم افزارهای تخصصی حسابداری :</label>
+                                            <select name="it_accounting" id="it_accounting" class="form-control">
+                                                <option value="">انتخاب کنید...</option>
+                                                {loop="loop_grade"}
+                                                <option value="{$value.key}">{$value.value}</option>
+                                                {/loop}
+                                            </select>
+                                    </div>
+                                </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group all_select">
+                                        <label>ویندوز، اینترنت و ایمیل :</label>
+                                            <select name="it_internet" id="it_internet" class="form-control">
+                                                <option value="">انتخاب کنید...</option>
+                                                {loop="loop_grade"}
+                                                <option value="{$value.key}">{$value.value}</option>
+                                                {/loop}
+                                            </select>
+                                    </div>
+                                </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group all_select">
+                                        <label>شبکه های اجتماعی :</label>
+                                            <select name="it_social" id="it_social" class="form-control">
+                                                <option value="">انتخاب کنید...</option>
+                                                {loop="loop_grade"}
+                                                <option value="{$value.key}">{$value.value}</option>
+                                                {/loop}
+                                            </select>
+                                    </div>
+                                </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group all_select">
+                                        <label>نرم افزارهای طراحی :</label>
+                                            <select name="it_designing" id="it_designing" class="form-control">
+                                                <option value="">انتخاب کنید...</option>
+                                                {loop="loop_grade"}
+                                                <option value="{$value.key}">{$value.value}</option>
+                                                {/loop}
+                                            </select>
+                                    </div>
+                                </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group all_select">
+                                        <label>نرم افزارهای تخصصی حوزه IT :</label>
+                                            <select name="it_it" id="it_it" class="form-control">
+                                                <option value="">انتخاب کنید...</option>
+                                                {loop="loop_grade"}
+                                                <option value="{$value.key}">{$value.value}</option>
+                                                {/loop}
+                                            </select>
+                                    </div>
+                                </div>
+                                    <div class="col-xs-12 ">
+                                    <div class="form-group">
+                                        <label>فهرست نرم افزارهایی که به آنها تسلط دارید:</label>
+                                        <input type="text" name="it_note" id="it_note" class="form-control"/>
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label>سایر توضیحات</label>
+                                        <textarea name="note_more" id="note_more" class="form-control" placeholder="چنانچه علاوه بر موارد درج شده، مطلبی وجود دارد که تمایل به عنوان کردن آن دارید، قید بفرمایید :"></textarea>
+                                    </div>
+                                </div>
+                            
+                        
+                        
+                            <h2>مشخصات معرف</h2>
+                            <br>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" name="reagent_name" id="reagent_name" class="form-control" placeholder="نام و نام خانوادگی"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" name="reagent_job" id="reagent_job" class="form-control" placeholder="شغل"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" name="reagent_relativity" id="reagent_relativity" class="form-control" placeholder="نسبت یا نوع آشنایی"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" name="reagent_year" id="reagent_year" class="form-control" placeholder="مدت آشنایی (سال)"/>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" name="reagent_tell" id="reagent_tell" class="form-control" placeholder="شماره تماس"/>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                            <div class="col-xs-12">
+                                <h2 class="title_employment">آپلود تصویر و رزومه</h2>
+                                <br>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="input-box show-res-upload-file_entry form-group">
+                                            <div class="add-pic-wrapper uploadPic">
+                                                <label class="upload-btn"><a class="btn btn-custom" href="javascript:void();">+ آپلود فایل یا تصویر</a></label>
+                                                <input type="hidden" id="file_entry"  action="upload" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <div class="secCode">
+                                        {if="GOOLG_RECAPTCHA_STATUS"}
+                                        <div class="g-recaptcha form-field" data-sitekey="{#GOOLG_RECAPTCHA_SITE_KEY#}"></div>
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                        
+        
+                        <div class="col-xs-12">
+                            <button type="submit" class="btn pull-right">
+                                ارسال
+                            </button>
+                    </div> 
+                
+            
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script>
+        /*********************************** resume ***********************************/
+        function addResume() {
+    //    console.log(this);
+            var number = $('#place01 div').length;
+    //    console.log(number);
+            $('<div  id="place01_0' + number +'">\
+         <div class="row new_row ">\
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
+                    <div class="form-group">\
+                        <input type="text" name="resume[' + number +'][resume_organization]" id="resume_organization" class="form-control" placeholder="نام سازمان"/>\
+                    </div>\
+                </div>\
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
+                    <div class="form-group">\
+                        <input type="text" name="resume[' + number +'][resume_last_side]" id="resume_last_side" class="form-control" placeholder="آخرین سمت"/>\
+                    </div>\
+                </div>\
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
+                    <div class="form-group">\
+                        <input type="text" name="resume[' + number +'][resume_cooperation]" id="resume_cooperation" class="form-control" placeholder="مدت همکاری (سال)"/>\
+                    </div>\
+                </div>\
+               <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
+                    <div class="form-group">\
+                        <input type="text" name="resume[' + number +'][resume_cooperation_end]" id="resume_cooperation_end" class="form-control" placeholder="سال پایان همکاری"/>\
+                    </div>\
+                </div>\
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
+                    <div class="form-group">\
+                        <input type="text" name="resume[' + number +'][resume_cooperation_reason]" id="resume_cooperation_reason" class="form-control" placeholder="دلیل قطع همکاری"/>\
+                    </div>\
+                </div>\
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
+                    <div class="form-group">\
+                        <a href="javascript: delResume('+ number +');" class="row_dl employment-delete-ham3d employment-remove btn btn-danger">\
+                            حذف\
+                        </a>\
+                    </div>\
+                </div>\
+                </div>\
+        </div>').appendTo("#place01");
+        }
+        function delResume(number) {
+            $( '#place01 #place01_0' + number).remove();
+        }
+        /********************************** resume ************************************/
+    
+    
+    
+        /*********************************** studdies ***********************************/
+        function addStuddies() {
+            var number = $('#place02 div').length;
+            $('<div  id="place02_0' + number +'">\
+             <div class="row new_row">\
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
+              <div class="form-group">\
+                <input type="text" name="studdies[' + number +'][studdies_grade]" id="studdies_grade" class="form-control" placeholder="مقطع تحصیلی"/>\
+              </div>\
+            </div>\
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
+              <div class="form-group">\
+                <input type="text" name="studdies[' + number +'][studdies_string]" id="studdies_string" class="form-control" placeholder="رشته"/>\
+              </div>\
+            </div>\
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
+              <div class="form-group">\
+                <input type="text" name="studdies[' + number +'][studdies_name_training]" id="studdies_name_training" class="form-control" placeholder="نام مرکز آموزشی"/>\
+              </div>\
+            </div>\
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
+              <div class="form-group">\
+                <input type="text" name="studdies[' + number +'][studdies_year_graduation]" id="studdies_year_graduation" class="form-control" placeholder="سال اخذ مدرک"/>\
+              </div>\
+            </div>\
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
+              <div class="form-group">\
+                <a href="javascript: delStuddies('+ number +');" class="row_dl employment-delete-ham3d employment-remove btn btn-danger">\
+                    حذف\
+                </a>\
+                </div>\
+            </div>\
+            </div>\
+        </div>').appendTo("#place02");
+        }
+        function delStuddies(number) {
+            $( '#place02 #place02_0' + number).remove();
+        }
+        /********************************** studdies ************************************/
+    
+        /*********************************** langueges ***********************************/
+        function addLanguages() {
+    //        console.log(this);
+            var number = $('#place03 div').length;
+    //            console.log(number);
+            $('<div id="place03_0' + number +'">\
+        <div class="row new_row">\
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
+               <div class="form-group">\
+                <input type="text" name="languages[' + number +'][languages_name]" id="languages_name_'+number+'" class="form-control" placeholder="عنوان زبان"/>\
+               </div>\
+            </div>\
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
+                <div class="form-group all_select">\
+                        <select name="languages[' + number +'][languages_writing]" id="languages_writing_'+number+'" class="form-control">\
+                            <option value="">سطح مهارت نگارش...</option>\
+                            {loop="loop_grade"}\
+                            <option value="{$value.key}">{$value.value}</option>\
+                            {/loop}\
+                        </select>\
+                </div>\
+            </div>\
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
+                <div class="form-group all_select">\
+                        <select name="languages[' + number +'][languages_conversation]" id="languages_conversation_'+number+'" class="form-control">\
+                            <option value="">سطح مهارت مکالمه...</option>\
+                            {loop="loop_grade"}\
+                            <option value="{$value.key}">{$value.value}</option>\
+                            {/loop}\
+                        </select>\
+                </div>\
+            </div>\
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
+                <div class="form-group all_select">\
+                        <select name="languages[' + number +'][languages_read]" id="languages_read_'+number+'" class="form-control">\
+                            <option value="">سطح مهارت خواندن...</option>\
+                            {loop="loop_grade"}\
+                            <option value="{$value.key}">{$value.value}</option>\
+                            {/loop}\
+                        </select>\
+                </div>\
+            </div>\
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
+                <div class="form-group">\
+                    <a href="javascript: delLanguages('+ number +');" class="row_dl employment-delete-ham3d employment-remove btn btn-danger">\
+                        حذف\
+                    </a>\
+                </div>\
+            </div>\
+           </div>\
+        </div>').appendTo("#place03");
+            
+        }
+        function delLanguages(number) {
+            $( '#place03 #place03_0' + number).remove();
+        }
+        /********************************** langueges ************************************/
+    </script>
+        <script type="text/javascript" src="{$site_url}js/jquery.form.min.js"></script>
+        <script type="text/javascript">
+            $(document.body).on('click', '.click-remove-pic', function () {
+                $('.upload-add-pic').find('input[id="' + $(this).data('file') + '"]').remove();
+                $(this).parent().parent().remove();
+                $.ajax({
+                    type: 'post',
+                    url: site_url + 'ajax.php?delPicUpload',
+                    data: {upload:$(this).data('file')},
+                    success: function(result) {
+                        if(result){
+                        }
+                    }
+                });
+            });
+            $(function () {
+                $('.uploadPic').click(function () {
+                    $('.uploadFile').remove();
+                    $('<div class="modal fade uploadFile" id="myLoginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">\
+                            <div class="modal-dialog modal-sm">\
+                                <div class="modal-content">\
+                                    <div class="modal-header">\
+                                        <a class="modal-close" data-dismiss="modal" aria-label="Close"></a>\
+                                        <div class="main-header main-header_upload">\
+                                            <h3 class="modal-title" style="margin-bottom:10px !important">آپلود فایل</h3>\
+                                            <p class="alarm_product">سایز فایل مورد نظر بیشتر از 10 مگ نباشد </p>\
+                                        </div>\
+                                    </div>\
+                                    <div class="modal-body">\
+                                        <div class="login_modal">\
+                                            <div class="body_login">\
+                                                <div id="result_uploadfile"></div>\
+                                                <div class="body_login_form all_form upload_form">\
+                                                    <form method="post" action="' + site_url + 'ajax.php?employment&action=upload_multiple" id="form_uploadfile" enctype="multipart/form-data">\
+                                                        <input type="hidden" name="field" id="field" value="' + $(this).find('input').attr('id') + '">\
+                                                        <div class="input-box">\
+                                                            <input type="file" name="file[]" multiple class="form_upload_inp form_upload_inp2">\
+                                                        </div>\
+                                                        <div class="remm">\
+                                                            <div class="row">\
+                                                                <div class="col-xs-12">\
+                                                                    <div class="progress progress_upload">\
+                                                                        <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="0%" aria-valuemin="0" aria-valuemax="100">\
+                                                                            <span class="progress-percent">0%</span>\
+                                                                        </div>\
+                                                                    </div>\
+                                                                </div>\
+                                                                <div class="col-xs-12">\
+                                                                    <button type="submit" class="btn btn-custom">آپلود</button>\
+                                                                </div>\
+                                                                <div class="col-xs-12">\
+                                                                    <br>\
+                                                                    <p class="alarm_product">پسوند فایل ها یکی از موارد زیر می تواند باشد (pdf,zip,rar,jpg,jpeg,png)</p>\
+                                                                </div>\
+                                                            </div>\
+                                                        </div>\
+                                                    </form>\
+                                                </div>\
+                                            </div>\
+                                        </div>\
+                                    </div>\
+                                </div>\
+                            </div>\
+                        </div>').appendTo('body');
+                    $('.uploadFile').modal('show');
+                    (function () {
+                        var bar = $('div.progress-bar');
+                        var percent = $('span.progress-percent');
+                        var status = $('div#result_uploadfile');
+                        $('form#form_uploadfile').ajaxForm({
+                            beforeSend: function () {
+                                status.empty();
+                                var percentVal = '0%';
+                                bar.attr('aria-valuenow', percentVal);
+                                bar.width(percentVal);
+                                percent.html(percentVal);
+                            },
+                            uploadProgress: function (event, position, total, percentComplete) {
+                                var percentVal = percentComplete + '%';
+                                bar.attr('aria-valuenow', percentVal);
+                                bar.width(percentVal);
+                                percent.html(percentVal);
+                            },
+                            success: function () {
+                                var percentVal = '100%';
+                                bar.attr('aria-valuenow', percentVal);
+                                bar.width(percentVal);
+                                percent.html(percentVal);
+                                setTimeout(function(){$('.uploadFile').modal('hide');},3000);
+                            },
+                            complete: function (xhr) {
+                                status.html(xhr.responseText);
+                            }
+                        });
+                    })();
+                    $('.uploadFile').on('hidden.bs.modal', function () {
+                        $(this).remove();
+                    });
+                });
+            });
+        </script>
+    
+    
+    

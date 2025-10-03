@@ -1,0 +1,32 @@
+<main id="main" role="main">
+    <div id="wrapper">
+
+
+        <div class="coverHead">
+            <div class="container-fluid" id="coverHead">
+                <div class="container">
+                    {include="module/navigation"}
+                </div>
+            </div>
+        </div>
+        <div class="newsInner container-fluid">
+            <div class="container">
+                <h1 class="newsInner__title">  {$title}</h1>
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-3 col-md-6 col-lg-6">
+        
+                        {if="@$pic"}    
+                            <img src="{$site_url}upload/{$pic}"  alt="{$title}">
+                        {/if}
+                    </div>
+                </div>
+                <div class="post">
+                    <br>
+                    {$note_more}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>

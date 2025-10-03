@@ -1,0 +1,53 @@
+{if="@$loop_representation"}
+    <ul class="list-unstyled reseller-data-box">
+        {loop="$loop_representation"}
+        <li>
+            <div class="shopSelectionItem" style="cursor: pointer">
+                <div>
+                    {$value.title}<br>
+                    {if="@$value.name"}
+                    نام مسئول : {$value.name}
+                    {/if}
+                </div>
+                <p>
+                    {if="@$value.tell"}
+                    {#tell}: <span dir="rtl">{$value.tell}</span>
+                    {/if}
+                    <br />
+                    {#address#}:
+                    {$value.address}
+                </p>
+                {*
+                <div class="title">
+                    {#routing#} :
+                </div>
+                
+                <div class="mapAppWrapper">
+                    <a href="https://www.waze.com/livemap/directions?latlng={$value.qgmap}%2C{$value.lgmap}&navigate=yes&zoom=17" class="mapApp">
+                        ویز
+                        <img src="{$template_dir}img/waze.png" alt="">
+                    </a>
+                    <a href="https://www.google.com/maps?daddr={$value.qgmap},{$value.lgmap}" class="mapApp">
+                        گوگل مپ
+                        <img src="{$template_dir}img/googlemap.png" alt="">
+                    </a>
+
+                </div>
+                *}
+                <i class="zmdi zmdi-pin {if="$value.qgmap && $value.lgmap"}data-box{/if}" data-id="{$value.id}"></i>
+                {if="$value.qgmap && $value.lgmap"}
+                <div class="text-right mb-0">
+                    <a href="javascript:void(0);" data-target=".modal-{$value.id}" data-toggle="modal" class="mapNavBtn mapNavBtn2">
+                        مسیریابی
+                        <i class="zmdi zmdi-gps-dot"></i>
+                    </a>
+                </div>
+                {/if}
+            </div>
+        </li>
+        {/loop}
+    </ul>
+
+    {else}
+    <div class="error">{#result_not_found#}</div>
+    {/if}

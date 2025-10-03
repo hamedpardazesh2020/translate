@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html class="" dir="ltr" lang="{$meta_og_locale}">
+<head>
+    {include="module/head"} 
+</head>
+
+
+<body>
+    <input name="site_lang" type="hidden" value="{$site_url}{$site_lang}">
+    <input name="site_url" type="hidden" value="{$site_url}">
+    <input name="template_dir" type="hidden" value="{$template_dir}">
+    <input name="timezone" type="hidden" value="{$timezone}">
+    <script type="text/javascript" src="{$site_url}js/base.js"></script>
+    {include="module/header"}
+    {if="$template_name"}
+    {include="$template_name"}
+    {else}
+    {include="error"}
+    {/if}
+    {include="module/footer"}
+    {include="module/modal"}
+    {include="module/mobile_menu"}
+    {include="module/footer_js"}  
+</body>
+
+</html>
+
+

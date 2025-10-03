@@ -1,0 +1,118 @@
+<main id="main" role="main">
+    <div id="wrapper">
+
+        <div class="container-fluid coverHead">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="coverHead">
+                           {include="module/navigation"}
+                            <h1>{$module_title}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- agent -->
+        <section class="container-fluid agentSec inner">
+            <div class="container">
+                <div class="sampleTab warrantyTabs" style="border-bottom: none;">
+                    <div class="tabs">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="{$site_url}{$site_lang}/representation.html&kind=1">
+                                    <div>
+                                        {#agency#}
+                                    </div>
+                                </a>
+                            </li>
+                            {*
+                            <li>
+                                <a href="{$site_url}{$site_lang}/representation.html&kind=2">
+                                    <div>
+                                        {#seller_#}
+                                    </div>
+                                </a>
+                            </li>
+                            *}
+                            <li>
+                                <a href="{$site_url}{$site_lang}/warranty">
+                                    <div>شرایط گارانتی</div>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="{$site_url}{$site_lang}/online_stores">
+                                    <div>فروشگاه های اینترنتی</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{$site_url}{$site_lang}/representative" >
+                                    <div>
+                                        سرویس کاران
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="agentSec__info">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pull-right">
+                            <div class="mapAgent">
+                                <div id="IranMap" class="clear">
+                                    {if="@$online_shop"}
+                                    <img src="{$site_url}upload/{$online_shop}" >
+                                    {else}
+                                    <img src="{$template_dir}no_image/no_image(372x372).jpg" width="370px" height="370px">
+                                    {/if}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <p>
+                                        سایت های فروش اینترنتی محصولات kwc
+                                    </p>
+                                    <br>
+                                    <br>
+                                </div>
+                            </div>
+
+                            <div class="agentList">
+                                <div id="shopSelections" class="forScroll">
+                                    {if="@$loop_online_stores"}
+                                    <ul class="list-unstyled">
+                                        {loop="loop_online_stores"}
+                                        <li>
+                                            <a {if="@$value.url"} href="{$value.url}" target="_blank" {else}href="javascript:void(0);" {/if} class="shopSelectionItem agencyOnlineOrders" style="padding-left:20px;min-height: 120px;">
+                                                <div>
+                                                    {if="@$value.title"}
+                                                   <span  class="agencyOnlineOrdersBox">
+                                                       {$value.title}
+                                                    </span>
+                                                    {/if}
+                                                </div>
+                                                <p>
+                                                    {if="@$value.tell"}
+                                                    تلفن: <span dir="rtl">{$value.tell}</span>
+                                                    <br/>
+                                                    {/if}
+                                                </p>
+                                            </a>
+                                        </li>
+                                        {/loop}                                       
+                                    </ul>
+                                    {else}
+                                    <div class="alert-danger" style="margin: 20px;padding: 20px">نتیجه ای یافت نشد</div>
+                                    {/if}
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>

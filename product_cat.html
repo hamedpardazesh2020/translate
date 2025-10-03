@@ -1,0 +1,52 @@
+<main id="main" role="main">
+    <div id="wrapper" style="background-color: #F2F2F2;">
+        <div class="coverHead">
+            <div class="container-fluid" id="coverHead">
+                <div class="container">
+                    <ul class="breadcrumb">
+                        <li><a href="{$site_url}">{#MainPage#}</a></li>
+                        <li><a href="{$cat_id|url_cat_sub}">{$title}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="poductCatPage container-fluid">
+        {if="@$loop_product_cat"}
+        <div class="container">
+            <div class="headerTitle">
+                <img src="{$template_dir}img/title-shapes.png" alt="">
+                {$title}
+            </div>
+            <div id="poductCatList">
+                <ul class="list-unstyled">
+                    {loop="$loop_product_cat"}
+                    <li>
+                        <a href="{$value.id|url_cat}" class="poductCatBox">
+                            <div class="imgHoverZoom">
+                                {if="@$value.pic1"}
+                                <img src="{$site_url}upload/thumb1/{$value.pic1}" alt="{$value.title}">
+                                {else}
+                                <img src="{$template_dir}no_image/no_image(371x246).jpg" alt="{$value.title}">
+                                {/if}
+                            </div>
+                            <div class="poductCatBox__wrapper">
+                                <div class="poductCatBox__wrapper--title">
+                                    <img src="{$template_dir}img/title-shapes2.png" alt="">
+                                    {$value.title}
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    {/loop}
+                </ul>
+                {include="module/pagination"}
+
+            </div>
+        </div>
+        {else}
+        <div class="error">{#result_not_found#}</div>
+        {/if}
+        </div>
+
+    </div>
+</main>

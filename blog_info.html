@@ -1,0 +1,378 @@
+<main id="main" role="main">
+    <div id="wrapper">
+
+
+        <div class="coverHead">
+            <div class="container-fluid" id="coverHead">
+                <div class="container">
+                    {include="module/navigation_blog"}
+                </div>
+            </div>
+        </div>
+        <div class="newsInner container-fluid">
+            <div class="container">
+                <h1 class="newsInner__title">
+                    {if="@$h1"}{$h1}{else}{$title}{/if}
+                </h1>
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-3 col-md-6 col-lg-6">
+                        <div class="singleNewsTools">
+                            <a href="javascript:void(0)" class="dateLink">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18.571"
+                                    viewBox="0 0 20 18.571">
+                                    <path id="too1"
+                                        d="M120,53.929H110v-.714a.714.714,0,1,0-1.429,0v.714h-1.429A2.143,2.143,0,0,0,105,56.071V68.929a2.144,2.144,0,0,0,2.143,2.143h15.714A2.143,2.143,0,0,0,125,68.929V56.071a2.144,2.144,0,0,0-2.143-2.143h-1.429v-.714a.714.714,0,1,0-1.429,0Zm3.571,5.714v9.286a.715.715,0,0,1-.714.714H107.143a.715.715,0,0,1-.714-.714V59.643Zm-2.143-4.286v.714a.714.714,0,1,1-1.429,0v-.714H110v.714a.714.714,0,1,1-1.429,0v-.714h-1.429a.715.715,0,0,0-.714.714v2.143h17.143V56.071a.715.715,0,0,0-.714-.714Z"
+                                        transform="translate(-105 -52.5)" fill-rule="evenodd"></path>
+                                </svg>
+
+                                {$date}
+                            </a>
+                            <a href="{$site_url}{$site_lang}/blog/{$address_seo}?print" class="printLink">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21.042"
+                                    viewBox="0 0 20 21.042">
+                                    <g transform="translate(-11.95)">
+                                        <g id="Group_1072" data-name="Group 1072" transform="translate(11.95)">
+                                            <path id="Path_7603" data-name="Path 7603"
+                                                d="M28.841,4.313H28.3v-1.2A3.114,3.114,0,0,0,25.19,0H18.662a3.114,3.114,0,0,0-3.109,3.109v1.2h-.493A3.114,3.114,0,0,0,11.95,7.423v5.015a3.114,3.114,0,0,0,3.109,3.109h.488V19.49A1.556,1.556,0,0,0,17.1,21.042h9.642A1.556,1.556,0,0,0,28.3,19.49V15.547h.545a3.114,3.114,0,0,0,3.109-3.109V7.423A3.114,3.114,0,0,0,28.841,4.313Zm-12.115-1.2a1.936,1.936,0,0,1,1.932-1.932h6.524a1.936,1.936,0,0,1,1.932,1.932v1.2H16.725ZM27.118,19.5a.378.378,0,0,1-.375.375H17.1a.378.378,0,0,1-.375-.375V13H27.118Zm3.655-7.056a1.936,1.936,0,0,1-1.932,1.932H28.3V13h.776a.589.589,0,1,0,0-1.177H14.684a.589.589,0,0,0,0,1.177h.868v1.378h-.493a1.936,1.936,0,0,1-1.932-1.932V7.427a1.936,1.936,0,0,1,1.932-1.932H28.841a1.936,1.936,0,0,1,1.932,1.932Z"
+                                                transform="translate(-11.95)"></path>
+                                            <path id="Path_7604" data-name="Path 7604"
+                                                d="M141.239,338.577h7.5a.589.589,0,0,0,0-1.177h-7.5a.589.589,0,1,0,0,1.177Z"
+                                                transform="translate(-135.037 -322.686)"></path>
+                                            <path id="Path_7605" data-name="Path 7605"
+                                                d="M149.74,392.6h-7.5a.589.589,0,1,0,0,1.177h7.5a.589.589,0,0,0,0-1.177Z"
+                                                transform="translate(-135.994 -375.478)"></path>
+                                            <path id="Path_7606" data-name="Path 7606"
+                                                d="M359.834,151.9h-1.195a.589.589,0,0,0,0,1.177h1.195a.589.589,0,1,0,0-1.177Z"
+                                                transform="translate(-342.956 -145.275)"></path>
+                                        </g>
+                                    </g>
+                                </svg>
+
+                                چاپ صفحه
+                            </a>
+                            <a href="" class="shareLink" data-toggle="modal" data-target="#shareModal">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21.216"
+                                    viewBox="0 0 20 21.216">
+                                    <g transform="translate(-13.8)">
+                                        <path id="Path_7602" data-name="Path 7602"
+                                            d="M30,13.63a3.8,3.8,0,0,0-3,1.48L21.17,11.855a3.805,3.805,0,0,0,.211-1.251,3.722,3.722,0,0,0-.216-1.256L26.989,6.1a3.789,3.789,0,1,0-.784-2.3,3.7,3.7,0,0,0,.216,1.256L20.6,8.3a3.789,3.789,0,1,0,.009,4.6l5.824,3.256A3.791,3.791,0,1,0,30,13.63ZM30,1.194a2.6,2.6,0,1,1-2.6,2.6A2.606,2.606,0,0,1,30,1.194ZM17.6,13.207a2.6,2.6,0,1,1,2.6-2.6A2.606,2.606,0,0,1,17.6,13.207ZM30,20.022a2.6,2.6,0,1,1,2.6-2.6A2.606,2.606,0,0,1,30,20.022Z">
+                                        </path>
+                                    </g>
+                                </svg>
+
+                                اشتراک گذاری
+                            </a>
+                        </div>
+                        <div class="newsInner__image">
+                            {if="@$pic"}
+                            <img src="{$site_url}upload/thumb1/{$pic}" {if="@$alt_pic"}alt="{$alt_pic}"{else}alt="{$title}"{/if}>
+                            {else}
+                            <img src="{$template_dir}no_image/no_image(568x462).jpg" {if="@$alt_pic"}alt="{$alt_pic}"{else}alt="{$title}"{/if}>
+                            {/if}
+                        </div>
+                    </div>
+                </div>
+                <div class="post">
+                    {$note_more}
+                </div>
+            </div>
+            {if="@$loop_tags"}
+            <div class="singleNewsKeywords">
+                <strong>{#keywords#}</strong>
+                {loop="loop_tags"}
+                <span>
+                    <a href="{$site_url}{$site_lang}/blog?keyword={$value}">{$value}</a>
+                </span>
+                {/loop}
+            </div>
+            {/if}
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="container">
+                <div class="comments">
+                    <div class="commentsTop">
+                        <div class="commentsTop__header">
+                            <div class="headerTitle">
+                                نظرات کاربران
+                            </div>
+                            <a href="" class="btn" data-toggle="modal" data-target="#commentModal">
+                                {#add_comments#}
+                            </a>
+                        </div>
+                        <div class="commentsTop__info">
+                            <p>
+                                شما هم می توانید در مورد این محصول نظر بدهید
+                            </p>
+                            {if="@$avg_rate_star"}
+                            <div>
+                                <div class="rateBox">
+                                    <p>امتیاز کاربران به این محصول</p>
+                                    <div class="product_star" data-score="{$avg_rate_star}" style="display: inline-block;direction: ltr;"></div>
+                                    <b>{#from#} {$alluser_rate_star} {#vote#} ({$avg_rate_star})</b>
+                                </div>
+                            </div>
+                            {/if}
+                        </div>
+                    </div>
+
+                    <div id="comments" class="result-comments"></div>
+                </div>
+
+            </div>
+        </div>
+
+        {if="@$loop_blog_linked"}
+        <div class="generalSliderWrapper container-fluid">
+            <div class="container">
+                <div class="headerTitle text-center">
+                    اخبار مرتبط
+                </div>
+                <div class="generalSlider" dir="ltr">
+                    {loop="$loop_blog_linked"}
+                    <div class="slick-slide">
+                        <div class="newsBox">
+                            <a href="{$value.id|url_blog}" class="newsBox__image imgHoverZoom">
+                                {if="@$value.pic"}
+                                <img src="{$site_url}upload/thumb1/{$value.pic}" alt="{$value.title}">
+                                {else}
+                                <img src="{$template_dir}no_image/no_image(568x462).jpg" alt="{$value.title}">
+                                {/if}
+                            </a>
+                            <div class="newsBox__desc">
+                                <a href="{$value.id|url_blog}" class="newsBox__desc--title">
+                                  {$value.title}
+                                </a>
+                                <div class="newsBox__desc--item">
+                                    <div>
+                                        <a href="{$value.cat_id|url_blog_cat}" class="cat">{$value.cat_title}</a>
+                                        <div class="date">
+                                           {$value.date}
+                                        </div>
+                                    </div>
+                                    <a href="{$value.id|url_blog}" class="link">
+                                        ادامه مطلب
+                                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M10.625 2.88068L9.61932 1.875L3.99434 7.5L9.61932 13.125L10.625 12.1193L6.00571 7.5L10.625 2.88068Z"
+                                                fill="black"></path>
+                                        </svg>
+
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {/loop}
+                </div>
+            </div>
+        </div>
+        {/if}
+
+    </div>
+</main>
+
+
+
+<div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <strong class="modal-title">{#send_comment#}</strong>
+                <div class="comment_modal__main">
+                    <form action="{$site_url}ajax.php?comments" noscroll="yes">
+                        <input name="itemid" id="itemid" type="hidden" value="{$id}"/>
+                        <input name="cat" id="cat" type="hidden" value="blog"/>
+                        {if="@$islogin"}
+                        <input type="hidden" name="userid" value="{$this_user_id}"/>
+                        {/if}
+                        <div class="row">
+                                <div class="your__comment__in__modal" style="margin-top:10px;padding-bottom: 0px;">
+                                    <b>{#your_point#}:</b>
+                                    <div class="img_cnt">
+                                        <div class="big_stars" attr_id="{$id}" rate_kind="1" module="blog" style="display: flex;"></div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="inp1">{#fullname#}</label>
+                                        <input type="text" name="title" class="form-control" error="{#fullname#}..." placeholder="{#fullname#}" id="title" value='{if="@$islogin"}{$this_user_name} {$this_user_lastname}{/if}'>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="inp2">{#email#}</label>
+                                        <input type="text" name="email" id="email" check="email" check_error="{#email_wrong#}!" error="{#email#}..." value='{if="@$islogin"}{$this_user_email}{/if}' class="form-control" placeholder="{#email#}">
+                                    </div>
+                                </div>	
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label for="inp3">{#comment#}</label>
+                                        <textarea name="note" error="{#your_point_of_view#}..." class="form-control" placeholder="{#your_point_of_view#}"></textarea>
+                                    </div>
+                                </div>						
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <div class="sec_code">
+                                            {if="GOOLG_RECAPTCHA_STATUS"}
+                                            <div class="g-recaptcha form-field" data-sitekey="{#GOOLG_RECAPTCHA_SITE_KEY#}"></div>
+                                            {/if}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    <button type="submit" class="btn pull-right">ارسال نظر</button>
+                    </form>
+                </div>
+                <a aria-label="Close" data-dismiss="modal" class="modal-close"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    $(document).ready(function () {
+        function loadData(page) {
+            $.ajax({
+                type: "POST",
+                url: site_lang + '/comments.html&page=' + page + '&ajax=ok',
+                data: {'itemid': '{$id}', 'module': '{$module_name}'},
+                success: function (msg) {
+                    $(".result-comments").html(msg);
+                }
+            });
+        }
+        loadData(1);
+        $(document.body).on('click', '.pagination li a', function () {
+            var page = $(this).attr('p');
+            loadData(page);
+        });
+    });
+</script>
+
+
+
+<script>
+    $(function() {  
+        $.fn.raty.defaults.path = '{$template_dir}images';
+
+        $('.big_stars').raty({
+            space:false,
+            starOff: 'star-big-off.png',
+            starOn: 'star-big-on.png',
+            noRatedMsg: '! بدون امتیاز',
+            hints: ['بد', 'ضعیف', 'عادی', 'خوب', 'عالی'],
+            score: function() {
+                return $(this).attr('data-score');
+            },
+            click: function(score, evt) {
+     
+                elm = this;
+
+                module = $(elm).attr("module");
+                if (typeof module == 'blog')
+                module = 'blog';
+                $.ajax({
+                    type: 'POST',
+                    url: site_url + 'ajax.php?rating&ajax=ok',
+                    data: {
+                        'id': $(elm).attr("attr_id"),
+                        'rate': score,
+                        'module': module,
+                        'rate_kind': $(elm).attr("rate_kind")
+                    },
+                    dataType: 'json',
+                    success: function( data ) {
+                        if ( $.isEmptyObject( data ) ) {
+                            $(".basket-modal").modal('show');
+                            $('.basket-modal').find('.modal-title').html('امتیاز دادن');
+                            $('.basket-modal').find('p').html('امتیاز داده شد.');
+                            $('.basket-modal').find('a.shopping').css({display: 'none', width: '120px'});
+                            $('.basket-modal').find('a.checkout').css({display: 'none', width: '120px'});
+                        } else if ( data.error == 'no' ) {
+                            $(".basket-modal").modal('show');
+                            $('.basket-modal').find('.modal-title').html('امتیاز دادن');
+                            $('.basket-modal').find('p').html('شما قبلا امتیاز داده اید!');
+                            $('.basket-modal').find('a.shopping').css({display: 'none', width: '120px'});
+                            $('.basket-modal').find('a.checkout').css({display: 'none', width: '120px'});
+                        } else if ( data.user == 'no' ) {
+                            $(".basket-modal").modal('hide');
+                            $(".loginModal").modal('show');
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+
+<div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-body">
+                <a aria-label="Close" data-dismiss="modal" class="modal-close"></a>
+                <strong class="modal-title">{#share#}</strong>
+                <div class="share_modal__main">
+                    <div class="share_modal__content">
+                        <div class="share_modal__content__title">{#sharing_on_social_networks#}</div>
+                        <div class="share_modal__content__row">
+                            <div class="social__network">
+                                <ul class="btn-group-share list-unstyled">
+
+                                    <li><a href="http://twitter.com/share?text={$title}&url={$id|url_blog}" rel="nofollow" class="btn__share" target="_blank"><img src="{$template_dir}assets/images/share/twitter.png" alt=""></a></li>
+                                    <li><a href="https://telegram.me/share/url?url={$id|url_blog}"   rel="nofollow" class="btn__share" target="_blank"><img src="{$template_dir}assets/images/share/telegram.png" alt=""></a></li>
+                                    <!--<li><a href="" rel="nofollow" class="btn__share" target="_blank"><img src="{$template_dir}assets/images/share/instagram.png" alt=""></a></li>-->
+                                    <!--<li><a href="" rel="nofollow" class="btn__share " target="_blank"><img src="{$template_dir}assets/images/share/aparat.png" alt=""></a></li>-->
+                                    <li><a href="https://www.facebook.com/sharer.php?u={$id|url_blog}" rel="nofollow" class="btn__share " target="_blank"><img src="{$template_dir}assets/images/share/facebook.png" alt=""></a></li>
+                                    <!--<li><a href="" rel="nofollow" class="btn__share " target="_blank"><img src="{$template_dir}assets/images/share/youtube.png" alt=""></a></li>-->
+                                    <li><a rel="nofollow" class="btn__share" href="whatsapp://send?text={$title|encodeURIComponent}-{function="encodeURIComponent(url_blog($id))"}" data-action="share/whatsapp/share" target="_blank" title="+whatsapp"><svg width="40px" height="40px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="whatsappSvgIcon" x="0px" y="0px" viewBox="0 0 418.135 418.135" style="enable-background:new 0 0 418.135 418.135;vertical-align: middle;" xml:space="preserve"><g><path style="fill:#7AD06D;" d="M198.929,0.242C88.5,5.5,1.356,97.466,1.691,208.02c0.102,33.672,8.231,65.454,22.571,93.536   L2.245,408.429c-1.191,5.781,4.023,10.843,9.766,9.483l104.723-24.811c26.905,13.402,57.125,21.143,89.108,21.631   c112.869,1.724,206.982-87.897,210.5-200.724C420.113,93.065,320.295-5.538,198.929,0.242z M323.886,322.197   c-30.669,30.669-71.446,47.559-114.818,47.559c-25.396,0-49.71-5.698-72.269-16.935l-14.584-7.265l-64.206,15.212l13.515-65.607   l-7.185-14.07c-11.711-22.935-17.649-47.736-17.649-73.713c0-43.373,16.89-84.149,47.559-114.819   c30.395-30.395,71.837-47.56,114.822-47.56C252.443,45,293.218,61.89,323.887,92.558c30.669,30.669,47.559,71.445,47.56,114.817   C371.446,250.361,354.281,291.803,323.886,322.197z"/><path style="fill:#7AD06D;" d="M309.712,252.351l-40.169-11.534c-5.281-1.516-10.968-0.018-14.816,3.903l-9.823,10.008   c-4.142,4.22-10.427,5.576-15.909,3.358c-19.002-7.69-58.974-43.23-69.182-61.007c-2.945-5.128-2.458-11.539,1.158-16.218   l8.576-11.095c3.36-4.347,4.069-10.185,1.847-15.21l-16.9-38.223c-4.048-9.155-15.747-11.82-23.39-5.356   c-11.211,9.482-24.513,23.891-26.13,39.854c-2.851,28.144,9.219,63.622,54.862,106.222c52.73,49.215,94.956,55.717,122.449,49.057   c15.594-3.777,28.056-18.919,35.921-31.317C323.568,266.34,319.334,255.114,309.712,252.351z"/></svg></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="share_modal__content__title">{#send_to_email#}</div>
+                        <form action="{$site_url}ajax.php?send_friend" noscroll="yes">
+                         <input type="hidden" name="newsid" id="newsid" value="{$id}" />
+                        <div class="share_modal__content__row share_modal__content__row--input">
+                            <div class="share_modal__content__col">
+                                <div class="form-group">
+                                     <input type="text" name="email" id="email" check="email" check_error="{#email_wrong#}!" error="{#your_friends_email#} ..." class="form-control" placeholder="{#your_friends_email#} : yourfriend@mail.com" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="share_modal__content__row share_modal__content__row--input">
+                            <div class="share_modal__content__col" style="position: relative;">
+                                <div class="form-group">
+                                     <input type="text" name="cap" error="{#security_code#}..." check="cap" check_error="{#it_is_not_correct#}." maxlength="5" class="form-control input-capcha">
+                                </div>
+                                <a style="position: absolute;right: 15px;top: 5px;" href="javascript:void(0);" id="cap_code_send_friend" class="form-group__sec_code__picture" onclick="$(this).find('img').attr('src', '{$site_url}cap.php?t=' + Math.random());return false;">
+                                    <img src="{$site_url}cap.php">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="share_modal__content__row share_modal__content__row--submit">
+                            <div class="share_modal__content__col">
+                                <button type="submit" class="btn">{#send#}</button>
+                            </div>
+                        </div>
+                        <div class="share_modal-url">
+                            <div class="share_modal__content__title">{#page_address#}</div>
+                            <div class="share_modal__content__row share_modal__content__row--url">
+                                <div class="share_modal__content__col" style="direction: rtl;">
+                                    <input class="share_modal__content__field form-control" type="url" value="{$id|url_blog}" readonly="">
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+             
+            </div>
+        </div>
+    </div>
+</div>

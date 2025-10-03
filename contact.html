@@ -1,0 +1,244 @@
+<main id="main" role="main">
+    <div id="wrapper">
+
+
+        <div class="container-fluid coverHead2">
+            <picture>
+                {if="@$module_pic_mobile"}
+                <source media="(max-width: 767px)" srcset="{$site_url}upload/{$module_pic_mobile}">
+                {else}
+                {if="@$module_pic"}
+                <source media="(max-width: 767px)" srcset="{$site_url}upload/{$module_pic}">
+                {else}
+                <source media="(max-width: 767px)" srcset="{$template_dir}img/breadMobile.jpg">
+                {/if}
+                {/if}
+                {if="@$module_pic"}
+                <img src="{$site_url}upload/{$module_pic}" alt="{$module_title}" class="coverHeadPicture">
+                {else}
+                <img src="{$template_dir}img/header1.jpg" alt="{$module_title}" class="coverHeadPicture">
+                {/if}
+            </picture>
+            <div class="container coverHead2__container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="coverHead2" class="coverHeadInner">
+                            {include="module/navigation"}
+                            <h1>{$module_title}</h1>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contactPage container-fluid">
+            <div class="container">
+                <div class="row" style="display: flex;align-items: stretch;flex-wrap: wrap;">
+
+                    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+                        <div class="contactPage__info">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <div class="contactPage__info--title">
+                                        {#tell#} 
+                                    </div>
+                                    <p>
+                                        <a href="tel:{$contact_tell_center}" class="strClear">{$contact_tell_center}</a>
+                                    </p>
+                                </li>
+                                {if="@$contact_tell_center_two"}
+                                <li>
+                                    <div class="contactPage__info--title">
+                                        فکس 
+                                    </div>
+                                    <p>
+                                        <a href="tel:{$contact_tell_center_two}" class="strClear">{$contact_tell_center_two}</a>
+                                    </p>
+                                </li>
+                                {/if}
+                                {if="@$contact_tell_center_three"}
+                                <li>
+                                    <div class="contactPage__info--title">
+                                        خدمات پس از فروش
+                                    </div>
+                                    <p>
+                                        <a href="tel:{$contact_tell_center_three}" class="strClear">{$contact_tell_center_three}</a>
+                                    </p>
+                                </li>
+                                {/if}
+                                {if="@$contact_email_center"}
+                                <li>
+                                    <div class="contactPage__info--title">
+                                        {#email#} 
+                                    </div>
+                                    <p>
+                                        <a href="mailto:{$contact_email_center}">{$contact_email_center}</a>
+                                    </p>
+                                </li>
+                                {/if}
+                                {if="@$contact_address_center"}
+                                <li>
+                                    <div class="contactPage__info--title">
+                                        آدرس
+                                    </div>
+                                    <p>
+                                        {$contact_address_center}
+                                    </p>
+                                </li>
+                                {/if}
+                                {if="@$contact_postal_code"}
+                                <li>
+                                    <div class="contactPage__info--title">
+                                        کد پستی 
+                                    </div>
+                                    <p>
+                                        {$contact_postal_code}
+                                    </p>
+                                </li>
+                                {/if}
+                            </ul>
+                            <div class="text-center">
+                                <a href="#mapNavigateModal" data-toggle="modal" class="btn">مسیریابی روی نقشه</a>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+                        <div class="contactForm">
+                            <div class="contactForm__desc">
+                                <h3>تماس با ما</h3>
+                                <p>
+                                    کاربران گرامی، شما می توانید از طریق فرم زیر تمامی نقطه نظرات انتقادات و پیشنهادات
+                                    خود را برای ما ارسال کنید
+                                </p>
+                            </div>
+                            <form action="{$site_url}ajax.php?contact&action=new" noscroll="yes" class="contactForm__form">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <div class="form-group">
+                                            <input type="text" name="name"  id="cf1" error="{#nameAndLastName#}..." class="form-control"  placeholder="{#nameAndLastName#}" />
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="email" placeholder="{#email#}">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-group">
+                                            <select name="catid" id="catid" class="form-control noSearch">
+                                                <option value="0">{#Relevant_unit#}</option>
+                                                {loop="$loop_message_cat"}
+                                                <option value="{$value.id}">{$value.title}</option>
+                                                {/loop}
+                                            </select>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-group">
+                                            <input type="text"  id="cf3" name="mobile" error="{#please_enter_your_phone_number#}" check="tell" check_error="{#enter_the_correct_phone_number#}" placeholder="{#phone_number#}" class="form-control"  />
+                                        </div>
+                                    </li>
+                                    <li class="w100">
+                                        <div class="form-group">
+                                            <textarea name="note" error="{#your_message#}..."   id="cf4" class="form-control" placeholder="{#message_text#}"></textarea> 
+                                        </div>
+                                    </li>
+                                    <li class="w100">
+                                        <div class="sec__code">
+                                            {if="GOOLG_RECAPTCHA_STATUS"}
+                                                <div class="g-recaptcha form-field" data-sitekey="{#GOOLG_RECAPTCHA_SITE_KEY#}"></div>
+                                            {/if}
+                                        </div>
+                                        <button type="submit" class="btn">ارسال</button>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="contactMapWrap posr">
+            <div id="google__map" class="map google_map_0"></div>
+            <button type="button" data-target="#mapNavigateModal" data-toggle="modal" class="mapNavBtn">
+                مسیریابی
+                <i class="zmdi zmdi-gps-dot"></i>
+            </button>
+        </div>
+
+    </div>
+</main>
+
+<script>
+    $(document).ready(function () {
+        setTimeout(function() {
+            initialize(0,'google_map_0','{$lgmap}','{$qgmap}','{$tgmap} - {$cgmap}',{$zgmap});
+        }, 1000);
+    });
+</script>
+
+<div class="modal fade" id="mapNavigateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                <strong class="modal-title">آدرس</strong>
+                <div class="locations-panel-item">
+                    {if="@$contact_address_center"}
+                    <p>{$contact_address_center}</p>
+                    {/if}
+                    <div class="phones">
+                        <div class="row">
+                            <div class="col-xs-6 col-md-6">
+                                {if="@$contact_tell_center"}
+                                <a href="tel:{$contact_tell_center}" class="phones__items btn strClear">
+                                    <span>{$contact_tell_center}</span>
+                                    <img src="{$template_dir}img/phone.png" alt="">
+                                </a>
+                                {/if}
+                            </div>
+                            <div class="col-xs-6 col-md-6">
+                                {if="@$contact_tell_center_two"}
+                                <a href="tel:{$contact_tell_center_two}" class="phones__items btn strClear">
+                                    <span>{$contact_tell_center_two}</span>
+                                    <img src="{$template_dir}img/phone.png" alt="">
+                                </a>
+                                {/if}
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="list-unstyled rowGrid mapNavBtnList">
+                        <li class="colGrid2">
+                            <a href="https://www.waze.com/ul?ll={$qgmap},{$lgmap}&navigate=yes&zoom=17" class="btn" target="_blank" rel="nofollow">
+                                <span>waze</span>
+                                <img src="{$template_dir}img/waze.png">
+                            </a>
+                        </li>
+                        <li class="colGrid2">
+                            <a href="https://www.google.com/maps?daddr={$qgmap},{$lgmap}" class="btn" target="_blank" rel="nofollow">
+                                <span>google maps</span>
+                                <img src="{$template_dir}img/google_maps.png">
+                            </a>
+                        </li>
+                        <li class="colGrid2">
+                            <a href="https://balad.ir/directions/driving?destination={$qgmap},{$lgmap}" class="btn" target="_blank" rel="nofollow">
+                                <span>balad</span>
+                                <img src="{$template_dir}img/balad.png">
+                            </a>
+                        </li>
+                        <li class="colGrid2">
+                            <a href="https://nshn.ir/?lat={$qgmap}&lng={$lgmap}" class="btn" target="_blank" rel="nofollow">
+                                <span>neshan</span>
+                                <img src="{$template_dir}img/neshan.png">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <a aria-label="Close" data-dismiss="modal" class="modal-close"></a>
+    </div>
+</div>

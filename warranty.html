@@ -1,0 +1,74 @@
+<main id="main" role="main">
+    <div id="wrapper">
+
+        <div class="container-fluid coverHead">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="coverHead">
+                           {include="module/navigation"}
+                            <h1>{$module_title}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- agent -->
+        <section class="container-fluid agentSec inner">
+            <div class="container">
+                <div class="sampleTab warrantyTabs" style="border-bottom: none;">
+                    <div class="tabs">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="{$site_url}{$site_lang}/representation.html&kind=1">
+                                    <div>
+                                        {#agency#}
+                                    </div>
+                                </a>
+                            </li>
+                            {*
+                            <li>
+                                <a href="{$site_url}{$site_lang}/representation.html&kind=2">
+                                    <div>
+                                        {#seller_#}
+                                    </div>
+                                </a>
+                            </li>
+                            *}
+                            <li class="active">
+                                <a href="{$site_url}{$site_lang}/warranty">
+                                    <div>شرایط گارانتی</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{$site_url}{$site_lang}/online_stores">
+                                    <div>فروشگاه های اینترنتی</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{$site_url}{$site_lang}/representative" >
+                                    <div>
+                                        سرویس کاران
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="agentSec__info">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="post">
+                                {if="@$pages_warranty_title"}
+                                {$pages_warranty_note}
+                                {else}
+                                <div class="error">در صفحات پنل مدیریت صفحه ای با عنوان "warranty" ایجاد کنید</div>
+                                {/if}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>

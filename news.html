@@ -1,0 +1,260 @@
+<main id="main" role="main">
+    <div id="wrapper">
+        <div class="container-fluid coverHead">
+            <div class="container">
+                <div id="coverHead">
+                    {include="module/navigation_news"}
+                </div>
+            </div>
+        </div>
+        {if="@$loop_news_hits"}
+        <div class="blogListPage">
+            <div class="container-fluid blogTabSec" data-aos="fade-up" data-aos-delay="300">
+                <div class="container">
+                    <div class="row tab_slider1 blogTabSec__slider hidden-xs hidden-sm">
+                        <div class="col-xs-12 col-sm-12 col-md-6 p-0">
+
+                            <div class="slides_tabs blogTab">
+                                <div class="headerTitle"> {if="@$cat_title"}{if="@$cat_h1"}{$cat_h1}{else}{$cat_title}{/if}{else}{$module_title}{/if}</div>
+                                {loop="$loop_news_hits"}
+                                <div class="blogTabTitle tab_slider_item">
+                                    <div class="blogTabTitle__title">
+                                     {$value.title}
+                                    </div>
+                                    <div class="blogTabTitle__info">
+                                        <div>
+                                            <a href="{$value.cat_id|url_news_cat}" class="cat">{$value.cat_title}</a>
+                                            <span class="date">{$value.date}</span>
+                                        </div>
+                                        <a href="{$value.id|url_news}" class="blogTabTitle__info--btn">
+                                            ادامه مطلب
+                                            <svg width="15" height="15" viewBox="0 0 15 15"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M10.625 2.88068L9.61932 1.875L3.99434 7.5L9.61932 13.125L10.625 12.1193L6.00571 7.5L10.625 2.88068Z" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                {/loop}
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 p-0">
+                            <div class="slides">
+                                {loop="$loop_news_hits"}
+                                <div class="tab_slider_slides_item">
+                                    <a href="{$value.id|url_news}" class="blogTabInfo">
+                                        {if="@$value.pic"}
+                                        <img src="{$site_url}upload/thumb1/{$value.pic}" alt="{$value.alt_pic}">
+                                        {else}
+                                        <img src="{$template_dir}no_image/no_image(568x462).jpg" alt="{$value.alt_pic}">
+                                        {/if}
+                                    </a>
+                                </div>
+                                {/loop}
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="newsSliderWrapper visible-xs visible-sm">
+                        <div class="">
+                            <div class="headerTitle">بلاگ پرایم</div>
+                            <div class="newsSlider" dir="ltr">
+                                {loop="$loop_news_hits"}
+                                <div class="slick-slide">
+                                    <div class="newsBox">
+                                        <a href="{$value.id|url_news}" class="newsBox__image imgHoverZoom">
+                                            {if="@$value.pic"}
+                                            <img src="{$site_url}upload/thumb1/{$value.pic}" alt="{$value.alt_pic}">
+                                            {else}
+                                            <img src="{$template_dir}no_image/no_image(568x462).jpg" alt="{$value.alt_pic}">
+                                            {/if}
+                                        </a>
+                                        <div class="newsBox__desc">
+                                            <a href="{$value.id|url_news}" class="newsBox__desc--title">
+                                              {$value.title}
+                                            </a>
+                                            <div class="newsBox__desc--item">
+                                                <div>
+                                                    <a href="{$value.cat_id|url_news_cat}" class="cat">{$value.cat_title}</a>
+                                                    <div class="date">
+                                                       {$value.date}
+                                                    </div>
+                                                </div>
+                                                <a href="{$value.id|url_news}" class="link">
+                                                    ادامه مطلب
+                                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M10.625 2.88068L9.61932 1.875L3.99434 7.5L9.61932 13.125L10.625 12.1193L6.00571 7.5L10.625 2.88068Z"
+                                                            fill="black"></path>
+                                                    </svg>
+
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/loop}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        {/if}
+        <div class="newsPage container-fluid">
+            <div class="container">
+                <div id="newsList">
+                    <div class="row">
+                        <form id="searchnews" class="not_ajax">
+                            <div class="col-xs-12 col-sm-6">
+                                <select name="catid" id="" class="form-control noSearch catid">
+                                    <option value="">{#choose_category#}</option>
+                                    {if="isset($loop_news_cat) && !empty($loop_news_cat)"}
+                                    {loop="loop_news_cat"}
+                                        <option value="{$value.id}" data-url_seo="{$value.address_seo}" {if="@$cat_id == $value.id"} selected {/if}>{$value.title}</option>
+                                    {/loop}
+                                    {/if}
+                                </select>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="newsPage__search">
+                                    <div class="searchBox ">
+                                        <input type="text" name="keyword" id="searchnews" {if="isset($get_keyword)"}value="{$get_keyword|clean}" {/if} class="searchBox__inp"
+                                            placeholder="جستجو در اخبار ">
+                                        <button type="submit" class="searchBox__btn"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    {if="@$loop_news"}
+                    <ul class="list-unstyled">
+                        {loop="$loop_news"}
+                        <li>
+                            <div class="newsBox">
+                                <a href="{$value.id|url_news}" class="newsBox__image imgHoverZoom">
+                                    {if="@$value.pic"}
+                                    <img src="{$site_url}upload/thumb2/{$value.pic}" alt="{$value.alt_pic}">
+                                    {else}
+                                    <img src="{$template_dir}no_image/no_image(372x304).jpg" alt="{$value.alt_pic}">
+                                    {/if}
+                                </a>
+                                <div class="newsBox__desc">
+                                    <a href="{$value.id|url_news}" class="newsBox__desc--title">{$value.title}</a>
+                                    <div class="newsBox__desc--item">
+                                        <div>
+                                            <a href="{$value.cat_id|url_news_cat}" class="cat">{$value.cat_title}</a>
+                                            <div class="date">
+                                                <img src="{$template_dir}img/date.svg" alt="">
+                                               {$value.validity_date}
+                                            </div>
+                                        </div>
+                                        <a href="{$value.id|url_news}" class="link">
+                                            ادامه مطلب
+                                            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M10.625 2.88068L9.61932 1.875L3.99434 7.5L9.61932 13.125L10.625 12.1193L6.00571 7.5L10.625 2.88068Z"
+                                                    fill="black" />
+                                            </svg>
+
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {/loop}
+
+                    </ul>
+                    {else}
+                    <div class="error">نتیجه ای یافت نشد</div>
+                    {/if}
+                </div>
+                {if="@$loop_news"}
+                {if="@$page_t"}
+                {loop="$page_t"}
+                {if="$value.number_page>'1'"} 
+                <div class="paginationContainer">
+                    <ul class="pagination list-unstyled">
+                        <li>
+                            {if="@$catid"}
+                            <a href="{$catid|url_news_cat}?page={$value.last_page}{$link_search}">
+                            {else}
+                            <a href="{$site_url}{$site_lang}/news?page={$value.last_page}{$link_search}">
+                            {/if}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12.5" viewBox="0 0 7 12.5">
+                                <path
+                                    d="M6.25,7a.721.721,0,0,1-.512-.212L.212,1.241A.725.725,0,0,1,1.236.213L6.25,5.246,11.264.213a.725.725,0,0,1,1.024,1.028L6.762,6.788A.72.72,0,0,1,6.25,7Z"
+                                    transform="translate(0 12.5) rotate(-90)"></path>
+                            </svg>
+                            </a>
+                        </li>
+                        {$i=0}
+                        {loop="$page"}
+                        {$class=""}
+                        {if="$value.class == 'page' || ( !isset($get_page) && $i == 0 )"}
+                        {$class="active"}
+                        {/if}
+                        <li class="{$class}">
+                            {if="@$catid"}
+                            <a href="{$catid|url_news_cat}?page={$value2.page}{$link_search}"><b>{$value.title}</b></a>
+                            {else}
+                            <a href="{$site_url}{$site_lang}/news?page={$value2.page}{$link_search}"><b>{$value.title}</b></a>
+                            {/if}
+                        </li>
+                        {$i=$i+1}
+                        {/loop}
+                        <li>
+                            {if="@$catid"}
+                            <a href="{$catid|url_news_cat}?page={$value.next_page}{$link_search}">
+                            {else}
+                            <a href="{$site_url}{$site_lang}/news?page={$value.next_page}{$link_search}">
+                            {/if}
+                                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12.5" viewBox="0 0 7 12.5">
+                                    <path
+                                        d="M6.25,0a.721.721,0,0,0-.512.212L.212,5.759A.725.725,0,0,0,1.236,6.787L6.25,1.754l5.014,5.033a.725.725,0,0,0,1.024-1.028L6.762.212A.72.72,0,0,0,6.25,0Z"
+                                        transform="translate(0 12.5) rotate(-90)"></path>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                {/if}
+                {/loop}
+                {/if}
+                {/if}
+            </div>
+        </div>
+
+    </div>
+</main>
+<script>
+    $(".catid").change(function () {
+        var catid = $(this).find('option:selected').data('url_seo');
+        if(catid !== undefined){
+            window.location = '{$site_url}{$site_lang}/news-cat/' + catid;
+        }
+        else{
+            window.location = '{$site_url}{$site_lang}/news';
+
+        }
+    });
+</script>
+{if="@$cat_id"}
+<script>
+    $(".catid").val("{$cat_id}");
+</script>
+{/if}
+<script>
+    $("#searchnews").on('submit', function () {
+        var search = $(':input[name="keyword"]').val();
+        var _catid = $('select.catid').val();
+        window.location.href = '{$site_url}{$site_lang}/news?keyword=' + search+"&catid="+_catid;
+        return false;
+    });
+</script>

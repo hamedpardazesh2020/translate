@@ -1,0 +1,120 @@
+<main id="main" role="main">
+        <div id="wrapper">
+            <div class="coverHead">
+                <div class="container-fluid" id="coverHead">
+                    <div class="container">
+                        <ul class="breadcrumb">
+                            {include="module/navigation"}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="newsInner container-fluid">
+                <div class="container">
+                    <h1 class="newsInner__title">
+                        {$module_title}
+                    </h1>
+                    {if="@$pages_orderagency_title"}
+                    <div class="post newsInner__text">{$pages_orderagency_note}</div>
+                    {else}
+                    <br>
+                    <br>
+                    {/if}
+                    <div class="">
+                        <form action="{$site_url}ajax.php?orderagency&action=new" noscroll="yes" id="employment">
+                            <h2> اطلاعات فروشگاه </h2>
+                            <br>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <input type="text" name="store_name"  id="store_name" error="نام فروشگاه..."  class="form-control"   placeholder="نام فروشگاه(اجباری)" />
+                                </div>
+                            </div>
+    
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <input type="text" name="manager_name"  id="manager_name" error="نام و نام خانوادگی مدیریت فروشگاه..."  class="form-control"   placeholder="نام و نام خانوادگی مدیریت فروشگاه (اجباری)" />
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <select name="ostan" id="ostan" class="form-control"data-placeholder="استان(اجباری)">
+                                        <option value="">استان</option>
+                                        {loop="loop_ostan"}
+                                        <option value="{$value.id}">{$value.title}</option>
+                                        {/loop}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <select name="city" id="city"data-placeholder="شهر(اجباری)" class="form-control">
+                                        <option value="">شهر</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <textarea name="address" error="نشانی..."   id="address" class="form-control" placeholder="نشانی (اجباری)"></textarea> 
+                                </div>
+                            </div>
+                            <h2>اطلاعات تماس </h2>
+                            <br>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <input type="text" name="tell"  id="tell" class="form-control" placeholder="تلفن" />
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <input type="text" name="mobile"  id="mobile" error="تلفن همراه..."  class="form-control"   placeholder="تلفن همراه (اجباری)" />
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12">
+                                <div class="form-group">
+                                    <input type="text" name="fax"  id="fax" class="form-control" placeholder="فکس" />
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <textarea name="note" id="note" class="form-control" placeholder="توضیحات"></textarea> 
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <div class="secCode">
+                                        {if="GOOLG_RECAPTCHA_STATUS"}
+                                        <div class="g-recaptcha form-field" data-sitekey="{#GOOLG_RECAPTCHA_SITE_KEY#}">
+                                        </div>
+                                        {/if}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <button type="submit" class="btn pull-right">
+                                    ارسال
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+<script>
+        $("#ostan").change(function() {
+            $.ajax({
+                type : 'post',
+                url : '{$site_url}ajax.php?city_ajax',
+                dataType : 'json', 
+                data : {'ostan' : $(this).val()},
+                success : function(data) {
+                    html = '';
+                    for(x in data.id) {
+                        html += '<option value="'+data.id[x]+'">'+data.title[x]+'</option>';
+                    }
+                    $("#city").html('<option value="">انتخاب کنید</option>'+html);
+                }
+            });
+            return false;
+        });
+</script>

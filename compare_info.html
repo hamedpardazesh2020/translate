@@ -1,0 +1,331 @@
+<main id="main" role="main">
+    <div id="wrapper">
+        <div class="coverHead">
+            <div class="container-fluid" id="coverHead">
+                <div class="container">
+                    {include="module/navigation"}
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="container">
+                <div class="m_table_scroll_alert">
+                    <div class="scroll_alert">
+                        <span class="icon_hand"></span>
+                        <span class="alert_text">برای مشاهده بیشتر به راست بکشید.</span>
+                    </div>
+                </div>
+                {include="module/compare"}
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+</main>
+
+
+
+
+<div class="modal fade" id="compareModal20" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <a href="#compareModal" data-dismiss="modal" class="closeSearchModal">
+        بستن
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+            <g transform="translate(-182.615 -110.615)">
+                <rect width="1.088" height="27.196" transform="translate(182.615 111.384) rotate(-45)" fill="#fff" />
+                <rect width="1.088" height="27.196" transform="translate(201.846 110.615) rotate(45)" fill="#fff" />
+            </g>
+        </svg>
+    </a>
+    <div class="modal-dialog modal-lg">
+        <div class="">
+            <div class="">
+                <div class="searchModal_content">
+                    <div class="searchBox">
+                        <input type="text" name="" id="searched" class="advancedSearchInput searchBox__inp"
+                            placeholder="کالای مورد نظر را برای مقایسه جستجو نمایید...">
+                        <button type="button" class="searchBox__btn">
+                        </button>
+                        <div class="advancedSearch" id="advancedSearch20">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="advancedSearchScroll">
+                                        <ul class="list-unstyled compareProductListWrap" id="ajax_result22">
+
+                                        </ul>
+                                        {*
+                                        <ul class="list-unstyled rowGrid">
+                                            <li class="colGrid5">
+                                                <div class="pc__product2" style="border: 1px solid #d9d9d9;">
+
+                                                    <a title="" href="">
+                                                        <figure class="pc__product--image">
+                                                            <img src="{$template_dir}img/p4.jpg" alt="">
+                                                        </figure>
+                                                    </a>
+                                                    <a class="pc__product--name" href="">
+                                                        <strong>
+                                                            شیر آشپزخانه ایو مشکی
+                                                        </strong>
+                                                    </a>
+                                                    <a href="" class="btn">مقایسه</a>
+                                                </div>
+                                            </li>
+                                            <li class="colGrid5">
+                                                <div class="pc__product2" style="border: 1px solid #d9d9d9;">
+
+                                                    <a title="" href="">
+                                                        <figure class="pc__product--image">
+                                                            <img src="{$template_dir}img/p4.jpg" alt="">
+                                                        </figure>
+                                                    </a>
+                                                    <a class="pc__product--name" href="">
+                                                        <strong>
+                                                            شیر آشپزخانه ایو مشکی
+                                                        </strong>
+                                                    </a>
+                                                    <a href="" class="btn">مقایسه</a>
+                                                </div>
+                                            </li>
+                                            <li class="colGrid5">
+                                                <div class="pc__product2" style="border: 1px solid #d9d9d9;">
+
+                                                    <a title="" href="">
+                                                        <figure class="pc__product--image">
+                                                            <img src="{$template_dir}img/p4.jpg" alt="">
+                                                        </figure>
+                                                    </a>
+                                                    <a class="pc__product--name" href="">
+                                                        <strong>
+                                                            شیر آشپزخانه ایو مشکی
+                                                        </strong>
+                                                    </a>
+                                                    <a href="" class="btn">مقایسه</a>
+                                                </div>
+                                            </li>
+                                            <li class="colGrid5">
+                                                <div class="pc__product2" style="border: 1px solid #d9d9d9;">
+
+                                                    <a title="" href="">
+                                                        <figure class="pc__product--image">
+                                                            <img src="{$template_dir}img/p4.jpg" alt="">
+                                                        </figure>
+                                                    </a>
+                                                    <a class="pc__product--name" href="">
+                                                        <strong>
+                                                            شیر آشپزخانه ایو مشکی
+                                                        </strong>
+                                                    </a>
+                                                    <a href="" class="btn">مقایسه</a>
+                                                </div>
+                                            </li>
+                                            <li class="colGrid5">
+                                                <div class="pc__product2" style="border: 1px solid #d9d9d9;">
+
+                                                    <a title="" href="">
+                                                        <figure class="pc__product--image">
+                                                            <img src="{$template_dir}img/p4.jpg" alt="">
+                                                        </figure>
+                                                    </a>
+                                                    <a class="pc__product--name" href="">
+                                                        <strong>
+                                                            شیر آشپزخانه ایو مشکی
+                                                        </strong>
+                                                    </a>
+                                                    <a href="" class="btn">مقایسه</a>
+                                                </div>
+                                            </li>
+                                            <li class="colGrid5">
+                                                <div class="pc__product2" style="border: 1px solid #d9d9d9;">
+
+                                                    <a title="" href="">
+                                                        <figure class="pc__product--image">
+                                                            <img src="{$template_dir}img/p4.jpg" alt="">
+                                                        </figure>
+                                                    </a>
+                                                    <a class="pc__product--name" href="">
+                                                        <strong>
+                                                            شیر آشپزخانه ایو مشکی
+                                                        </strong>
+                                                    </a>
+                                                    <a href="" class="btn">مقایسه</a>
+                                                </div>
+                                            </li>
+                                            <li class="colGrid5">
+                                                <div class="pc__product2" style="border: 1px solid #d9d9d9;">
+
+                                                    <a title="" href="">
+                                                        <figure class="pc__product--image">
+                                                            <img src="{$template_dir}img/p4.jpg" alt="">
+                                                        </figure>
+                                                    </a>
+                                                    <a class="pc__product--name" href="">
+                                                        <strong>
+                                                            شیر آشپزخانه ایو مشکی
+                                                        </strong>
+                                                    </a>
+                                                    <a href="" class="btn">مقایسه</a>
+                                                </div>
+                                            </li>
+                                            <li class="colGrid5">
+                                                <div class="pc__product2" style="border: 1px solid #d9d9d9;">
+
+                                                    <a title="" href="">
+                                                        <figure class="pc__product--image">
+                                                            <img src="{$template_dir}img/p4.jpg" alt="">
+                                                        </figure>
+                                                    </a>
+                                                    <a class="pc__product--name" href="">
+                                                        <strong>
+                                                            شیر آشپزخانه ایو مشکی
+                                                        </strong>
+                                                    </a>
+                                                    <a href="" class="btn">مقایسه</a>
+                                                </div>
+                                            </li>
+                                            <li class="colGrid5">
+                                                <div class="pc__product2" style="border: 1px solid #d9d9d9;">
+
+                                                    <a title="" href="">
+                                                        <figure class="pc__product--image">
+                                                            <img src="{$template_dir}img/p4.jpg" alt="">
+                                                        </figure>
+                                                    </a>
+                                                    <a class="pc__product--name" href="">
+                                                        <strong>
+                                                            شیر آشپزخانه ایو مشکی
+                                                        </strong>
+                                                    </a>
+                                                    <a href="" class="btn">مقایسه</a>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                        *}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+{if="@$loop_product"}
+<script>
+    $.cookie("list", {$product_cat_id}, { expires: 7, path : '/'});
+            $(document).ready(function(){
+    $('#searched').keyup(function(){
+    if ($(this).val()){
+    $(".compare_search").css("display","block")
+    $.ajax({
+    type: "POST",
+            url : "" + site_url + "ajax.php?product_ajax_catidm",
+            dataType : 'json',
+            data : {'title' : $(this).val(), 'maincatid' : {$product_cat_id}},
+            success: function(data)
+            {
+            html = '';
+            for (x in data.id) {
+                html+='<li>'
+                html+='<div class="product">'
+                    if (data.pic[x]){
+                        html += '<a href="" class="product__image"><img src="' + site_url + 'upload/thumb2/' + data.pic[x] + '"></a>';
+                    }
+                    else{
+                        html += '<a href="" class="product__image"><img src="' + template_dir + 'no_image/no_image(200x200).jpg"></a>';
+                    }
+                html += '<div class="product__wrapper"><a href="javascript:void(0)"  class="product__wrapper--title">' + data.title[x] + '</a></div>';
+                
+                if (data.price_id[x]){
+                html += '<a href="javascript:void(0);" onclick="$.ham3dBasket_compare({id : \'' + data.id[x] + '|' + data.price_id[x] + '\',kind : \'new\',type : \'compare\'});ref_productprice();return false;" class="btn">مقایسه کنید</a>';
+                } else{
+                html += '<a href="javascript:void(0);" class="btn" onclick="$.ham3dBasket_compare({id : \'' + data.id[x] + '|' + data.id[x] + '\',kind : \'new\',type : \'compare\'});ref_productprice();return false;" style="cursor:pointer;color:#000;">مقایسه کنید</a>';
+                }
+                html+='</li>'
+                html+='</div>'
+            }
+            $('#ajax_result22').html(html).show();
+            $("#advancedSearch20").slideDown(1000)
+                if (data.length == 0){
+            $('#ajax_result22').html('<li class="error" style="flex: 1 0 100% !important;max-width: 100% !important;">نتیجه ای یافت نشد !</li>'); //.hide().slideDown(1000);
+            }
+            },
+            error: function() { // if error occured
+            //alert('خطا');
+            }
+
+    });
+            return false;
+    } else{
+    $('#ajax_result22').html(html).slideUp(1000);
+    }
+
+    });
+    });
+</script>
+
+<script>
+    $(document).ready(function(){
+        var e = $(".productsss").size(), t = 1146 / e - 1;
+        $(".productsss").css("width", t);
+        //$(".products3").css("width", "24.2%");
+        $(".products2").css("width", t);
+    });
+    $(".ts-basket-product-close").click(function(){
+        $.ham3dBasket_compare({id : $(this).attr("attr_id"), kind : 'remove_compare'});
+        ref_productprice();
+        $(this).parent().parent().fadeOut(function(){
+            $(this).remove();
+        })
+        window.location.reload()
+    });
+</script>
+
+
+<script>
+    function ref_productprice() {
+        $.ajax({
+            type: "get",
+            url: "{$site_url}{$site_lang}/compare_info.html&search{$link_search}&ajax=ok",
+            success: function (e) {
+                $("#compare_target32").html(e);
+            }
+        });
+    }
+    $(function() {
+        pos = $(".of").offset();
+        $(document).scroll(function () {
+            if ($(document).scrollTop() > pos.top) {
+                $("#comparethead").css("position", "fixed").css("top", "0px");
+                $("#comparethead").css("width", "1146px");
+                $(".tdtd").css("width", "240px");
+                $("#replace").css("height", "180px").css("width", "100%");
+            } else {
+                $("#comparethead").css("position", "relative").css("top", "0");
+                $("#replace").css("height", "0").css("width", "0");
+            }
+        });
+    });
+</script>
+{/if}

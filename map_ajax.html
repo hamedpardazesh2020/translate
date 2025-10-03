@@ -1,0 +1,44 @@
+<div id="map" class="map mapModal"></div>
+
+<script type="text/javascript">
+
+    var lat= '{$qgmap_agency}';
+    var lon= '{$lgmap_agency}';
+    var zoom= '{$zgmap_agency}';
+    var txt='{$title}';
+    /////////////////////////////////////
+
+    var icon = L.icon({
+        iconUrl: '{$template_dir}assets/images/leaflet/marker-icon.png',
+        popupAnchor:  [0, -36] ,// point from which the popup should open relative to the iconAnchor
+        iconSize: [24,36],
+        iconAnchor: [12,36]
+    });
+    var map = new L.Map('map', {
+        center: [lat,lon],
+        zoom: zoom
+    });
+    var center=L.marker([lat,lon],{icon: icon,draggable:'true'}).addTo(map).bindPopup(txt);
+    ////////////////////////////////////send cordinate with ajax
+    center.getLatLng();
+
+    var markers=[];
+    var layerGroup=L.layerGroup();
+
+    var baseMaps = {
+        "OSM": new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'),
+        "GMAP": new L.TileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{subdomains:['mt0','mt1','mt2','mt3']}),
+        "GSAT": new L.TileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{subdomains:['mt0','mt1','mt2','mt3']})
+    };
+
+    var overlayMaps = {
+        "markers" : layerGroup
+    };
+
+    L.control.layers(baseMaps, overlayMaps).addTo(map);
+    baseMaps['GMAP'].addTo(map);
+
+        map.setView(['{$qgmap_agency}','{$lgmap_agency}'],'{$zgmap_agency}');
+
+</script>
+

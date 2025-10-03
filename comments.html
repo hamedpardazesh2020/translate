@@ -1,0 +1,83 @@
+{if="@$loop_comments"}
+{loop="loop_comments"}
+<div class="comment">
+    <div class="commentTools">
+        <div class="commentProfile">
+            <span><svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" viewBox="0 0 25 30">
+                    <g transform="translate(-36.073)">
+                        <g data-name="Group 3" transform="translate(36.073)">
+                            <path data-name="Path 12"
+                                d="M143.327,16.165h.195a5.565,5.565,0,0,0,4.291-1.895c2.343-2.7,1.954-7.318,1.911-7.759-.152-3.311-1.686-4.9-2.952-5.635A6.661,6.661,0,0,0,143.5,0h-.1a6.666,6.666,0,0,0-3.274.851c-1.278.739-2.836,2.323-2.988,5.66-.043.441-.432,5.063,1.911,7.759A5.543,5.543,0,0,0,143.327,16.165Zm-4.571-9.5c0-.019.006-.037.006-.05.2-4.454,3.3-4.933,4.626-4.933h.073c1.643.037,4.437.721,4.626,4.933a.123.123,0,0,0,.006.05c.006.043.432,4.268-1.5,6.492a3.951,3.951,0,0,1-3.135,1.329h-.061a3.938,3.938,0,0,1-3.128-1.329C138.337,10.946,138.75,6.7,138.757,6.666Z"
+                                transform="translate(-130.934)" fill="#fff" />
+                            <path id="Path_13" data-name="Path 13"
+                                d="M61.071,266.97v-.019c0-.05-.006-.1-.006-.155-.037-1.23-.116-4.106-2.757-5.026l-.061-.019A17.41,17.41,0,0,1,53.2,259.4a.81.81,0,0,0-1.144.2.849.849,0,0,0,.2,1.168,18.8,18.8,0,0,0,5.557,2.591c1.418.516,1.576,2.063,1.619,3.479a1.275,1.275,0,0,0,.006.155,11.505,11.505,0,0,1-.128,1.92,22.045,22.045,0,0,1-10.73,2.547,22.172,22.172,0,0,1-10.736-2.553,10.894,10.894,0,0,1-.128-1.92c0-.05.006-.1.006-.155.043-1.416.2-2.963,1.619-3.479a18.971,18.971,0,0,0,5.557-2.591.849.849,0,0,0,.2-1.168.81.81,0,0,0-1.144-.205,17.219,17.219,0,0,1-5.052,2.348c-.024.006-.043.012-.061.019-2.641.926-2.721,3.8-2.757,5.026a1.273,1.273,0,0,1-.006.155v.019a9.716,9.716,0,0,0,.31,2.814.793.793,0,0,0,.316.391c.183.124,4.559,2.97,11.881,2.97a22.744,22.744,0,0,0,11.881-2.97.828.828,0,0,0,.316-.391A10.194,10.194,0,0,0,61.071,266.97Z"
+                                transform="translate(-36.073 -243.139)" fill="#fff" />
+                        </g>
+                    </g>
+                </svg></span>
+        </div>
+        <span class="commentAuthor">{$value.title}</span>
+        <span class="commentDate">{$value.date}</span>
+    </div>
+    <div class="commentInner">
+        <p> {$value.note}</p>
+        <div class="commentOption">
+            <div class="commentRate">
+                <strong>آیا این نظر برای شما مفید بود؟</strong>
+                <a href="javascript:void(0);" class="commentLike likeuserclick" module="comments" attr_id="{$value.id}" attr_kind="3"><span class="show-like">{$value.score_increase|num2lang}</span></a>
+
+            </div>
+        </div>
+    </div>
+
+    {if="@$value.answer"}
+    <div class="comment">
+        <div class="commentTools">
+            <span class="commentAuthor">{#support_response#}</span>
+            <span class="commentDate">{$value.answer_date|num2lang}</span>
+        </div>
+        <div class="commentInner">
+            <p>{$value.answer}</p>
+        </div>
+    </div>
+    {/if}
+</div>
+{/loop}
+{/if}
+
+
+{if="@$page_t"}
+{loop="$page_t"}
+{if="$value.number_page>'1'"}
+<div class="paginationContainer">
+    <ul class="pagination list-unstyled paginationss">
+        <li class="pag-prev">
+            <a href="javascript:void(0);" p="{$value.last_page}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12.5" viewBox="0 0 7 12.5">
+                    <path d="M6.25,7a.721.721,0,0,1-.512-.212L.212,1.241A.725.725,0,0,1,1.236.213L6.25,5.246,11.264.213a.725.725,0,0,1,1.024,1.028L6.762,6.788A.72.72,0,0,1,6.25,7Z" transform="translate(0 12.5) rotate(-90)"></path>
+                </svg>
+            </a>
+        </li>
+        {$i=0}
+        {loop="$page"}
+        {$class=""}
+        {if="$value.class == 'page' || ( !isset($get_page) && $i == 0 )"}
+        {$class="active"}
+        {/if}
+        <li class="{$class}">
+            <a href="javascript:void(0);" p="{$value2.page}">{$value.title}</a>
+        </li>
+        {$i=$i+1}
+        {/loop}
+        <li class="pag-next">
+            <a href="javascript:void(0);" p="{$value.next_page}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12.5" viewBox="0 0 7 12.5">
+                    <path d="M6.25,0a.721.721,0,0,0-.512.212L.212,5.759A.725.725,0,0,0,1.236,6.787L6.25,1.754l5.014,5.033a.725.725,0,0,0,1.024-1.028L6.762.212A.72.72,0,0,0,6.25,0Z" transform="translate(0 12.5) rotate(-90)"></path>
+                </svg>
+            </a>
+        </li>
+    </ul>
+</div>
+{/if}
+{/loop}
+{/if}

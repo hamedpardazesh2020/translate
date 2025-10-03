@@ -1,0 +1,316 @@
+<style>
+
+.superSale {
+    background: #e21e24;
+    align-items: stretch;
+    display: inline-flex;
+    padding-right: 10px;
+    min-height: 34px;
+}
+
+.superSale>span {
+    font-size: 13px;
+    padding: 7px 10px;
+    margin: 0;
+    background-color: #ef635b;
+    color: #fff;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.superSale>ul {
+    color: #fff;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+@media screen and (max-width:991px) {
+    .superSale {
+        min-height: 30px;
+    }
+
+    .superSale>span {
+        padding: 5px;
+    }
+
+    .superSale>ul {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .superSale>span {
+        color: #fff;
+        font-size: 11px;
+    }
+
+    .sliderMain {
+        padding-top: 0;
+    }
+
+    .boxProductSec {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .footer__newsletter {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .imageSecBox img {
+        display: none
+    }
+
+    .imageSecBox {
+        /* margin-bottom: 20px; */
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* padding-right: 20px; */
+        /* padding-left: 20px */
+    }
+
+    .imageSecBox .imageSecBox__name {
+        font-size: 20px;
+        /* margin-bottom: 0 */
+    }
+
+    /* .imageSecBox .imageSecBox__more {
+        border: none;
+        padding: 0;
+        margin: 0;
+        font-size: 12px;
+        display: block
+    } */
+
+    .imageSecBox .imageSecBox__more svg {
+        transform: scale(.8);
+        margin-left: 3px
+    }
+
+    .imageSecBox .imageSecBox__name br {
+        /* display: none */
+    }
+
+    .boxProductSec .row {
+        display: block;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .fixedPrice {
+        position: fixed;
+        bottom: 0;
+        z-index: 10;
+        left: 0;
+        right: 0;
+        margin-bottom: 0;
+        border-radius: 0;
+        flex-direction: row-reverse;
+        padding: 10px 20px;
+    }
+
+    .sliderMain {
+        padding-top: 0;
+    }
+
+    .boxProductSec__slider .superSale {
+        flex-direction: column;
+    }
+
+    .boxProductSec__slider .superSale span {
+        margin-right: 0;
+    }
+
+    .bannerRowGrid {
+        flex-wrap: wrap;
+        margin-left: -5px;
+        margin-right: -5px
+    }
+
+    .bannerRowGrid li {
+        flex: 1 0 100%;
+        max-width: 100%;
+        padding: 5px
+    }
+
+    .bannerRowGrid li.w100 {
+        flex: 1 0 100%;
+        max-width: 100%
+    }
+
+    .product__image::before {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+
+.superSale.superSale2 {
+    background-color: #fe7201;
+    justify-content: center;
+}
+
+.superSale.superSale2 span {
+    background-color: #fe7201;
+}
+
+#products>ul>li .product {
+    overflow: hidden;
+    padding-right: 0;
+    padding-left: 0;
+    padding-top: 20px;
+}
+
+.compareColor {
+    right: 10px;
+    height: auto;
+}
+
+.page_products--sort>li.active,
+.page_products--sort>li:hover {
+    background-color: #fe7201;
+}
+
+.superSale>ul b {
+    line-height: 0;
+}
+
+.product {
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+    overflow: hidden;
+    padding-top: 20px;
+    height: 100%;
+    padding: 0;
+}
+.product__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+}
+.compare_search{
+    color : #000 !important;
+}
+.product__price{
+    min-height: 90px;
+}
+.prodSellSec {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.product__name {
+    overflow: hidden;
+    display: block;
+    padding: 0 10px;
+    font-size: 12px;
+    margin-top: 10px;
+    height: 75px;
+    flex: 1 0 auto;
+}
+
+.product__image img {
+    height: 90px;
+}
+
+.product__price {
+    margin-bottom: 10px;
+}
+
+.product .product__offer--new {
+    font-size: 16px;
+}
+
+.product .product__offer--old {
+    font-size: 13px;
+}
+</style>
+<div class="row">
+        <div class="col-xs-12">
+                {if="@$loop_search_product"} 
+                <div class="advancedSearchScroll">
+                        <div id="products">
+                                <ul class="list-unstyled">
+                                        {loop="loop_search_product"}
+                                        <li>
+                                                <div class="product">
+                                                        <a href="javascript:void(0);" class="product__image product-shine-loading" onclick="compareClick(this)" attr_id="{$value.id}|{$value.price_id}">
+                                                            {if="@$value.pic"}
+                                                            <img src="{$site_url}upload/thumb3/{$value.pic}" alt="{$value.title}" title="{$value.title}" />
+                                                            {else}
+                                                            <img src="{$template_dir}no_image/no_image(98x98).jpg" alt="{$value.title}" title="{$value.title}" />
+                                                            {/if}
+                                                        </a>
+                                                        <div class="product__wrapper">
+                                                                <a href="javascript:void(0);" class="product__name" onclick="compareClick(this)" attr_id="{$value.id}|{$value.price_id}">
+                                                                        {$value.title}
+                                                                </a>
+                                                                <!--price code--> 
+                                                                <div class="product__price product__offer">
+                                                                        {if="@$value.product_state_id == '1' && @$value.num > 0"}
+                                                                        {if="$value.new_price!=0 && @$value.num > 0"}
+                                                                        <div class="product__offer--new">
+                                                                        {$value.new_price|num2price}
+                                                                        <span>تومان</span>
+                                                                        </div>
+                                                                        <s class="product__offer--old">
+                                                                        {$value.old_price|num2price}
+                                                                        </s>
+                                                                        {$sode=$value.old_price - $value.new_price}
+                                                                        {*<span class="product__offer--profit">
+                                                                        سود شما
+                                                                        <span>{$sode|num2price}</span>
+                                                                        تومان
+                                                                        </span>*}
+                                                                        {else}
+                                                                        <div class="product__offer--new">
+                                                                        {if="$value.old_price!=0 && @$value.num > 0"}
+                                                                        {$value.old_price|num2price}
+                                                                        <span>تومان</span>
+                                                                        {/if}
+                                                                        </div>
+                                                                
+                                                                        <s class="product__offer--old">
+                                                                
+                                                                        </s>
+                                                                        {/if}
+                                                                        {else}
+                                                                        <div class="product__price--new">
+                                                                        {if="@$value.product_state_id != '1' && @$value.product_state_id != '2'"}
+                                                                        <span  style="color:#0099ff;" class="product__price--currency">{$value.product_state_title}</span>
+                                                                        {/if}
+                                                                        {if="@$value.product_state_id == '1' && @$value.num == 0"}
+                                                                        <span  style="color:#ff0000;" class="product__price--currency">تمام شد</span>
+                                                                        {/if}
+                                                                        {if="@$value.product_state_id == '2' && @$value.num == 0"}
+                                                                        <span  style="color:#ff0000;" class="product__price--currency">تمام شد</span>
+                                                                        {/if}
+                                                                        </div>
+                                                                        {/if}
+                                                                        
+                                                                        {if="@$value.product_state_id == '1' && @$value.num > 0"}
+                                                                        {if="@$value.percent"}
+                                                                        <span class="product__offer--offer"><span>٪{function="num2lang(round($value.percent))"}</span></span>
+                                                                        {/if}
+                                                                        {/if}
+                                                                </div>
+                                                                <!--price code--> 
+                                                                <a href="javascript:void(0);" onclick="compareInnerClick(this)" class="superSale superSale2" attr_id="{$value.id}">
+                                                                        <span>مقایسه کنید</span>
+                                                                </a>
+                                                        </div>
+                                                </div>
+                                        </li>
+                                        {/loop}  
+                                </ul>
+                        </div>
+                </div>
+                {else}
+                    <div class="error" dir="ltr" style="border-radius: 5px ! important;">نتیجه ای یافت نشد !</div>
+                {/if}
+        </div>
+</div>

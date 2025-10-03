@@ -1,0 +1,334 @@
+<main id="main" role="main">
+    <div id="wrapper">
+        {if="@$loop_last_banner_1"}
+        <div class="container-fluid slideshow">
+            <div class="scrollWrapper">
+                <span>scroll</span>
+                <div class="scroll">
+                    <i></i>
+                </div>
+            </div>
+            <div id="slideshow" dir="ltr">
+                {loop="$loop_last_banner_1"}
+                <div class="slick-slide">
+                    <div>
+                        <a href="{$value.url|convert_url}" {if="@$value.kind=='2'"}target="_blank"{/if} class="slideshowSlideItem">
+                            {if="@$value.video"}
+                            <video class="vid-watch img-mosk picture-mosk" width="100%" preload="auto" playsinline="" autoplay="" loop="" muted="" height="">
+                                <source src="{$site_url}upload/{$value.video}" type="video/mp4">
+                                مرورگر شما از ویدئو پشتیبانی نمی کند.
+                            </video>
+                            {else}
+                            <picture class="img-mosk">
+                                {if="@$value.pic2"}
+                                <source media="(max-width:567px)" srcset="{$site_url}upload/thumb1/{$value.pic2}">
+                                {else}
+                                <img src="{$template_dir}no_image/no_image(310x300).jpg" alt="{$value.title}">
+                                {/if}
+                                {if="@$value.pic"}
+                                <img src="{$site_url}upload/thumb1/{$value.pic}" alt="{$value.title}">
+                                {else}
+                                <img src="{$template_dir}no_image/no_image(1360x780).jpg" alt="{$value.title}">
+                                {/if}
+                            </picture>
+                            {/if}
+                        </a>
+                        <div class="mainBox" data-animation-in="fadeInLeft" data-delay-in="1">
+                            <div class="mainBox__title">
+                               {$value.title}
+                            </div>
+                            {if="@$value.title2"}
+                            <div class="mainBox__desc">
+                                {$value.title2}
+                            </div>
+                            {/if}
+                        </div>
+
+                    </div>
+                </div>
+                {/loop}
+            </div>
+
+        </div>
+        {/if}
+
+
+
+        {if="@$loop_last_product_cat"}
+        <div class="catMainSec container-fluid" data-aos="fade-up">
+            <div class="container">
+                <div class="catMainSec__slider" dir="rtl">
+                    {loop="$loop_last_product_cat"}
+                    <div class="slick-slide">
+                        <a href="{$value.id|url_cat}" class="catBox">
+                            <div class="catBox__image">
+                                <picture class="img-mosk">
+                                    {if="@$value.pic2"}
+                                    <source media="(max-width: 767px)" srcset="{$site_url}upload/thumb1/{$value.pic2}">
+                                    {else}
+                                    <source media="(max-width: 767px)" srcset="{$template_dir}no_image/no_image(260x360).jpg">
+                                    {/if}
+                                    {if="@$value.pic1"}
+                                    <img src="{$site_url}upload/thumb1/{$value.pic1}" alt="{$value.title}">
+                                    {else}
+                                    <img src="{$template_dir}no_image/no_image(568x450).jpg" alt="{$value.title}">
+                                    {/if}
+                                </picture>
+                            </div>
+                            {if="@$value.title_en"}
+                            <div class="catBox__line">
+                                <span>{$value.title_en}</span>
+                            </div>
+                            {/if}
+                            <div class="catBox__desc">
+                                <div class="catBox__desc--title">
+                                    {$value.title}
+                                </div>
+                                <div class="catBox__desc--btn">
+                                    مشاهده بیشتر
+                                    <svg width="6" height="10" viewBox="0 0 6 10" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M4.97767 0L0 4.97767L0.0230984 4.99923L0 5.02233L4.97767 10L5.60055 9.37789L1.22344 5L5.60055 0.622113L4.97767 0Z"
+                                            fill="white" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    {/loop}
+                </div>
+            </div>
+        </div>
+        {/if}
+
+        <div class="aboutMain">
+            {if="@$pages_prime_title"}
+            <div class="aboutMain__image">
+                <picture class="img-mosk">
+                    {if="$pages_prime_pic_mobile"}
+                    <source media="(max-width: 767px)" srcset="{$site_url}upload/{$pages_prime_pic_mobile}">
+                    {/if}
+                    {if="$pages_prime_pic"}
+                    <img src="{$site_url}upload/{$pages_prime_pic}" alt="{$pages_prime_title}">
+                    {/if}
+                </picture>
+            </div>
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-6 col-sm-offset-6 col-md-5 col-md-offset-7" data-aos-delay="300"
+                    data-aos="fade-left">
+                    <div class="aboutMainInfoWrapper">
+                        <div class="aboutMain__info">
+                            <div class="aboutMain__info--title">
+                                <img src="{$template_dir}img/prime.svg" alt="">
+                            </div>
+                            <div class="aboutMain__info--text">
+                               {$pages_prime_note}
+                            </div>
+                            <a href="{$site_url}{$site_lang}/page/prime.html" class="btn">مشاهده بیشتر</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            {else}
+            <div class="error">لطفا صفحه ای با نام prime بسازید</div>
+            {/if}
+        </div>
+
+        {if="@$loop_last_product_new"}
+        <div class="productMain container-fluid" data-aos="fade-up">
+            <div class="container">
+                <div class="headerTitle text-center">
+                    محصولات پرایم
+                </div>
+                <div class="productMain__slider" dir="ltr">
+                    {loop="$loop_last_product_new"}
+                    <div class="slick-slide">
+                        <a href="{$value.id|url}" class="product">
+                            {if="@$value.pic"}
+                            <img src="{$site_url}upload/thumb2/{$value.pic}" alt="{$value.title}" title="{$value.title}" />
+                            {else}
+                            <img src="{$template_dir}no_image/no_image(274x274).jpg" alt="{$value.title}" title="{$value.title}" />
+                            {/if}
+                            <div class="product__detail">
+                                <div class="product__detail--title">
+                                   {$value.title}
+                                </div>
+                                {if="@$value.product_cat_title"}
+                                <div class="product__detail--desc">{$value.product_cat_title}</div>
+                                {/if}
+                                {include="module/product_price"}
+                            </div>
+                        </a>
+                    </div>
+                    {/loop}
+
+                </div>
+            </div>
+        </div>
+        {/if}
+        {if="@$loop_last_banner_2"}
+        <div class="adsArea " data-aos="fade-up">
+            {loop="$loop_last_banner_2"}
+            <a href="{$value.url|convert_url}" {if="@$value.kind=='2'"}target="_blank"{/if}>
+                <picture>
+                    {if="@$value.pic2"}
+                    <source media="(max-width:767px)" srcset="{$site_url}upload/thumb1/{$value.pic2}">
+                    {else}
+                    <img src="{$template_dir}no_image/no_image(310x300).jpg" alt="{$value.title}">
+                    {/if}
+                    {if="@$value.pic"}
+                    <img src="{$site_url}upload/thumb1/{$value.pic}" alt="{$value.title}">
+                    {else}
+                    <img src="{$template_dir}no_image/no_image(1360x600).jpg" alt="{$value.title}">
+                    {/if}
+                </picture>
+            </a>
+            {/loop}
+        </div>
+        {/if}
+        {if="@$loop_blog"}
+        <div class="container-fluid blogTabSec" data-aos="fade-up" data-aos-delay="300">
+            <div class="container">
+                <div class="row tab_slider1 blogTabSec__slider hidden-xs hidden-sm">
+                    <div class="col-xs-12 col-sm-12 col-md-6 p-0">
+
+                        <div class="slides_tabs blogTab">
+                            <div class="headerTitle">بلاگ پرایم</div>
+                            {loop="$loop_blog"}
+                            <div class="blogTabTitle tab_slider_item">
+                                <div class="blogTabTitle__title">
+                                 {$value.title}
+                                </div>
+                                <div class="blogTabTitle__info">
+                                    <div>
+                                        <a href="{$value.cat_id|url_blog_cat}" class="cat">{$value.cat_title}</a>
+                                        <span class="date">{$value.date}</span>
+                                    </div>
+                                    <a href="{$value.id|url_blog}" class="blogTabTitle__info--btn">
+                                        ادامه مطلب
+                                        <svg width="15" height="15" viewBox="0 0 15 15"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M10.625 2.88068L9.61932 1.875L3.99434 7.5L9.61932 13.125L10.625 12.1193L6.00571 7.5L10.625 2.88068Z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            {/loop}
+                            <a href="{$site_url}{$site_lang}/blog.html" class="btn">مشاهده آرشیو</a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 p-0">
+                        <div class="slides">
+                            {loop="$loop_blog"}
+                            <div class="tab_slider_slides_item">
+                                <a href="{$value.id|url_blog}" class="blogTabInfo">
+                                    {if="@$value.pic"}
+                                    <img src="{$site_url}upload/thumb1/{$value.pic}" alt="{$value.alt_pic}">
+                                    {else}
+                                    <img src="{$template_dir}no_image/no_image(568x462).jpg" alt="{$value.alt_pic}">
+                                    {/if}
+                                </a>
+                            </div>
+                            {/loop}
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="loop_blog visible-xs visible-sm">
+                    <div class="">
+                        <div class="headerTitle">بلاگ پرایم</div>
+                        <div class="newsSlider" dir="ltr">
+                            {loop="$loop_blog"}
+                            <div class="slick-slide">
+                                <div class="newsBox">
+                                    <a href="{$value.id|url_blog}" class="newsBox__image imgHoverZoom">
+                                        {if="@$value.pic"}
+                                        <img src="{$site_url}upload/thumb1/{$value.pic}" alt="{$value.alt_pic}">
+                                        {else}
+                                        <img src="{$template_dir}no_image/no_image(568x462).jpg" alt="{$value.alt_pic}">
+                                        {/if}
+                                    </a>
+                                    <div class="newsBox__desc">
+                                        <a href="{$value.id|url_blog}" class="newsBox__desc--title">
+                                          {$value.title}
+                                        </a>
+                                        <div class="newsBox__desc--item">
+                                            <div>
+                                                <a href="{$value.cat_id|url_blog_cat}" class="cat">{$value.cat_title}</a>
+                                                <div class="date">
+                                                   {$value.date}
+                                                </div>
+                                            </div>
+                                            <a href="{$value.id|url_blog}" class="link">
+                                                ادامه مطلب
+                                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M10.625 2.88068L9.61932 1.875L3.99434 7.5L9.61932 13.125L10.625 12.1193L6.00571 7.5L10.625 2.88068Z"
+                                                        fill="black"></path>
+                                                </svg>
+
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {/loop}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {/if}
+
+
+        {if="@$loop_instagram"}
+        <div class="instaSec container-fluid" data-aos="fade-up">
+            <div class="container">
+                <div class="instaSec__head">
+                    <div class="headerTitle">اینستاگرام پرایم</div>
+                    <a href="{$insta_main_url}" class="instaSec__head--link">
+                        {$instagram_title}
+                        <img src="{$template_dir}img/instagram.svg" alt="">
+                    </a>
+                </div>
+                <div class="instaSec__slider" dir="ltr">
+                    {loop="$loop_instagram"}
+                    <div class="slick-slide">
+                        <a href="{$value.link|convert_url}" class="instaBox">
+                            {if="@$value.pic"}
+                            <img src="{$site_url}upload/thumb1/{$value.pic}" class="instaBox__image--img" alt="{$value.title}">
+                            {else}
+                            <img src="{$template_dir}no_image/no_image(256x256).jpg" class="instaBox__image--img" alt="{$value.title}">
+                            {/if}
+                        </a>
+                    </div>
+                    {/loop}
+                </div>
+            </div>
+        </div>
+        {/if}
+
+        <div class="container-fluid blockTxtSec space">
+            {if="@$pages_primemain_title"}
+            <div class="container">
+                <div class="block toggleBlock">
+                    <h6 class="blockTitle">{$pages_primemain_title}<span></span></h6>
+                    <div class="blc" style="display: none;">
+                        {$pages_primemain_note}
+                    </div>
+                </div>
+            </div>
+            {else}
+            <div class="error">لطفا صفحه ای با نام primemain بسازید</div>
+            {/if}
+        </div>
+
+    </div>
+</main>

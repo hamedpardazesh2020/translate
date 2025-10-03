@@ -1,0 +1,47 @@
+<main id="main" role="main">
+    <div id="wrapper">
+
+
+<div class="container-fluid coverHead">
+{if="@$pic"}
+<img src="{$site_url}upload/{$module_pic}" alt="{$module_title}" class="coverHeadPicture">
+{else}
+<img src="{$template_dir}img/header1.jpg" alt="{$module_title}" class="coverHeadPicture">
+{/if}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="coverHead">
+                <h1>{$module_title}</h1>
+                {include="module/navigation"}
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<section class="aboutPage container-fluid">
+<div class="container">
+    <div class="sampleTab">
+      
+        <div class="tab-content">
+            <div id="st1" class="tab-pane fade in active">
+                <div class="row">
+
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="post">
+                            <div class="error">صفحه مورد نظر یافت نشد !</div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+</div>
+</main>
