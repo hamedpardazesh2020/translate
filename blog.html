@@ -28,7 +28,7 @@
                                             <span class="date">{$value.date}</span>
                                         </div>
                                         <a href="{$value.id|url_blog}" class="blogTabTitle__info--btn">
-                                            ادامه مطلب
+                                            Read more
                                             <svg width="15" height="15" viewBox="0 0 15 15"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -61,7 +61,7 @@
                     </div>
                     <div class="newsSliderWrapper visible-xs visible-sm">
                         <div class="">
-                            <div class="headerTitle">بلاگ پرایم</div>
+                            <div class="headerTitle">Prime Blog</div>
                             <div class="newsSlider" dir="ltr">
                                 {loop="$loop_blog_hits"}
                                 <div class="slick-slide">
@@ -85,7 +85,7 @@
                                                     </div>
                                                 </div>
                                                 <a href="{$value.id|url_blog}" class="link">
-                                                    ادامه مطلب
+                                                    Read more
                                                     <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg">
                                                         <path
@@ -127,7 +127,7 @@
                                 <div class="newsPage__search">
                                     <div class="searchBox ">
                                         <input type="text" name="keyword" id="searchnews" {if="isset($get_keyword)"}value="{$get_keyword|clean}" {/if} class="searchBox__inp"
-                                            placeholder="جستجو در مقالات ">
+                                            placeholder="Search the articles">
                                         <button type="submit" class="searchBox__btn"></button>
                                     </div>
                                 </div>
@@ -157,7 +157,7 @@
                                             </div>
                                         </div>
                                         <a href="{$value.id|url_blog}" class="link">
-                                            ادامه مطلب
+                                            Read more
                                             <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -174,7 +174,7 @@
 
                     </ul>
                     {else}
-                    <div class="error">نتیجه ای یافت نشد</div>
+                    <div class="error">No results found</div>
                     {/if}
                 </div>
                 {if="@$page_t"}

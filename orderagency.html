@@ -22,23 +22,23 @@
                     {/if}
                     <div class="">
                         <form action="{$site_url}ajax.php?orderagency&action=new" noscroll="yes" id="employment">
-                            <h2> اطلاعات فروشگاه </h2>
+                            <h2>Store information</h2>
                             <br>
                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
-                                    <input type="text" name="store_name"  id="store_name" error="نام فروشگاه..."  class="form-control"   placeholder="نام فروشگاه(اجباری)" />
+                                    <input type="text" name="store_name"  id="store_name" error="Store name..."  class="form-control"   placeholder="Store name (required)" />
                                 </div>
                             </div>
     
                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
-                                    <input type="text" name="manager_name"  id="manager_name" error="نام و نام خانوادگی مدیریت فروشگاه..."  class="form-control"   placeholder="نام و نام خانوادگی مدیریت فروشگاه (اجباری)" />
+                                    <input type="text" name="manager_name"  id="manager_name" error="Store manager's full name..."  class="form-control"   placeholder="Store manager's full name (required)" />
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
-                                    <select name="ostan" id="ostan" class="form-control"data-placeholder="استان(اجباری)">
-                                        <option value="">استان</option>
+                                    <select name="ostan" id="ostan" class="form-control"data-placeholder="Province (required)">
+                                        <option value="">Province</option>
                                         {loop="loop_ostan"}
                                         <option value="{$value.id}">{$value.title}</option>
                                         {/loop}
@@ -47,36 +47,36 @@
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
-                                    <select name="city" id="city"data-placeholder="شهر(اجباری)" class="form-control">
-                                        <option value="">شهر</option>
+                                    <select name="city" id="city"data-placeholder="City (required)" class="form-control">
+                                        <option value="">City</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-xs-12">
                                 <div class="form-group">
-                                    <textarea name="address" error="نشانی..."   id="address" class="form-control" placeholder="نشانی (اجباری)"></textarea> 
+                                    <textarea name="address" error="Address..."   id="address" class="form-control" placeholder="Address (required)"></textarea>
                                 </div>
                             </div>
-                            <h2>اطلاعات تماس </h2>
+                            <h2>Contact information</h2>
                             <br>
                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
-                                    <input type="text" name="tell"  id="tell" class="form-control" placeholder="تلفن" />
+                                    <input type="text" name="tell"  id="tell" class="form-control" placeholder="Phone" />
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
-                                    <input type="text" name="mobile"  id="mobile" error="تلفن همراه..."  class="form-control"   placeholder="تلفن همراه (اجباری)" />
+                                    <input type="text" name="mobile"  id="mobile" error="Mobile phone..."  class="form-control"   placeholder="Mobile phone (required)" />
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12">
                                 <div class="form-group">
-                                    <input type="text" name="fax"  id="fax" class="form-control" placeholder="فکس" />
+                                    <input type="text" name="fax"  id="fax" class="form-control" placeholder="Fax" />
                                 </div>
                             </div>
                             <div class="col-xs-12">
                                 <div class="form-group">
-                                    <textarea name="note" id="note" class="form-control" placeholder="توضیحات"></textarea> 
+                                    <textarea name="note" id="note" class="form-control" placeholder="Notes"></textarea>
                                 </div>
                             </div>
                             <div class="col-xs-12">
@@ -91,7 +91,7 @@
                             </div>
                             <div class="col-xs-12">
                                 <button type="submit" class="btn pull-right">
-                                    ارسال
+                                    Submit
                                 </button>
                             </div>
                         </form>
@@ -112,7 +112,7 @@
                     for(x in data.id) {
                         html += '<option value="'+data.id[x]+'">'+data.title[x]+'</option>';
                     }
-                    $("#city").html('<option value="">انتخاب کنید</option>'+html);
+                    $("#city").html('<option value="">Select</option>'+html);
                 }
             });
             return false;

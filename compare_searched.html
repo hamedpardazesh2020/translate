@@ -41,11 +41,11 @@
             }
             $('#ajax_result22').html(html).hide().slideDown(1000);
                     if (data.length == 0){
-            $('#ajax_result22').html('<div class="error">نتیجه ای یافت نشد !</div>'); //.hide().slideDown(1000);
+            $('#ajax_result22').html('<div class="error">No results found!</div>'); //.hide().slideDown(1000);
             }
             },
             error: function() { // if error occured
-            alert('خطا');
+            alert('Error');
             }
 
     });

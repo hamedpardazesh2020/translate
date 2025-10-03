@@ -16,7 +16,7 @@
                             {if="@$value.video"}
                             <video class="vid-watch img-mosk picture-mosk" width="100%" preload="auto" playsinline="" autoplay="" loop="" muted="" height="">
                                 <source src="{$site_url}upload/{$value.video}" type="video/mp4">
-                                مرورگر شما از ویدئو پشتیبانی نمی کند.
+                                Your browser does not support the video.
                             </video>
                             {else}
                             <picture class="img-mosk">
@@ -85,7 +85,7 @@
                                     {$value.title}
                                 </div>
                                 <div class="catBox__desc--btn">
-                                    مشاهده بیشتر
+                                    View more
                                     <svg width="6" height="10" viewBox="0 0 6 10" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -126,14 +126,14 @@
                             <div class="aboutMain__info--text">
                                {$pages_prime_note}
                             </div>
-                            <a href="{$site_url}{$site_lang}/page/prime.html" class="btn">مشاهده بیشتر</a>
+                            <a href="{$site_url}{$site_lang}/page/prime.html" class="btn">View more</a>
                         </div>
                     </div>
                 </div>
 
             </div>
             {else}
-            <div class="error">لطفا صفحه ای با نام prime بسازید</div>
+            <div class="error">Please create a page named prime</div>
             {/if}
         </div>
 
@@ -141,7 +141,7 @@
         <div class="productMain container-fluid" data-aos="fade-up">
             <div class="container">
                 <div class="headerTitle text-center">
-                    محصولات پرایم
+                    Prime products
                 </div>
                 <div class="productMain__slider" dir="ltr">
                     {loop="$loop_last_product_new"}
@@ -196,7 +196,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 p-0">
 
                         <div class="slides_tabs blogTab">
-                            <div class="headerTitle">بلاگ پرایم</div>
+                            <div class="headerTitle">Prime Blog</div>
                             {loop="$loop_blog"}
                             <div class="blogTabTitle tab_slider_item">
                                 <div class="blogTabTitle__title">
@@ -208,7 +208,7 @@
                                         <span class="date">{$value.date}</span>
                                     </div>
                                     <a href="{$value.id|url_blog}" class="blogTabTitle__info--btn">
-                                        ادامه مطلب
+                                        Read more
                                         <svg width="15" height="15" viewBox="0 0 15 15"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -218,7 +218,7 @@
                                 </div>
                             </div>
                             {/loop}
-                            <a href="{$site_url}{$site_lang}/blog.html" class="btn">مشاهده آرشیو</a>
+                            <a href="{$site_url}{$site_lang}/blog.html" class="btn">View archive</a>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 p-0">
@@ -242,7 +242,7 @@
                 </div>
                 <div class="loop_blog visible-xs visible-sm">
                     <div class="">
-                        <div class="headerTitle">بلاگ پرایم</div>
+                        <div class="headerTitle">Prime Blog</div>
                         <div class="newsSlider" dir="ltr">
                             {loop="$loop_blog"}
                             <div class="slick-slide">
@@ -266,7 +266,7 @@
                                                 </div>
                                             </div>
                                             <a href="{$value.id|url_blog}" class="link">
-                                                ادامه مطلب
+                                                Read more
                                                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -292,7 +292,7 @@
         <div class="instaSec container-fluid" data-aos="fade-up">
             <div class="container">
                 <div class="instaSec__head">
-                    <div class="headerTitle">اینستاگرام پرایم</div>
+                    <div class="headerTitle">Prime Instagram</div>
                     <a href="{$insta_main_url}" class="instaSec__head--link">
                         {$instagram_title}
                         <img src="{$template_dir}img/instagram.svg" alt="">
@@ -326,7 +326,7 @@
                 </div>
             </div>
             {else}
-            <div class="error">لطفا صفحه ای با نام primemain بسازید</div>
+            <div class="error">Please create a page named primemain</div>
             {/if}
         </div>
 

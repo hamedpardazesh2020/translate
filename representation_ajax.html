@@ -6,7 +6,7 @@
                 <div>
                     {$value.title}<br>
                     {if="@$value.name"}
-                    نام مسئول : {$value.name}
+                    Person in charge: {$value.name}
                     {/if}
                 </div>
                 <p>
@@ -24,11 +24,11 @@
                 
                 <div class="mapAppWrapper">
                     <a href="https://www.waze.com/livemap/directions?latlng={$value.qgmap}%2C{$value.lgmap}&navigate=yes&zoom=17" class="mapApp">
-                        ویز
+                        Waze
                         <img src="{$template_dir}img/waze.png" alt="">
                     </a>
                     <a href="https://www.google.com/maps?daddr={$value.qgmap},{$value.lgmap}" class="mapApp">
-                        گوگل مپ
+                        Google Maps
                         <img src="{$template_dir}img/googlemap.png" alt="">
                     </a>
 
@@ -38,7 +38,7 @@
                 {if="$value.qgmap && $value.lgmap"}
                 <div class="text-right mb-0">
                     <a href="javascript:void(0);" data-target=".modal-{$value.id}" data-toggle="modal" class="mapNavBtn mapNavBtn2">
-                        مسیریابی
+                        Directions
                         <i class="zmdi zmdi-gps-dot"></i>
                     </a>
                 </div>

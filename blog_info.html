@@ -49,7 +49,7 @@
                                     </g>
                                 </svg>
 
-                                چاپ صفحه
+                                Print page
                             </a>
                             <a href="" class="shareLink" data-toggle="modal" data-target="#shareModal">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21.216"
@@ -61,7 +61,7 @@
                                     </g>
                                 </svg>
 
-                                اشتراک گذاری
+                                Share
                             </a>
                         </div>
                         <div class="newsInner__image">
@@ -95,7 +95,7 @@
                     <div class="commentsTop">
                         <div class="commentsTop__header">
                             <div class="headerTitle">
-                                نظرات کاربران
+                                User comments
                             </div>
                             <a href="" class="btn" data-toggle="modal" data-target="#commentModal">
                                 {#add_comments#}
@@ -103,12 +103,12 @@
                         </div>
                         <div class="commentsTop__info">
                             <p>
-                                شما هم می توانید در مورد این محصول نظر بدهید
+                                You can also share your opinion about this product.
                             </p>
                             {if="@$avg_rate_star"}
                             <div>
                                 <div class="rateBox">
-                                    <p>امتیاز کاربران به این محصول</p>
+                                    <p>Users' rating for this product</p>
                                     <div class="product_star" data-score="{$avg_rate_star}" style="display: inline-block;direction: ltr;"></div>
                                     <b>{#from#} {$alluser_rate_star} {#vote#} ({$avg_rate_star})</b>
                                 </div>
@@ -127,7 +127,7 @@
         <div class="generalSliderWrapper container-fluid">
             <div class="container">
                 <div class="headerTitle text-center">
-                    اخبار مرتبط
+                    Related news
                 </div>
                 <div class="generalSlider" dir="ltr">
                     {loop="$loop_blog_linked"}
@@ -152,7 +152,7 @@
                                         </div>
                                     </div>
                                     <a href="{$value.id|url_blog}" class="link">
-                                        ادامه مطلب
+                                        Read more
                                         <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -223,7 +223,7 @@
                                     </div>
                                 </div>
                             </div>
-                    <button type="submit" class="btn pull-right">ارسال نظر</button>
+                    <button type="submit" class="btn pull-right">Submit comment</button>
                     </form>
                 </div>
                 <a aria-label="Close" data-dismiss="modal" class="modal-close"></a>
@@ -265,8 +265,8 @@
             space:false,
             starOff: 'star-big-off.png',
             starOn: 'star-big-on.png',
-            noRatedMsg: '! بدون امتیاز',
-            hints: ['بد', 'ضعیف', 'عادی', 'خوب', 'عالی'],
+            noRatedMsg: '! No rating',
+            hints: ['Bad', 'Weak', 'Average', 'Good', 'Excellent'],
             score: function() {
                 return $(this).attr('data-score');
             },
@@ -290,14 +290,14 @@
                     success: function( data ) {
                         if ( $.isEmptyObject( data ) ) {
                             $(".basket-modal").modal('show');
-                            $('.basket-modal').find('.modal-title').html('امتیاز دادن');
-                            $('.basket-modal').find('p').html('امتیاز داده شد.');
+                            $('.basket-modal').find('.modal-title').html('Submit a rating');
+                            $('.basket-modal').find('p').html('Rating submitted.');
                             $('.basket-modal').find('a.shopping').css({display: 'none', width: '120px'});
                             $('.basket-modal').find('a.checkout').css({display: 'none', width: '120px'});
                         } else if ( data.error == 'no' ) {
                             $(".basket-modal").modal('show');
-                            $('.basket-modal').find('.modal-title').html('امتیاز دادن');
-                            $('.basket-modal').find('p').html('شما قبلا امتیاز داده اید!');
+                            $('.basket-modal').find('.modal-title').html('Submit a rating');
+                            $('.basket-modal').find('p').html('You have already rated!');
                             $('.basket-modal').find('a.shopping').css({display: 'none', width: '120px'});
                             $('.basket-modal').find('a.checkout').css({display: 'none', width: '120px'});
                         } else if ( data.user == 'no' ) {
