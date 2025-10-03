@@ -275,7 +275,7 @@ $(document).ready(function () {
         var popup = L.popup();
         function onMapClick1(e) {
             removeMarkers();
-            popup.setLatLng(e.latlng).setContent("موقعیت انتخابی شما").openOn(map);
+            popup.setLatLng(e.latlng).setContent("Your selected location").openOn(map);
             arr=[{lat:e.latlng.lat,lon:e.latlng.lng,txt:txt}];
             shopwMarkers(arr) ;
             $("#lgmap_"+ids).val(e.latlng.lng);
@@ -298,7 +298,7 @@ $(document).ready(function () {
             $("#lgmap_0").val(position.coords.longitude);
             $("#qgmap_0").val(position.coords.latitude);
             var ell = {lat:position.coords.latitude,lon:position.coords.longitude};
-            popup.setLatLng(ell).setContent("موقعیت انتخابی شما").openOn(map);
+            popup.setLatLng(ell).setContent("Your selected location").openOn(map);
             arr=[{lat:position.coords.latitude,lon:position.coords.longitude,txt:txt}];
             shopwMarkers(arr) ;
         }
