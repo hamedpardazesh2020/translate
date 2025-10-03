@@ -17,26 +17,26 @@
                 {if="@$pages_employment_title"}
                 <div class="post newsInner__text">{$pages_employment_note}</div>
                 {else}
-                <div class="error">لطفا صفحه ای با نام employment بسازد</div>
+                <div class="error">Please create a page named employment</div>
                 {/if}
                 <div class="contactPageFormControls contactForm contactFormEmp">
                     <form action="{$site_url}ajax.php?employment" noscroll="yes" id="employment">
 
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group">
-                                <input type="text" name="store_name"  id="store_name" error="نام فروشگاه..."  class="form-control"   placeholder="نام فروشگاه" />
+                                <input type="text" name="store_name"  id="store_name" error="Store name..."  class="form-control"   placeholder="Store name" />
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group">
-                                <input type="text" name="manager_name"  id="manager_name" error="نام و نام خانوادگی مدیریت فروشگاه..."  class="form-control"   placeholder="نام و نام خانوادگی مدیریت فروشگاه" />
+                                <input type="text" name="manager_name"  id="manager_name" error="Store manager's full name..."  class="form-control"   placeholder="Store manager's full name" />
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group">
                                 <select name="ostan" id="ostan" class="form-control">
-                                    <option value="">استان</option>
+                                    <option value="">Province</option>
                                     {loop="loop_ostan"}
                                     <option value="{$value.id}">{$value.title}</option>
                                     {/loop}
@@ -46,36 +46,36 @@
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group">
                                 <select name="city" id="city" class="form-control">
-                                    <option value="">شهر</option>
+                                    <option value="">City</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group">
-                                <textarea name="address" error="نشانی..."   id="address" class="form-control" placeholder="نشانی"></textarea> 
+                                <textarea name="address" error="Address..."   id="address" class="form-control" placeholder="Address"></textarea> 
                             </div>
                         </div>
 
-                        <h2>اطلاعات تماس </h2>
+                        <h2>Contact information</h2>
                         <br>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group">
-                                <input type="text" name="tell"  id="tell" error="تلفن..."  class="form-control"   placeholder="تلفن" />
+                                <input type="text" name="tell"  id="tell" error="Phone..."  class="form-control"   placeholder="Phone" />
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group">
-                                <input type="text" name="mobile"  id="mobile" error="تلفن همراه..."  class="form-control"   placeholder="تلفن همراه" />
+                                <input type="text" name="mobile"  id="mobile" error="Mobile phone..."  class="form-control"   placeholder="Mobile phone" />
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group">
-                                <input type="text" name="fax"  id="fax" error="فکس..."  class="form-control"   placeholder="فکس" />
+                                <input type="text" name="fax"  id="fax" error="Fax..."  class="form-control"   placeholder="Fax" />
                             </div>
                         </div>
                         <div class="col-xs-12">
                             <div class="form-group">
-                                <textarea name="note" error="توضیحات..."   id="note" class="form-control" placeholder="توضیحات"></textarea> 
+                                <textarea name="note" error="Notes..."   id="note" class="form-control" placeholder="Notes"></textarea> 
                             </div>
                         </div>
                         <div class="col-xs-12">
@@ -90,7 +90,7 @@
                         </div>
                         <div class="col-xs-12">
                             <button type="submit" class="btn pull-right">
-                                ارسال
+                                Submit
                             </button>
                         </div>
                     </form>

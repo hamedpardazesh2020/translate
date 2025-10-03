@@ -177,14 +177,14 @@
                             <ul class="list-unstyled singlePage__cat">
                                 {if="@$cat_title"}
                                 <li>
-                                    دسته بندی
+                                    Category
                                     :
                                     <a href="{$cat_id|url_cat}">{$cat_title}</a>
                                 </li>
                                 {/if}
                                 {if="@$product.code"}
                                 <li>
-                                    کد محصول
+                                    Product code
                                     :
                                     <a href="javascript:void(0)" id="barcode">{$product.code}</a>
                                 </li>
@@ -209,7 +209,7 @@
                             <li>
                                 <a href="#st1" data-toggle="tab" aria-expanded="false">
                                     <div>
-                                        معرفی محصول
+                                        Product introduction
                                     </div>
                                 </a>
                             </li>
@@ -217,7 +217,7 @@
                             <li>
                                 <a href="#st2" data-toggle="tab" aria-expanded="true">
                                     <div>
-                                        مشخصات فنی
+                                        Technical specifications
                                     </div>
                                 </a>
                             </li>
@@ -225,7 +225,7 @@
                             <li>
                                 <a href="#st3" data-toggle="tab" aria-expanded="true">
                                     <div>
-                                        نقشه فنی
+                                        Technical drawing
                                     </div>
                                 </a>
                             </li>
@@ -233,7 +233,7 @@
                             <li>
                                 <a href="#st4" data-toggle="tab" aria-expanded="true">
                                     <div>
-                                        نظرات کاربران
+                                        User comments
                                     </div>
                                 </a>
                             </li>
@@ -270,19 +270,19 @@
                                             {$pre=''}
                                             {loop="$value2.answer"}								
                                             {$pre}
-                                            {if="$value3.title_en == 'دارد'"}
+                                            {if="$value3.title_en == 'Yes'"}
                                             <img src="{$template_dir}images/ok.png" alt="" />
-                                            {elseif="$value3.title_en == 'ندارد'"}
+                                            {elseif="$value3.title_en == 'No'"}
                                             <img src="{$template_dir}images/nok.png" alt="" />
                                             {else}
                                             {$value3.title_en}
                                             {/if}
-                                            {$pre="، "}
+                                            {$pre=", "}
                                             {/loop}
                                             {elseif="$value2.questionkind == '3'"}
-                                            {if="$value2.answer == 'دارد'"}
+                                            {if="$value2.answer == 'Yes'"}
                                             <img src="{$template_dir}images/ok.png" alt="" />
-                                            {elseif="$value2.answer == 'ندارد'"}
+                                            {elseif="$value2.answer == 'No'"}
                                             <img src="{$template_dir}images/nok.png" alt="" />
                                             {else}
                                             {$value2.answer_en}
@@ -323,7 +323,7 @@
                                     <div class="commentsTop">
                                         <div class="commentsTop__header">
                                             <div class="headerTitle">
-                                                نظرات کاربران
+                                                User comments
                                             </div>
                                             <a href="" class="btn" data-toggle="modal" data-target="#commentModal">
                                                 {#add_comments#}
@@ -331,11 +331,11 @@
                                         </div>
                                         <div class="commentsTop__info">
                                             <p>
-                                                شما هم می توانید در مورد این محصول نظر بدهید
+                                                You can also share your opinion about this product.
                                             </p>
                                             <div>
                                                 <div class="rateBox">
-                                                    <p>امتیاز کاربران به این محصول</p>
+                                                    <p>Users' rating for this product</p>
                                                     <div class="product_star" data-score="{$avg_rate_star}" style="display: inline-block;direction: ltr;"></div>
                                                     <b>{#from#} {$alluser_rate_star} {#vote#} ({$avg_rate_star})</b>
                                                 </div>
@@ -360,7 +360,7 @@
         <div class="productMain v2 container-fluid">
             <div class="container">
                 <div class="headerTitle text-center">
-                    محصولات پرایم
+                    Prime products
                 </div>
                 <div class="productMain__slider" dir="ltr">
                    {loop="$loop_product_linked"}

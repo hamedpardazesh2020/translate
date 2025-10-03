@@ -17,81 +17,81 @@
                 {if="@$pages_employment_title"}
                 <div class="post newsInner__text">{$pages_employment_note}</div>
                 {else}
-                <div class="error">لطفا صفحه ای با نام employment بسازد</div>
+                <div class="error">Please create a page named employment</div>
                 {/if}
                 <div class="">
                     <form  action="{$site_url}ajax.php?employment&action=new" noscroll="yes" method="post" id="employment">
                                     
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group">
-                                <input type="text" name="name" id="name"  placeholder=" نام و نام خانوادگی" class="form-control" error="لطفا نام و نام خانوادگی را وارد کنید"/>
+                                <input type="text" name="name" id="name"  placeholder="Full name" class="form-control" error="Please enter your full name"/>
                             </div>
                         </div>
         
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group">
-                                <input type="text" name="middle_name" id="middle_name" placeholder="* نام پدر" class="form-control" error="لطفا نام پدر را وارد کنید"/>
+                                <input type="text" name="middle_name" id="middle_name" placeholder="* Father's name" class="form-control" error="Please enter your father's name"/>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group">
-                                <input type="text" name="date_birth" id="date_birth" placeholder="* تاریخ تولد" class="form-control datepicker-input" error="لطفا تاریخ تولد را وارد کنید"/>
+                                <input type="text" name="date_birth" id="date_birth" placeholder="* Date of birth" class="form-control datepicker-input" error="Please enter your date of birth"/>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group">
-                                <input type="text" name="national_code" id="national_code" class="form-control" placeholder="* کد ملی" maxlength="10" check="zip" check_error="لطفا کد ملی را صحیح وارد کنید" error="لطفا کد ملی را وارد کنید"/>
+                                <input type="text" name="national_code" id="national_code" class="form-control" placeholder="* National ID number" maxlength="10" check="zip" check_error="Please enter a valid national ID number" error="Please enter your national ID number"/>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group">
-                                <input type="text" name="religion" id="religion" class="form-control" placeholder="* دین" error="لطفا دین را وارد کنید"/>
+                                <input type="text" name="religion" id="religion" class="form-control" placeholder="* Religion" error="Please enter your religion"/>
                             </div>
                         </div>
                         
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group">
-                                <input type="text" name="mobile" id="mobile" class="form-control" placeholder="* شماره تلفن همراه" check="mobile" check_error="موبایل را صحیح وارد کنید" error="لطفا موبایل را وارد کنید"/>
+                                <input type="text" name="mobile" id="mobile" class="form-control" placeholder="* Mobile phone number" check="mobile" check_error="Please enter a valid mobile number" error="Please enter your mobile number"/>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group">
-                                <input type="text" name="tell" id="tell" class="form-control" placeholder="* شماره تلفن ثابت" check="tell" check_error="تلفن را صحیح وارد کنید" />
+                                <input type="text" name="tell" id="tell" class="form-control" placeholder="* Landline number" check="tell" check_error="Please enter a valid phone number" />
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group">
-                                <input type="text" name="email" id="email" class="form-control" placeholder="* ایمیل" error="لطفا ایمیل را وارد کنید" check="email" check_error="ایمیل را صحیح وارد کنید" />
+                                <input type="text" name="email" id="email" class="form-control" placeholder="* Email" error="Please enter your email" check="email" check_error="Please enter a valid email" />
                             </div>
                         </div>
                         <div class="col-xs-12 ">
                             <div class="form-group">
-                                <textarea name="address" id="address" class="form-control" placeholder="* آدرس" error="لطفا آدرس محل سکونت را وارد کنید"></textarea>
+                                <textarea name="address" id="address" class="form-control" placeholder="* Address" error="Please enter your home address"></textarea>
                             </div>
                         </div>
                         <div class="col-xs-12">
                             <div class="form-group">
-                                <label class="label_title"><span class="employment">*</span> وضعیت نظام وظیفه</label>    
+                                <label class="label_title"><span class="employment">*</span> Military service status</label>    
                                 <div class="rdl">
                                     <label>
                                         <input type="radio" name="military" id="military" value="1" checked>
                                         <span></span>
-                                        انجام شده
+                                        Completed
                                     </label>
                                     <label>
                                         <input type="radio" name="military" id="military" value="2">
                                         <span></span>
-                                        انجام نشده
+                                        Not completed
                                     </label>
                                     <label>
                                         <input type="radio" name="military" id="military" value="3">
                                         <span></span>
-                                        معافیت
+                                        Exempt
                                     </label>
                                     <label>
                                         <input type="radio" name="military" id="military" value="4">
                                         <span></span>
-                                        عدم مشمولیت (مختص خانم ها)
+                                        Not applicable (for women)
                                     </label>
                                 </div>
                             </div>
@@ -99,111 +99,111 @@
                         
                         <div class="col-xs-12">
                             <div class="form-group">
-                                <label class="label_title"><span class="employment">*</span> وضعیت تأهل</label>    
+                                <label class="label_title"><span class="employment">*</span> Marital status</label>    
                                 <div class="rdl">
                                     <label>
                                         <input type="radio" name="married" id="married" value="1" checked>
                                         <span></span>
-                                        مجرد
+                                        Single
                                     </label>
                                     <label>
                                         <input type="radio" name="married" id="married" value="2">
                                         <span></span>
-                                        متاهل
+                                        Married
                                     </label>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xs-12">
                             <div class="form-group">
-                                <label class="label_title"><span class="employment">*</span> سابقه محکومیت کیفری</label>    
+                                <label class="label_title"><span class="employment">*</span> Criminal record history</label>    
                                 <div class="rdl">
                                     <label>
                                         <input type="radio" name="condemnation" id="condemnation" value="1" checked>
                                         <span></span>
-                                        بله
+                                        Yes
                                     </label>
                                     <label>
                                         <input type="radio" name="condemnation" id="condemnation" value="2">
                                         <span></span>
-                                        خیر
+                                        No
                                     </label>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xs-12">
                             <div class="form-group">
-                                <label class="label_title"><span class="employment">*</span> سابقه بیماری</label>    
+                                <label class="label_title"><span class="employment">*</span> Medical history</label>    
                                 <div class="rdl">
                                     <label>
                                         <input type="radio" name="illness" id="illness" value="1" checked>
                                         <span></span>
-                                        بله
+                                        Yes
                                     </label>
                                     <label>
                                         <input type="radio" name="illness" id="illness" value="2">
                                         <span></span>
-                                        خیر
+                                        No
                                     </label>
                                 </div>
                             </div>
                         </div>
-                        <h2>شغل مورد تقاضا</h2>
+                        <h2>Requested job</h2>
                         <br>
                         <div class="col-xs-12">
                             <div class="form-group">
         
-                                <label class="label_title">متقاضی چه نوع کاری هستید؟</label>    
+                                <label class="label_title">What type of work are you seeking?</label>    
                                 <div class="rdl">
                                     <label>
                                         <input type="radio" name="work_type" id="work_type" value="1" checked>
                                         <span></span>
-                                        کار دائمی تمام وقت
+                                        Full-time permanent job
                                     </label>
                                     <label>
                                         <input type="radio" name="work_type" id="work_type" value="2">
                                         <span></span>
-                                        کار دائمی پاره وقت 
+                                        Part-time permanent job 
                                     </label>
                                     <label>
                                         <input type="radio" name="work_type" id="work_type" value="3">
                                         <span></span>
-                                        کار موقت 
+                                        Temporary job 
                                     </label>
                                     <label>
                                         <input type="radio" name="work_type" id="work_type" value="4">
                                         <span></span>
-                                        کارآموزی
+                                        Internship
                                     </label>
                                 </div>
-                                <label class="label_title"><span class="employment">*</span> آیا می توانید در ساعات غروب نیز کار کنید؟</label>    
+                                <label class="label_title"><span class="employment">*</span> Can you also work in the evenings?</label>    
                                 <div class="rdl">
                                     <label>
                                         <input type="radio" name="work_evening" id="work_evening" value="1" checked>
                                         <span></span>
-                                        بله
+                                        Yes
                                     </label>
                                     <label>
                                         <input type="radio" name="work_evening" id="work_evening" value="2">
                                         <span></span>
-                                        خیر
+                                        No
                                     </label>
                                 </div>
-                                <label class="label_title"><span class="employment">*</span> آیا در حال حاضر مشغول به کار هستید؟</label>  
+                                <label class="label_title"><span class="employment">*</span> Are you currently employed?</label>  
                                 <div class="rdl">
                                     <label>
                                         <input type="radio" name="work_operant" id="work_operant" value="1" checked>
                                         <span></span>
-                                        بله
+                                        Yes
                                     </label>
                                     <label>
                                         <input type="radio" name="work_operant" id="work_operant" value="2">
                                         <span></span>
-                                        خیر
+                                        No
                                     </label>
                                 </div>
                                 {if="@$loop_work_cooperate"}
-                                <label class="label_title">* در کدام زمینه تمایل به همکاری دارید؟</label>  
+                                <label class="label_title">* Which field are you interested in?</label>  
                                 <div class="rdl">
                                 
                                         {loop="loop_work_cooperate"}
@@ -215,105 +215,105 @@
                                     {/loop}
                                 </div>  
                                 {/if}									
-                                <label class="label_title"><span class="employment">*</span> آیا می توانید در ایام پایان هفته یا روزهای تعطیل نیز کار کنید؟</label>
+                                <label class="label_title"><span class="employment">*</span> Can you also work on weekends or holidays?</label>
                                 <div class="rdl">
                                     <label>
                                         <input type="radio" name="work_holidays" id="work_holidays" value="1" checked>
                                         <span></span>
-                                        بله
+                                        Yes
                                     </label>
                                     <label>
                                         <input type="radio" name="work_holidays" id="work_holidays" value="2">
                                         <span></span>
-                                        خیر
+                                        No
                                     </label>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xs-12">
                             <div class="form-group">
-                                <label> تاکنون چه مدت بیمه بوده اید؟ (سال)</label>
+                                <label> How many years have you been insured? (years)</label>
                                 <input type="text" name="work_insurance" id="work_insurance" class="form-control" />
                             </div>
                         </div>
                         <div class="col-xs-12">
                             <div class="form-group">
-                                <label>حقوق درخواستی</label>
+                                <label>Desired salary</label>
                                 <input type="text" name="work_salary" id="work_salary" class="form-control"/>
                             </div>
                         </div>                      
                         <div  id="place01">                                
-                            <h2>سوابق کاری</h2>
+                            <h2>Work experience</h2>
                             <br>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" name="resume[0][resume_organization]" id="resume_organization" class="form-control" placeholder="نام سازمان" />
+                                        <input type="text" name="resume[0][resume_organization]" id="resume_organization" class="form-control" placeholder="Organization name" />
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" name="resume[0][resume_last_side]" id="resume_last_side" class="form-control" placeholder="آخرین سمت" />
+                                        <input type="text" name="resume[0][resume_last_side]" id="resume_last_side" class="form-control" placeholder="Last position" />
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" name="resume[0][resume_cooperation]" id="resume_cooperation" class="form-control" placeholder="مدت همکاری (سال)" />
+                                        <input type="text" name="resume[0][resume_cooperation]" id="resume_cooperation" class="form-control" placeholder="Duration of cooperation (years)" />
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" name="resume[0][resume_cooperation_end]" id="resume_cooperation_end" class="form-control" placeholder="تاریخ پایان همکاری" />
+                                        <input type="text" name="resume[0][resume_cooperation_end]" id="resume_cooperation_end" class="form-control" placeholder="End date of cooperation" />
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" name="resume[0][resume_cooperation_reason]" id="resume_cooperation_reason" class="form-control" placeholder="دلیل قطع همکاری" />
+                                        <input type="text" name="resume[0][resume_cooperation_reason]" id="resume_cooperation_reason" class="form-control" placeholder="Reason for leaving" />
                                     </div>
                                 </div>
                             </div>
-                            <a href="javascript:addResume();" id="addResume" class="adding  btn margin_employment"> + اضافه کردن سابقه کاری جدید </a>
+                            <a href="javascript:addResume();" id="addResume" class="adding  btn margin_employment"> + Add new work experience </a>
                         </div>
                         <div  id="place02">
-                            <h2>سوابق تحصیلی</h2>
+                            <h2>Educational background</h2>
                             <br>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" name="studdies[0][studdies_grade]" id="studdies_grade" class="form-control" placeholder=" مقطع تحصیلی" />
+                                        <input type="text" name="studdies[0][studdies_grade]" id="studdies_grade" class="form-control" placeholder=" Education level" />
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" name="studdies[0][studdies_string]" id="studdies_string" class="form-control" placeholder=" رشته" />
+                                        <input type="text" name="studdies[0][studdies_string]" id="studdies_string" class="form-control" placeholder=" Field of study" />
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" name="studdies[0][studdies_name_training]" id="studdies_name_training" class="form-control" placeholder="نام مرکز آموزشی" />
+                                        <input type="text" name="studdies[0][studdies_name_training]" id="studdies_name_training" class="form-control" placeholder="Educational institution name" />
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" name="studdies[0][studdies_year_graduation]" id="studdies_year_graduation" class="form-control" placeholder="سال اخذ مدرک" />
+                                        <input type="text" name="studdies[0][studdies_year_graduation]" id="studdies_year_graduation" class="form-control" placeholder="Year of graduation" />
                                     </div>
                                 </div>
                             </div>
-                            <a href="javascript:addStuddies();" id="addStuddies" class="adding btn margin_employment">+ اضافه کردن سابقه تحصیلی جدید </a>
+                            <a href="javascript:addStuddies();" id="addStuddies" class="adding btn margin_employment">+ Add new educational record </a>
                         </div>
                         <div  id="place03">
-                            <h2>زبان های خارجی</h2>
+                            <h2>Foreign languages</h2>
                             <br>
                             <div class="row">
                                 <div class="col-xs-6">
                                     <div class="form-group">
-                                        <input type="text" name="languages[0][languages_name]" id="languages_name" class="form-control" placeholder="عنوان زبان" />
+                                        <input type="text" name="languages[0][languages_name]" id="languages_name" class="form-control" placeholder="Language name" />
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group all_select">
                                         <select name="languages[0][languages_writing]" id="languages_writing" class="form-control">
-                                            <option value="">سطح مهارت نگارش</option>
+                                            <option value="">Writing skill level</option>
                                             {loop="loop_grade"}
                                             <option value="{$value.key}">{$value.value}</option>
                                             {/loop}
@@ -323,7 +323,7 @@
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group all_select">
                                         <select name="languages[0][languages_conversation]" id="languages_conversation" class="form-control">
-                                            <option value="">سطح مهارت مکالمه</option>
+                                            <option value="">Speaking skill level</option>
                                             {loop="loop_grade"}
                                             <option value="{$value.key}">{$value.value}</option>
                                             {/loop}
@@ -333,7 +333,7 @@
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group all_select">
                                         <select name="languages[0][languages_read]" id="languages_read" class="form-control">
-                                            <option value="">سطح مهارت خواندن</option>
+                                            <option value="">Reading skill level</option>
                                             {loop="loop_grade"}
                                             <option value="{$value.key}">{$value.value}</option>
                                             {/loop}
@@ -341,18 +341,18 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="javascript:addLanguages();" id="addLanguages" class="adding btn margin_employment">+ اضافه کردن زبان جدید</a>
+                            <a href="javascript:addLanguages();" id="addLanguages" class="adding btn margin_employment">+ Add new language</a>
         
                         </div>
                         
-                            <h2>آشنایی با کامپیوتر، نرم افزار و شبکه های اجتماعی</h2>
+                            <h2>Computer, software, and social media proficiency</h2>
                             <br>
                             <div class="row">
                                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group all_select">
-                                        <label>مجموعه آفیس شامل Word، Excel و PowerPoint :</label>
+                                        <label>Microsoft Office suite including Word, Excel, and PowerPoint:</label>
                                             <select name="it_office" id="it_office" class="form-control">
-                                                <option value="">انتخاب کنید...</option>
+                                                <option value="">Select...</option>
                                                 {loop="loop_grade"}
                                                 <option value="{$value.key}">{$value.value}</option>
                                                 {/loop}
@@ -361,9 +361,9 @@
                                 </div>
                                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group all_select">
-                                        <label> نرم افزارهای تخصصی حسابداری :</label>
+                                        <label> Specialized accounting software:</label>
                                             <select name="it_accounting" id="it_accounting" class="form-control">
-                                                <option value="">انتخاب کنید...</option>
+                                                <option value="">Select...</option>
                                                 {loop="loop_grade"}
                                                 <option value="{$value.key}">{$value.value}</option>
                                                 {/loop}
@@ -372,9 +372,9 @@
                                 </div>
                                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group all_select">
-                                        <label>ویندوز، اینترنت و ایمیل :</label>
+                                        <label>Windows, internet, and email:</label>
                                             <select name="it_internet" id="it_internet" class="form-control">
-                                                <option value="">انتخاب کنید...</option>
+                                                <option value="">Select...</option>
                                                 {loop="loop_grade"}
                                                 <option value="{$value.key}">{$value.value}</option>
                                                 {/loop}
@@ -383,9 +383,9 @@
                                 </div>
                                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group all_select">
-                                        <label>شبکه های اجتماعی :</label>
+                                        <label>Social networks:</label>
                                             <select name="it_social" id="it_social" class="form-control">
-                                                <option value="">انتخاب کنید...</option>
+                                                <option value="">Select...</option>
                                                 {loop="loop_grade"}
                                                 <option value="{$value.key}">{$value.value}</option>
                                                 {/loop}
@@ -394,9 +394,9 @@
                                 </div>
                                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group all_select">
-                                        <label>نرم افزارهای طراحی :</label>
+                                        <label>Design software:</label>
                                             <select name="it_designing" id="it_designing" class="form-control">
-                                                <option value="">انتخاب کنید...</option>
+                                                <option value="">Select...</option>
                                                 {loop="loop_grade"}
                                                 <option value="{$value.key}">{$value.value}</option>
                                                 {/loop}
@@ -405,9 +405,9 @@
                                 </div>
                                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group all_select">
-                                        <label>نرم افزارهای تخصصی حوزه IT :</label>
+                                        <label>Specialized IT software:</label>
                                             <select name="it_it" id="it_it" class="form-control">
-                                                <option value="">انتخاب کنید...</option>
+                                                <option value="">Select...</option>
                                                 {loop="loop_grade"}
                                                 <option value="{$value.key}">{$value.value}</option>
                                                 {/loop}
@@ -416,59 +416,59 @@
                                 </div>
                                     <div class="col-xs-12 ">
                                     <div class="form-group">
-                                        <label>فهرست نرم افزارهایی که به آنها تسلط دارید:</label>
+                                        <label>List the software you are proficient in:</label>
                                         <input type="text" name="it_note" id="it_note" class="form-control"/>
                                     </div>
                                 </div>
                             </div>
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label>سایر توضیحات</label>
-                                        <textarea name="note_more" id="note_more" class="form-control" placeholder="چنانچه علاوه بر موارد درج شده، مطلبی وجود دارد که تمایل به عنوان کردن آن دارید، قید بفرمایید :"></textarea>
+                                        <label>Additional notes</label>
+                                        <textarea name="note_more" id="note_more" class="form-control" placeholder="If there is anything else beyond the listed items that you would like to mention, please state it:"></textarea>
                                     </div>
                                 </div>
                             
                         
                         
-                            <h2>مشخصات معرف</h2>
+                            <h2>Referee information</h2>
                             <br>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" name="reagent_name" id="reagent_name" class="form-control" placeholder="نام و نام خانوادگی"/>
+                                        <input type="text" name="reagent_name" id="reagent_name" class="form-control" placeholder="Full name"/>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" name="reagent_job" id="reagent_job" class="form-control" placeholder="شغل"/>
+                                        <input type="text" name="reagent_job" id="reagent_job" class="form-control" placeholder="Job"/>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" name="reagent_relativity" id="reagent_relativity" class="form-control" placeholder="نسبت یا نوع آشنایی"/>
+                                        <input type="text" name="reagent_relativity" id="reagent_relativity" class="form-control" placeholder="Relationship or type of acquaintance"/>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" name="reagent_year" id="reagent_year" class="form-control" placeholder="مدت آشنایی (سال)"/>
+                                        <input type="text" name="reagent_year" id="reagent_year" class="form-control" placeholder="Duration of acquaintance (years)"/>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <input type="text" name="reagent_tell" id="reagent_tell" class="form-control" placeholder="شماره تماس"/>
+                                        <input type="text" name="reagent_tell" id="reagent_tell" class="form-control" placeholder="Contact number"/>
                                     </div>
                                 </div>
                                 
                             </div>
 
                             <div class="col-xs-12">
-                                <h2 class="title_employment">آپلود تصویر و رزومه</h2>
+                                <h2 class="title_employment">Upload image and résumé</h2>
                                 <br>
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <div class="input-box show-res-upload-file_entry form-group">
                                             <div class="add-pic-wrapper uploadPic">
-                                                <label class="upload-btn"><a class="btn btn-custom" href="javascript:void();">+ آپلود فایل یا تصویر</a></label>
+                                                <label class="upload-btn"><a class="btn btn-custom" href="javascript:void();">+ Upload file or image</a></label>
                                                 <input type="hidden" id="file_entry"  action="upload" readonly>
                                             </div>
                                         </div>
@@ -489,7 +489,7 @@
         
                         <div class="col-xs-12">
                             <button type="submit" class="btn pull-right">
-                                ارسال
+                                Submit
                             </button>
                     </div> 
                 
@@ -510,33 +510,33 @@
          <div class="row new_row ">\
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
                     <div class="form-group">\
-                        <input type="text" name="resume[' + number +'][resume_organization]" id="resume_organization" class="form-control" placeholder="نام سازمان"/>\
+                        <input type="text" name="resume[' + number +'][resume_organization]" id="resume_organization" class="form-control" placeholder="Organization name"/>\
                     </div>\
                 </div>\
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
                     <div class="form-group">\
-                        <input type="text" name="resume[' + number +'][resume_last_side]" id="resume_last_side" class="form-control" placeholder="آخرین سمت"/>\
+                        <input type="text" name="resume[' + number +'][resume_last_side]" id="resume_last_side" class="form-control" placeholder="Last position"/>\
                     </div>\
                 </div>\
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
                     <div class="form-group">\
-                        <input type="text" name="resume[' + number +'][resume_cooperation]" id="resume_cooperation" class="form-control" placeholder="مدت همکاری (سال)"/>\
+                        <input type="text" name="resume[' + number +'][resume_cooperation]" id="resume_cooperation" class="form-control" placeholder="Duration of cooperation (years)"/>\
                     </div>\
                 </div>\
                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
                     <div class="form-group">\
-                        <input type="text" name="resume[' + number +'][resume_cooperation_end]" id="resume_cooperation_end" class="form-control" placeholder="سال پایان همکاری"/>\
+                        <input type="text" name="resume[' + number +'][resume_cooperation_end]" id="resume_cooperation_end" class="form-control" placeholder="End year of cooperation"/>\
                     </div>\
                 </div>\
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
                     <div class="form-group">\
-                        <input type="text" name="resume[' + number +'][resume_cooperation_reason]" id="resume_cooperation_reason" class="form-control" placeholder="دلیل قطع همکاری"/>\
+                        <input type="text" name="resume[' + number +'][resume_cooperation_reason]" id="resume_cooperation_reason" class="form-control" placeholder="Reason for leaving"/>\
                     </div>\
                 </div>\
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
                     <div class="form-group">\
                         <a href="javascript: delResume('+ number +');" class="row_dl employment-delete-ham3d employment-remove btn btn-danger">\
-                            حذف\
+                            Remove\
                         </a>\
                     </div>\
                 </div>\
@@ -557,28 +557,28 @@
              <div class="row new_row">\
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
               <div class="form-group">\
-                <input type="text" name="studdies[' + number +'][studdies_grade]" id="studdies_grade" class="form-control" placeholder="مقطع تحصیلی"/>\
+                <input type="text" name="studdies[' + number +'][studdies_grade]" id="studdies_grade" class="form-control" placeholder="Education level"/>\
               </div>\
             </div>\
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
               <div class="form-group">\
-                <input type="text" name="studdies[' + number +'][studdies_string]" id="studdies_string" class="form-control" placeholder="رشته"/>\
+                <input type="text" name="studdies[' + number +'][studdies_string]" id="studdies_string" class="form-control" placeholder="Field of study"/>\
               </div>\
             </div>\
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
               <div class="form-group">\
-                <input type="text" name="studdies[' + number +'][studdies_name_training]" id="studdies_name_training" class="form-control" placeholder="نام مرکز آموزشی"/>\
+                <input type="text" name="studdies[' + number +'][studdies_name_training]" id="studdies_name_training" class="form-control" placeholder="Educational institution name"/>\
               </div>\
             </div>\
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
               <div class="form-group">\
-                <input type="text" name="studdies[' + number +'][studdies_year_graduation]" id="studdies_year_graduation" class="form-control" placeholder="سال اخذ مدرک"/>\
+                <input type="text" name="studdies[' + number +'][studdies_year_graduation]" id="studdies_year_graduation" class="form-control" placeholder="Year of graduation"/>\
               </div>\
             </div>\
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
               <div class="form-group">\
                 <a href="javascript: delStuddies('+ number +');" class="row_dl employment-delete-ham3d employment-remove btn btn-danger">\
-                    حذف\
+                    Remove\
                 </a>\
                 </div>\
             </div>\
@@ -599,13 +599,13 @@
         <div class="row new_row">\
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
                <div class="form-group">\
-                <input type="text" name="languages[' + number +'][languages_name]" id="languages_name_'+number+'" class="form-control" placeholder="عنوان زبان"/>\
+                <input type="text" name="languages[' + number +'][languages_name]" id="languages_name_'+number+'" class="form-control" placeholder="Language name"/>\
                </div>\
             </div>\
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
                 <div class="form-group all_select">\
                         <select name="languages[' + number +'][languages_writing]" id="languages_writing_'+number+'" class="form-control">\
-                            <option value="">سطح مهارت نگارش...</option>\
+                            <option value="">Writing skill level...</option>\
                             {loop="loop_grade"}\
                             <option value="{$value.key}">{$value.value}</option>\
                             {/loop}\
@@ -615,7 +615,7 @@
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
                 <div class="form-group all_select">\
                         <select name="languages[' + number +'][languages_conversation]" id="languages_conversation_'+number+'" class="form-control">\
-                            <option value="">سطح مهارت مکالمه...</option>\
+                            <option value="">Speaking skill level...</option>\
                             {loop="loop_grade"}\
                             <option value="{$value.key}">{$value.value}</option>\
                             {/loop}\
@@ -625,7 +625,7 @@
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
                 <div class="form-group all_select">\
                         <select name="languages[' + number +'][languages_read]" id="languages_read_'+number+'" class="form-control">\
-                            <option value="">سطح مهارت خواندن...</option>\
+                            <option value="">Reading skill level...</option>\
                             {loop="loop_grade"}\
                             <option value="{$value.key}">{$value.value}</option>\
                             {/loop}\
@@ -635,7 +635,7 @@
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">\
                 <div class="form-group">\
                     <a href="javascript: delLanguages('+ number +');" class="row_dl employment-delete-ham3d employment-remove btn btn-danger">\
-                        حذف\
+                        Remove\
                     </a>\
                 </div>\
             </div>\
@@ -672,8 +672,8 @@
                                     <div class="modal-header">\
                                         <a class="modal-close" data-dismiss="modal" aria-label="Close"></a>\
                                         <div class="main-header main-header_upload">\
-                                            <h3 class="modal-title" style="margin-bottom:10px !important">آپلود فایل</h3>\
-                                            <p class="alarm_product">سایز فایل مورد نظر بیشتر از 10 مگ نباشد </p>\
+                                            <h3 class="modal-title" style="margin-bottom:10px !important">Upload file</h3>\
+                                            <p class="alarm_product">The file size must not exceed 10 MB </p>\
                                         </div>\
                                     </div>\
                                     <div class="modal-body">\
@@ -696,11 +696,11 @@
                                                                     </div>\
                                                                 </div>\
                                                                 <div class="col-xs-12">\
-                                                                    <button type="submit" class="btn btn-custom">آپلود</button>\
+                                                                    <button type="submit" class="btn btn-custom">Upload</button>\
                                                                 </div>\
                                                                 <div class="col-xs-12">\
                                                                     <br>\
-                                                                    <p class="alarm_product">پسوند فایل ها یکی از موارد زیر می تواند باشد (pdf,zip,rar,jpg,jpeg,png)</p>\
+                                                                    <p class="alarm_product">File extensions can be one of the following (pdf, zip, rar, jpg, jpeg, png)</p>\
                                                                 </div>\
                                                             </div>\
                                                         </div>\

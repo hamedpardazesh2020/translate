@@ -255,22 +255,22 @@
                                                                         {if="$value.new_price!=0 && @$value.num > 0"}
                                                                         <div class="product__offer--new">
                                                                         {$value.new_price|num2price}
-                                                                        <span>تومان</span>
+                                                                        <span>Toman</span>
                                                                         </div>
                                                                         <s class="product__offer--old">
                                                                         {$value.old_price|num2price}
                                                                         </s>
                                                                         {$sode=$value.old_price - $value.new_price}
                                                                         {*<span class="product__offer--profit">
-                                                                        سود شما
+                                                                        Your savings
                                                                         <span>{$sode|num2price}</span>
-                                                                        تومان
+                                                                        Toman
                                                                         </span>*}
                                                                         {else}
                                                                         <div class="product__offer--new">
                                                                         {if="$value.old_price!=0 && @$value.num > 0"}
                                                                         {$value.old_price|num2price}
-                                                                        <span>تومان</span>
+                                                                        <span>Toman</span>
                                                                         {/if}
                                                                         </div>
                                                                 
@@ -284,23 +284,23 @@
                                                                         <span  style="color:#0099ff;" class="product__price--currency">{$value.product_state_title}</span>
                                                                         {/if}
                                                                         {if="@$value.product_state_id == '1' && @$value.num == 0"}
-                                                                        <span  style="color:#ff0000;" class="product__price--currency">تمام شد</span>
+                                                                        <span  style="color:#ff0000;" class="product__price--currency">Sold out</span>
                                                                         {/if}
                                                                         {if="@$value.product_state_id == '2' && @$value.num == 0"}
-                                                                        <span  style="color:#ff0000;" class="product__price--currency">تمام شد</span>
+                                                                        <span  style="color:#ff0000;" class="product__price--currency">Sold out</span>
                                                                         {/if}
                                                                         </div>
                                                                         {/if}
                                                                         
                                                                         {if="@$value.product_state_id == '1' && @$value.num > 0"}
                                                                         {if="@$value.percent"}
-                                                                        <span class="product__offer--offer"><span>٪{function="num2lang(round($value.percent))"}</span></span>
+                                                                        <span class="product__offer--offer"><span>%{function="num2lang(round($value.percent))"}</span></span>
                                                                         {/if}
                                                                         {/if}
                                                                 </div>
                                                                 <!--price code--> 
                                                                 <a href="javascript:void(0);" onclick="compareInnerClick(this)" class="superSale superSale2" attr_id="{$value.id}">
-                                                                        <span>مقایسه کنید</span>
+                                                                        <span>Compare</span>
                                                                 </a>
                                                         </div>
                                                 </div>
@@ -310,7 +310,7 @@
                         </div>
                 </div>
                 {else}
-                    <div class="error" dir="ltr" style="border-radius: 5px ! important;">نتیجه ای یافت نشد !</div>
+                    <div class="error" dir="ltr" style="border-radius: 5px ! important;">No results found!</div>
                 {/if}
         </div>
 </div>

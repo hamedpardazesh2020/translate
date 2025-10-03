@@ -37,7 +37,7 @@
                                     {$value.title}
                                 </div>
                                 <div class="catBox__desc--btn">
-                                    مشاهده بیشتر
+                                    View more
                                     <svg width="6" height="10" viewBox="0 0 6 10" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -60,16 +60,16 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="sortBy">
-                                <strong>مرتب سازی</strong>
+                                <strong>Sort</strong>
                                 <select name="order" id="order" class="form-control form-control--no--search">
-                                    <option value="1" {if="@$get_order=='1'"}selected{/if}>جدیدترین</option>
-                                    <option value="2" {if="@$get_order=='2'"}selected{/if}>قدیمی ترین</option>
+                                    <option value="1" {if="@$get_order=='1'"}selected{/if}>Newest</option>
+                                    <option value="2" {if="@$get_order=='2'"}selected{/if}>Oldest</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
                             <div class="searchBox">
-                                <input type="text" name="keyword" {if="@$get_keyword"}value="{$get_keyword}"{/if} id="keyword" class="searchBox__inp" placeholder="جستجو...">
+                                <input type="text" name="keyword" {if="@$get_keyword"}value="{$get_keyword}"{/if} id="keyword" class="searchBox__inp" placeholder="Search...">
                                 <button type="submit" class="searchBox__btn"></button>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                     </div>
                 </div>
                 {else}
-                <div class="error">نتیجه ای یافت نشد</div>
+                <div class="error">No results found</div>
                 {/if}
             </div>
         </div>

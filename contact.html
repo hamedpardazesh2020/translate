@@ -49,7 +49,7 @@
                                 {if="@$contact_tell_center_two"}
                                 <li>
                                     <div class="contactPage__info--title">
-                                        فکس 
+                                        Fax
                                     </div>
                                     <p>
                                         <a href="tel:{$contact_tell_center_two}" class="strClear">{$contact_tell_center_two}</a>
@@ -59,7 +59,7 @@
                                 {if="@$contact_tell_center_three"}
                                 <li>
                                     <div class="contactPage__info--title">
-                                        خدمات پس از فروش
+                                        After-sales service
                                     </div>
                                     <p>
                                         <a href="tel:{$contact_tell_center_three}" class="strClear">{$contact_tell_center_three}</a>
@@ -79,7 +79,7 @@
                                 {if="@$contact_address_center"}
                                 <li>
                                     <div class="contactPage__info--title">
-                                        آدرس
+                                        Address
                                     </div>
                                     <p>
                                         {$contact_address_center}
@@ -89,7 +89,7 @@
                                 {if="@$contact_postal_code"}
                                 <li>
                                     <div class="contactPage__info--title">
-                                        کد پستی 
+                                        Postal code
                                     </div>
                                     <p>
                                         {$contact_postal_code}
@@ -98,7 +98,7 @@
                                 {/if}
                             </ul>
                             <div class="text-center">
-                                <a href="#mapNavigateModal" data-toggle="modal" class="btn">مسیریابی روی نقشه</a>
+                                <a href="#mapNavigateModal" data-toggle="modal" class="btn">Navigate on the map</a>
                             </div>
                             <br>
                         </div>
@@ -107,10 +107,9 @@
                     <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
                         <div class="contactForm">
                             <div class="contactForm__desc">
-                                <h3>تماس با ما</h3>
+                                <h3>Contact us</h3>
                                 <p>
-                                    کاربران گرامی، شما می توانید از طریق فرم زیر تمامی نقطه نظرات انتقادات و پیشنهادات
-                                    خود را برای ما ارسال کنید
+                                    Dear users, you can send us all your comments, criticisms, and suggestions through the form below.
                                 </p>
                             </div>
                             <form action="{$site_url}ajax.php?contact&action=new" noscroll="yes" class="contactForm__form">
@@ -151,7 +150,7 @@
                                                 <div class="g-recaptcha form-field" data-sitekey="{#GOOLG_RECAPTCHA_SITE_KEY#}"></div>
                                             {/if}
                                         </div>
-                                        <button type="submit" class="btn">ارسال</button>
+                                        <button type="submit" class="btn">Submit</button>
                                     </li>
                                 </ul>
                             </form>
@@ -164,7 +163,7 @@
         <div class="contactMapWrap posr">
             <div id="google__map" class="map google_map_0"></div>
             <button type="button" data-target="#mapNavigateModal" data-toggle="modal" class="mapNavBtn">
-                مسیریابی
+                Directions
                 <i class="zmdi zmdi-gps-dot"></i>
             </button>
         </div>
@@ -185,7 +184,7 @@
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-body">
-                <strong class="modal-title">آدرس</strong>
+                <strong class="modal-title">Address</strong>
                 <div class="locations-panel-item">
                     {if="@$contact_address_center"}
                     <p>{$contact_address_center}</p>

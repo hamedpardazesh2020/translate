@@ -15,9 +15,9 @@
                 <div class="sampleTab" style="border-bottom: none;">
                     <div class="tabs">
                         <ul class="list-unstyled">
-                            <li {if="isset($get_tblnm) && $get_tblnm=='1'"}class="active"{/if}><a href="{$site_url}{$site_lang}/multimedia.html&tblnm=1" ><div>تصاویر</div></a></li>
-                            <li {if="isset($get_tblnm) && $get_tblnm=='2'"}class="active"{/if}><a href="{$site_url}{$site_lang}/multimedia.html&tblnm=2" ><div>ویدئو ها</div></a></li>
-                            <li {if="isset($get_tblnm) && $get_tblnm=='3'"}class="active"{/if}><a href="{$site_url}{$site_lang}/multimedia.html&tblnm=3" ><div>کاتالوگ ها</div></a></li>
+                            <li {if="isset($get_tblnm) && $get_tblnm=='1'"}class="active"{/if}><a href="{$site_url}{$site_lang}/multimedia.html&tblnm=1" ><div>Images</div></a></li>
+                            <li {if="isset($get_tblnm) && $get_tblnm=='2'"}class="active"{/if}><a href="{$site_url}{$site_lang}/multimedia.html&tblnm=2" ><div>Videos</div></a></li>
+                            <li {if="isset($get_tblnm) && $get_tblnm=='3'"}class="active"{/if}><a href="{$site_url}{$site_lang}/multimedia.html&tblnm=3" ><div>Catalogs</div></a></li>
                         </ul>
                     </div>
                 </div>
@@ -38,11 +38,11 @@
                                     {$value.title}
                                 </div>
                                 {if="@$value.kind=='1'"}
-                                <div class="mediaBox__wrapper--number">{$value.num_gallery}  تصویر</div>
+                                <div class="mediaBox__wrapper--number">{$value.num_gallery}  images</div>
                                 {elseif="@$value.kind=='2'"}
-                                <div class="mediaBox__wrapper--number">{$value.num_gallery}  ویدئو</div>
+                                <div class="mediaBox__wrapper--number">{$value.num_gallery}  videos</div>
                                 {elseif="@$value.kind=='3'"}
-                                <div class="mediaBox__wrapper--number">{$value.num_gallery}  کاتالوگ</div>
+                                <div class="mediaBox__wrapper--number">{$value.num_gallery}  catalogs</div>
                                 {else}
                                 <div class="mediaBox__wrapper--number"> </div>
                                 {/if}
@@ -53,7 +53,7 @@
                 </div>
                 {include="module/pagination"}
                 {else}
-                <div class="error" >نتیجه ای یافت نشد!</div>
+                <div class="error" >No results found!</div>
                 {/if}
 
             </div>
