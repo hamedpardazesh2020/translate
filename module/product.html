@@ -3,11 +3,11 @@
     <div class="chb chbCompare">
         <label>
             {if="@$value.price_id && @$value.num > 0 && @$value.price_active==1"}
-            <input type="checkbox" name="compare" class="compare" title="مقایسه" value="{$value.id}" data-idcomparison="{$value.id}" data-priceid="{$value.price_id}">
+            <input type="checkbox" name="compare" class="compare" title="Compare" value="{$value.id}" data-idcomparison="{$value.id}" data-priceid="{$value.price_id}">
             {else}
-            <input type="checkbox" name="compare" class="compare" title="مقایسه" value="{$value.id}" data-idcomparison="{$value.id}" data-priceid="{$value.id}">
+            <input type="checkbox" name="compare" class="compare" title="Compare" value="{$value.id}" data-idcomparison="{$value.id}" data-priceid="{$value.id}">
             {/if}
-            <span></span>مقایسه
+            <span></span>Compare
             
     </label>
     </div>

@@ -10,7 +10,7 @@
             <ul id="mobileMenu">
                 {if="@$loop_menu_top_header"}
                 {loop="loop_menu_top_header"}
-                {if="@$value1.title=='محصولات'"}
+                {if="@$value1.title=='Products'"}
                 <li>
                     <a href="{$value1.url|convert_url}" {if="@$value1.kind == '2'"}target="_blank"{/if}>
                         {$value1.title}

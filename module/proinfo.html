@@ -83,8 +83,8 @@ $(document).ready(function() {
                 starOn: 'star-on.png',
                 //starOff: 'icon icon-star icon-empty',
                 //starOn: 'icon icon-star icon-fill',
-                    noRatedMsg: '! بدون امتیاز',
-                    hints: ['بد', 'ضعیف', 'عادی', 'خوب', 'عالی'],
+                    noRatedMsg: 'No rating!',
+                    hints: ['Bad', 'Weak', 'Average', 'Good', 'Excellent'],
                     readOnly: true,
                     score: function() {
                         return $(this).attr('data-score');
@@ -130,8 +130,8 @@ $(function() {
         space:false,
         starOff: 'star-big-off.png',
         starOn: 'star-big-on.png',
-        noRatedMsg: '! بدون امتیاز',
-        hints: ['بد', 'ضعیف', 'عادی', 'خوب', 'عالی'],
+        noRatedMsg: 'No rating!',
+        hints: ['Bad', 'Weak', 'Average', 'Good', 'Excellent'],
         score: function() {
             return $(this).attr('data-score');
         },
@@ -153,20 +153,20 @@ $(function() {
                 success: function( data ) {
                     if ( $.isEmptyObject( data ) ) {
                         $(".basket-modal").modal('show');
-                        $('.basket-modal').find('.modal-title').html('امتیاز دادن');
-                        $('.basket-modal').find('p').html('امتیاز داده شد.');
+                        $('.basket-modal').find('.modal-title').html('Rate this product');
+                        $('.basket-modal').find('p').html('Your rating has been submitted.');
                         $('.basket-modal').find('a.shopping').css({display: 'none', width: '120px'});
                         $('.basket-modal').find('a.checkout').css({display: 'none', width: '120px'});
                     } else if ( data.error == 'no' ) {
                         $(".basket-modal").modal('show');
-                        $('.basket-modal').find('.modal-title').html('امتیاز دادن');
-                        $('.basket-modal').find('p').html('شما قبلا امتیاز داده اید!');
+                        $('.basket-modal').find('.modal-title').html('Rate this product');
+                        $('.basket-modal').find('p').html('You have already rated!');
                         $('.basket-modal').find('a.shopping').css({display: 'none', width: '120px'});
                         $('.basket-modal').find('a.checkout').css({display: 'none', width: '120px'});
                     } else if ( data.user == 'no' ) {
                         $(".basket-modal").modal('show');
-                        $('.basket-modal').find('.modal-title').html('امتیاز دادن');
-                        $('.basket-modal').find('p').html('برای امتیاز دادن باید در سایت عضو شوید.');
+                        $('.basket-modal').find('.modal-title').html('Rate this product');
+                        $('.basket-modal').find('p').html('You must register on the site to rate.');
                         $('.basket-modal').find('a.shopping').css({display: 'none', width: '120px'});
                         $('.basket-modal').find('a.checkout').css({display: 'none', width: '120px'});
                         setTimeout(function(){

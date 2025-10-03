@@ -40,7 +40,7 @@
                             fill="white" />
                     </svg>
 
-                    <span>جستجو</span>
+                    <span>Search</span>
                 </a>
             </li>
 
@@ -171,9 +171,9 @@
                     <ul class="list-unstyled">
                         {if="@$loop_menu_top_header"}
                         {loop="loop_menu_top_header"}
-                        {if="@$value.title=='محصولات'"}
+                        {if="@$value.title=='Products'"}
                         <li {if="@$loop_index_product_cat"}class="submenu"{/if}>
-                            <a href="{$value1.url|convert_url}" {if="@$value1.kind == '2'"}target="_blank"{/if}>محصولات</a>
+                            <a href="{$value1.url|convert_url}" {if="@$value1.kind == '2'"}target="_blank"{/if}>Products</a>
                             {if="@$loop_index_product_cat"}
                             <div class="mega_menu" style="display: none;">
                                 <div class="container">
